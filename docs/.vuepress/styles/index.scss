@@ -1,0 +1,180 @@
+@use "@sass-palette/hope-config";
+
+@font-face {
+  font-family: bobohei;
+  src: url("/font/BOBOHEI-2.otf");
+}
+
+h1,
+h2 {
+  font-family: bobohei, sans-serif;
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+// home page
+.home.project {
+  top: 0;
+
+  width: 100%;
+  max-width: unset;
+  padding-right: 0;
+  padding-left: 0;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media (min-width: 959px) {
+    //background: url("/img/bg1.svg") no-repeat;
+  }
+
+  //.hero-info-wrapper {
+  //  display: block;
+  //  max-width: 100%;
+  //  //height: 90vh;
+  //  text-align: center;
+  //
+  //  img {
+  //    max-height: 330px;
+  //    margin: 50px auto 0;
+  //  }
+  //
+  //  h1 {
+  //    font-family: bobohei, sans-serif;
+  //  }
+  //
+  //  .description {
+  //    max-width: 100%;
+  //    font-size: 16px;
+  //    font-family: bobohei, sans-serif;
+  //  }
+  //
+  //  .actions {
+  //    margin-left: -10px;
+  //  }
+  //
+  //  .action-button.primary {
+  //    color: #fff;
+  //    font-family: bobohei, sans-serif;
+  //  }
+  //}
+
+  .feature-panel {
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .feature-wrapper {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    border-top: none;
+  }
+
+  .feature-item {
+    &:hover {
+      background-color: transparent;
+    }
+
+    h2 {
+      font-family: bobohei, sans-serif;
+    }
+
+    p {
+      font-weight: 600;
+    }
+  }
+
+  h2 {
+    border-bottom: none;
+  }
+}
+
+#{hope-config.$content-class}.custom {
+  padding: 0 5rem;
+}
+
+// navbar
+.navbar {
+
+  .site-name {
+      font-family: bobohei, sans-serif;
+      background-color: var(--theme-color);
+      position: relative;
+      color: transparent;
+      background-clip: text;
+  }
+  .site-name::after {
+      content: 'Fast Request';
+      position: absolute;
+      font-family: bobohei, sans-serif;
+      left: 0;
+      top: -6px;
+      background-image: linear-gradient(120deg, transparent 0%, transparent 1rem, white 2rem, transparent 3.15rem, transparent 100%);
+      background-clip: text;
+      background-size: 200% 120%;
+      background-repeat: no-repeat;
+      animation: shine 5s infinite linear;
+  }
+  @keyframes shine {
+  	0% {
+  		background-position: 50% 0;
+  	}
+  	100% {
+  		background-position: -190% 0;
+  	}
+  }
+
+  .nav-item > .nav-link {
+    font-family: bobohei, sans-serif;
+  }
+}
+
+// breadcrumb
+.breadcrumb a {
+  font-family: bobohei, sans-serif;
+}
+
+.dropdown-wrapper .dropdown-title{
+    font-family: bobohei, sans-serif;
+}
+
+/* -------- 支持特性 --------- */
+.feature-z{padding: 0em 1em; padding-top: 0px; padding-bottom: 60px; text-align: center; color: #000;}
+.feature-z .s-title{font-size: 30px; font-weight: 400; margin-top: 70px; margin-bottom: 40px;}
+.feature-z{color: rgb(128, 128, 128); text-align: center; box-sizing: border-box; line-height: 24px; font-size: 16px;}
+
+.feature-box{margin-top: 10px; margin-bottom: 70px; display: flex; flex-wrap: wrap; justify-content: space-between; /* justify-content: flex-start; */}
+.feature{border: 0px #000 solid; flex: 0 0 33%; text-align: left; padding: 1.8em 1.2em; box-sizing: border-box;}
+.feature h2{font-size: 22px; color: #000; font-weight: 400;}
+.feature p{margin-top: 14px; font-size: 16px; color: #4e6e8e;}
+
+/* 分割线 */
+.s-fenge{width: 80%; margin: auto; border-top: 1px #ddd solid;}
+
+/* 功能结构图介绍 */
+/* .sa-token-js-box{margin-bottom: 50px; transition: all 0.2s;}
+.sa-token-js-box img{max-width: 100%;}
+.sa-token-js-box:hover{cursor: pointer; box-shadow: 0 0 20px #ccc;} */
+
+.re-text{padding: 0 1em;}
+.re-text a{color: #0969da; text-decoration: none;}
+.re-text a:hover{border-bottom: 1px #0969da solid;}
+
+
+/* -------- 使用公司 --------- */
+.com-box-f{padding: 1em 1em; padding-bottom: 30px; text-align: center;}
+.com-box-f h2{font-size: 30px; color: #000; font-weight: 400;}
+.com-box{display: flex; flex-wrap: wrap; width: 100%; margin-bottom: 50px; justify-content: flex-start;}
+.com-box a{display: block; flex: 0 0 13%; margin: 5px; cursor: pointer; border: 0px #ddd solid;}
+.com-box a{line-height: 75px;}
+.com-box a img{transition: all 0.2s; vertical-align: middle; min-width: 60%; max-width: 100%; max-height: 75px;}
+.com-box a img:hover{transform: scale(1.05, 1.05);}
+.com-box-you a img:hover{transform: none;}
