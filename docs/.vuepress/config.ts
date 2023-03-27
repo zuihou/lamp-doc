@@ -17,7 +17,7 @@ export default defineUserConfig({
         href: "/images/logo.png",
       },
     ],
-    ["script", { src: "//at.alicdn.com/t/c/font_3976952_q2kdlqa3ryd.js" }],
+    ["script", { src: "//at.alicdn.com/t/c/font_3976952_jdnlf3brve.js" }],
     ["script", { src: "/js/baidu.js" }],
   ],
 

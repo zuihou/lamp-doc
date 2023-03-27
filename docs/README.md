@@ -21,15 +21,15 @@ actions:
 
 features:
 - title: 快速开发
-  icon: fab fa-markdown
+  icon: kuaisukaifa-05
   details: 快速CRUD，只需少量配置即可完成单表、主从、树结构等页面的增删改查，节省开发成本，缩短开发周期。
 
 - title: 多种租户实现模式
-  icon: fab fa-markdown
+  icon: corporate_fare
   details: DATASOURCE模式：独立数据库、SCHEMA模式：共享数据库，隔离数据架构、COLUMN模式：共享数据库，共享数据架构
 
 - title: 丰富功能
-  icon: fab fa-markdown
+  icon: arrawsalt
   details: 前沿的技术栈、RBAC权限体系、在线代码生成器、前后端统一表单校验、字典回显、系统配置、自动填充等功能一应俱全。
 
 

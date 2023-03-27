@@ -35,7 +35,7 @@ export default hopeTheme({
 
   fullscreen: true,
 
-  iconAssets: "//at.alicdn.com/t/c/font_3976952_q2kdlqa3ryd.css",
+  iconAssets: "//at.alicdn.com/t/c/font_3976952_jdnlf3brve.css",
 
   encrypt: {
     config: {
@@ -86,18 +86,18 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "将在新版本<b>2023.1.3</b>中推出",
+            title: "将在新版本<b>4.13.0</b>中推出",
             content:
-              '<ul><li>重量级更新：团队协作</li></ul>',
+              '<ul><li>视频和文档</li></ul>',
             actions: [
               {
                 text: "了解详情→",
-                link: "/guide/history.html#_2023-1-3",
+                link: "/xxx",
                 type: "primary",
               },
             ],
             showOnce: true,
-            key: "2023.1.3",
+            key: "4.13.0",
           }
         ],
       },
@@ -106,10 +106,19 @@ export default hopeTheme({
     mdEnhance: {
       align: true,
       chart: true,
+      tabs: true,
       codetabs: true,
       container: true,
+      mermaid: true,
       flowchart: true,
+      // 启用 figure
+      figure: true,
+      // 启用图片懒加载
       imgLazyload: true,
+      // 启用图片标记
+      imgMark: true,
+      // 启用图片大小
+      imgSize: true,
       include: {
         resolvePath: (file) =>
           file.startsWith("@src")
@@ -117,7 +126,12 @@ export default hopeTheme({
             : file,
       },
       mark: true,
+      footnote: true,
       tasklist: true,
+      // 启用下角标功能
+      sub: true,
+      // 启用上角标
+      sup: true,
     },
   },
 });
