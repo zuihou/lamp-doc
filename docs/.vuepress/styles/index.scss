@@ -112,11 +112,11 @@ h2 {
       background-clip: text;
   }
   .site-name::after {
-      content: 'Fast Request';
+      content: '灯灯';
       position: absolute;
       font-family: bobohei, sans-serif;
       left: 0;
-      top: -6px;
+      top: -4px;
       background-image: linear-gradient(120deg, transparent 0%, transparent 1rem, white 2rem, transparent 3.15rem, transparent 100%);
       background-clip: text;
       background-size: 200% 120%;
