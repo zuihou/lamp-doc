@@ -12,13 +12,14 @@ export default hopeTheme({
   repo: "https://github.com/dromara/lamp-cloud",
 
   // 编辑此页仓库地址
-  docsRepo: "http://git.tangyh.top/zuihou/docs",
+  docsRepo: "http://github.com/zuihou/lamp-doc",
   docsBranch: 'dev',
+  docsDir: "docs",
+
+  // 开启博客模式
   blog: {
     name: "lamp-cloud",
   },
-
-  docsDir: "docs",
 
   copyright: "Apache-2.0 license | Copyright © 2017-2023-present zuihou",
   displayFooter: true,
@@ -67,8 +68,15 @@ export default hopeTheme({
       author: 'zui'
     },
 
+    git: true,
+
     blog: {
       excerptLength: 0,
+    },
+    // 代码复制
+    copyCode: {
+      showInMobile: true,
+      duration: 1000
     },
 
     comment: {
