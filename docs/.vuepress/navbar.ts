@@ -7,8 +7,13 @@ export const zhNavbar = navbar([
     icon: "start1",
   },
   {
-    text: "文档",
+    text: "4.x文档",
     link: "/doc",
+    icon: "featuresNew",
+  },
+  {
+    text: "3.x文档",
+    link: "https://www.kancloud.cn/zuihou/zuihou-admin-cloud",
     icon: "featuresNew",
   },
   {

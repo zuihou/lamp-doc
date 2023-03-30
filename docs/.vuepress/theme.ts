@@ -68,7 +68,7 @@ export default hopeTheme({
       author: 'zui'
     },
 
-    git: true,
+    // git: true,
 
     blog: {
       excerptLength: 0,

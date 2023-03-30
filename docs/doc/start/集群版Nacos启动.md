@@ -37,7 +37,9 @@ tag:
 
    ::: warning
 
-   安装Nginx时，一定要添加 stream 模块，如图所示
+   安装Nginx时，一定要添加 stream 模块， 如图所示：
+
+   不懂什么是 stream 模式？ [点我](https://www.baidu.com/s?tn=28114124_2_dg&wd=nginx%20%E5%AE%89%E8%A3%85%20stream)
 
    ![](/images/start/nginx_v.png)
 

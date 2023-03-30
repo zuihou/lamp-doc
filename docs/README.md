@@ -16,8 +16,8 @@ actions:
 - text: Gitee
   link: https://gitee.com/dromara/lamp-cloud
 
-- text: 在线体验 🪀
-  link: https://datasource.tangyh.top/
+- text: Gitlab
+  link: https://tangyh.top/zuihou
 
 features:
 - title: 快速开发
