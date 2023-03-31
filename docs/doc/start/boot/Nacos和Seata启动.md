@@ -1,0 +1,20 @@
+---
+title: Nacos和Seata启动
+icon: config2
+category:
+  - 快速启动 
+tag:
+  - 快速启动 
+  - Nacos和Seata启动
+---
+
+4.0 版本开始，==DATASOURCE模式==的某些操作已经无法避免同时操作 lamp_defaults 库 和 lamp_base_{TenantId} ，所以为了保证分布式事务准确性，系统集成了Seata来保证分布式事务准确性。但Seata的配置需要导入Nacos，所以需要同时启动Nacos和Seata。
+
+Nacos和Seata的搭建和Seata配置文件的导入可以参考  [单机版Nacos启动](/doc/start/单机版Nacos启动) 和 [单机版Seata启动](/doc/start/单机版Seata启动)。
+
+
+
+单体版的COLUMN模式和NONE模式无需使用Nacos和Seata！
+
+
+

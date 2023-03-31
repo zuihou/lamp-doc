@@ -37,9 +37,9 @@ export const zhSidebar = sidebar({
         "集群版Nacos启动",
         "单机版Seata启动",
         {
-          "text": "微服务数据源模式",
+          "text": "微服务版",
           collapsible: true,
-          prefix: "lamp-cloud-pro-datasource-column/",
+          prefix: "cloud/",
           "children": [
               "将配置文件导入Nacos",
               "后端启动",
@@ -48,56 +48,14 @@ export const zhSidebar = sidebar({
           ]
         },
         {
-          "text": "单体数据源模式",
+          "text": "单体版",
           collapsible: true,
-          prefix: "lamp-boot-pro-datasource-column/",
+          prefix: "boot/",
           "children": [
               "Nacos和Seata启动",
               "后端启动",
               "前端启动",
               "配置文件介绍",
-              "微服务和单体区别",
-          ]
-        },
-        {
-          "text": "微服务字段模式",
-          collapsible: true,
-          prefix: "lamp-cloud-pro-column/",
-          "children": [
-              "将配置文件导入Nacos",
-              "后端启动",
-              "前端启动"
-          ]
-        },
-        {
-          "text": "单体字段模式",
-          collapsible: true,
-          prefix: "lamp-boot-pro-column/",
-          "children": [
-              "后端启动",
-              "后端启动",
-              "前端启动",
-              "配置文件介绍",
-              "微服务和单体区别",
-          ]
-        },
-        {
-          "text": "微服务非租户模式",
-          collapsible: true,
-          prefix: "lamp-cloud-pro-none/",
-          "children": [
-              "将配置文件导入Nacos",
-              "后端启动",
-              "前端启动",
-          ]
-        },
-        {
-          "text": "单体非租户模式",
-          collapsible: true,
-          prefix: "lamp-boot-pro-none/",
-          "children": [
-              "后端启动",
-              "前端启动",
           ]
         },
       ],
