@@ -94,9 +94,12 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "将在新版本<b>4.13.0</b>中推出",
+            title: "<b>4.13.0</b>即将发布：",
             content:
-              '<ul><li>视频和文档</li></ul>',
+              '<ul>' +
+                '<li>全新视频</li>' +
+                '<li>全新文档</li>' +
+                '</ul>',
             actions: [
               {
                 text: "了解详情→",

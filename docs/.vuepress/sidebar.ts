@@ -5,6 +5,7 @@ export const zhSidebar = sidebar({
   "/en/": false,
 
   "/doc/": [
+    "简介",
     {
       text: "快速了解",
       icon: "leibie",
@@ -60,5 +61,134 @@ export const zhSidebar = sidebar({
         },
       ],
     },
+    {
+      text: "功能介绍",
+      icon: "introduction",
+      prefix: "intro/",
+      collapsible: true,
+      children: [
+        "登录",
+        "注册",
+        {
+          "text": "开发运营系统",
+          collapsible: true,
+          prefix: "devOperation/",
+          "children": [
+            {
+              "text": "租户管理",
+              prefix: "tenant/",
+              "children": [
+                "数据源维护",
+                "租户维护",
+                "用户维护",
+              ]
+            },
+            {
+              "text": "应用管理",
+              prefix: "application/",
+              "children": [
+                "应用维护",
+                "资源维护",
+                "应用授权管理",
+                "应用授权记录",
+              ]
+            },
+            {
+              "text": "系统管理",
+              prefix: "system/",
+              "children": [
+                "字典维护",
+                "参数维护",
+                "地区维护",
+                "客户端维护",
+                "登录日志",
+                "附件管理",
+              ]
+            },
+            {
+              "text": "开发者管理",
+              prefix: "developer/",
+              "children": [
+                "代码生成",
+                "项目生成",
+                "开发示例",
+                "其他",
+              ]
+            },
+            {
+              "text": "运维平台",
+              prefix: "ops/",
+              "children": [
+                "接口管理",
+                "接口日志",
+                "消息模板",
+              ]
+            },
+            "静态示例"
+          ]
+        },
+        {
+          "text": "基础平台",
+          collapsible: true,
+          prefix: "basic/",
+          "children": [
+            "我的应用",
+            {
+              "text": "应用管理",
+              prefix: "application/",
+              "children": [
+                "已购应用",
+              ]
+            },
+            {
+              "text": "消息中心",
+              prefix: "msg/",
+              "children": [
+                "我的消息",
+                "消息管理",
+                "个性消息模板",
+              ]
+            },
+            {
+              "text": "用户中心",
+              prefix: "user/",
+              "children": [
+                "员工维护",
+                "组织机构",
+                "岗位维护",
+              ]
+            },
+            {
+              "text": "基础配置",
+              prefix: "base/",
+              "children": [
+                "个性字典",
+                "个性参数",
+              ]
+            },
+            {
+              "text": "系统功能",
+              prefix: "system/",
+              "children": [
+                "角色权限维护",
+                "附件管理",
+                "操作日志",
+                "登录日志",
+              ]
+            },
+            {
+              "text": "工作流",
+              prefix: "activiti/",
+              "children": [
+                "流程管理",
+                "模型管理",
+              ]
+            },
+            "我的企业",
+          ]
+        },
+      ],
+    },
+
   ],
 });
