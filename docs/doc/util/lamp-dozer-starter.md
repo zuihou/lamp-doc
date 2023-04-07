@@ -9,3 +9,5 @@ tag:
   - lamp-dozer-starter
 ---
 
+本模块已弃用
+
