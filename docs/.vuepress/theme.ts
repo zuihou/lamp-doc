@@ -136,6 +136,7 @@ export default hopeTheme({
             ? file.replace("@src", path.resolve(__dirname, ".."))
             : file,
       },
+      demo: true,
       mark: true,
       footnote: true,
       tasklist: true,

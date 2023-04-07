@@ -189,6 +189,32 @@ export const zhSidebar = sidebar({
         },
       ],
     },
-
+    {
+      text: "工具包",
+      icon: "featuresNew",
+      prefix: "util/",
+      collapsible: true,
+      children: [
+        "lamp-all",
+        "lamp-annotation",
+        "lamp-boot",
+        "lamp-cache-starter",
+        "lamp-cloud-starter",
+        "lamp-core",
+        "lamp-databases",
+        "lamp-dozer-starter",
+        "lamp-echo-starter",
+        "lamp-jwt-starter",
+        "lamp-log-starter",
+        "lamp-mq-starter",
+        "lamp-mvc",
+        "lamp-parent",
+        "lamp-scan-starter",
+        "lamp-swagger2-starter",
+        "lamp-uid",
+        "lamp-validator-starter",
+        "lamp-xss-starter"
+      ],
+    },
   ],
 });
