@@ -104,13 +104,40 @@ tag:
 
    ```java
    public class ApplicationCacheKeyBuilder implements CacheKeyBuilder {
+     	// key 是否拼接租户ID
+       @Override
+       public String getTenant() {
+           return null;
+       }
+   		// key的统一前缀
        @Override
        public String getPrefix() {
-           return CacheKeyDefinition.APPLICATION;   //key前缀
+           return CacheKeyModular.PREFIX;
        }
+   		// key 属于那个服务
+       @Override
+       public String getModular() {
+           return CacheKeyModular.SYSTEM;
+       }
+   		// key 属于那个表
+       @Override
+       public String getTable() {
+           return CacheKeyTable.System.APPLICATION;
+       }
+   		// key 根据那个字段缓存
+       @Override
+       public String getField() {
+           return SuperEntity.ID_FIELD;
+       }
+   		// value 的类型
+       @Override
+       public ValueType getValueType() {
+           return ValueType.obj;
+       }
+   		// key 的有效期
        @Override
        public Duration getExpire() {
-           return Duration.ofHours(24);  // 有效期
+           return Duration.ofHours(24);
        }
    }
    ```
@@ -197,3 +224,77 @@ private CacheOpsPlus cacheOpsPlus;
    ```
 
 4. 在项目中注入CacheOps 或者 CacheOpsPlus 即可。
+
+
+
+
+
+## 缓存的Key
+
+### CacheKey
+
+k-v类型缓存的key，封装缓存的key和key的有效期。
+
+
+
+### CacheHashKey
+
+hash类型缓存的key，封装缓存的key、field以及key的有效期。
+
+
+
+### CacheKeyBuilder
+
+key的构造器，用来生成key并构造CacheKey。生成key的规则如下
+
+```java
+/**
+ * 根据动态参数 拼接key
+ * <p>
+ * key命名规范：[租户编码:][服务模块名:]业务类型[:业务字段][:value类型][:业务值]
+ *
+ * @param uniques 动态参数
+ * @return
+ */
+default String getKey(Object... uniques) {
+    ArrayList<String> regionList = new ArrayList<>();
+    String prefix = this.getPrefix();
+    if (StrUtil.isNotEmpty(prefix)) {
+        regionList.add(prefix);
+    }
+
+    String tenant = this.getTenant();
+    // 租户编码：存储默认库的全局缓存，可以重写getTenant并返回null
+    if (StrUtil.isNotEmpty(tenant)) {
+        regionList.add(tenant);
+    }
+    // 服务模块名
+    String modular = getModular();
+    if (StrUtil.isNotEmpty(modular)) {
+        regionList.add(modular);
+    }
+    // 业务类型
+    String table = this.getTable();
+    ArgumentAssert.notEmpty(table, "缓存业务类型不能为空");
+    regionList.add(table);
+    // 业务字段
+    String field = getField();
+    if (StrUtil.isNotEmpty(field)) {
+        regionList.add(field);
+    }
+    // value类型
+    ValueType valueType = getValueType();
+    if (valueType != null) {
+        regionList.add(valueType.name());
+    }
+
+    // 业务值
+    for (Object unique : uniques) {
+        if (ObjectUtil.isNotEmpty(unique)) {
+            regionList.add(String.valueOf(unique));
+        }
+    }
+    return CollUtil.join(regionList, StrPool.COLON);
+}
+```
+

@@ -328,7 +328,7 @@ lc:1:base:base_dict:id:string:TENANT_APPLICATION_TYPE
 
 :::: details 参考
 
-@include(../config/ObjectMapper.snippet.md)
+<!-- @include: ../config/ObjectMapper.snippet.md -->
 
 ::::
 

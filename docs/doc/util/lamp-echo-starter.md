@@ -61,9 +61,9 @@ tag:
 
 
 
-## lamp解决方案
+## 回显步骤
 
-本项目提供了lamp-echo-starter模块来**解决思路4**。
+lamp-echo-starter使用思路4来解决回显问题，具体步骤如下：
 
 1. pom中加入依赖
 

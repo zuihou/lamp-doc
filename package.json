@@ -21,7 +21,8 @@
     "vuepress-theme-hope": "2.0.0-beta.201"
   },
   "devDependencies": {
-    "prettier": "2.8.4"
+    "prettier": "2.8.4",
+    "vuepress-plugin-search-pro": "2.0.0-beta.202"
   },
   "packageManager": "pnpm@7.29.1",
   "pnpm": {

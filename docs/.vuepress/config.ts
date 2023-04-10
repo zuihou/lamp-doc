@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+import { searchProPlugin } from "vuepress-plugin-search-pro";
+
 import theme from "./theme.js";
 
 export default defineUserConfig({
@@ -36,26 +37,12 @@ export default defineUserConfig({
   theme,
 
   plugins: [
-    docsearchPlugin({
-      appId: "8FRYEU6KK8",
-      apiKey: "84f513df1e83406ba42179da778d87b4",
-      indexName: "dromara-lamp-cloud",
+    searchProPlugin({
+      indexContent: true,
       locales: {
         "/": {
-          placeholder: "搜索文档",
-          translations: {
-            button: {
-              buttonText: "搜索文档",
-            },
-          },
-        },
-        "/en": {
-          placeholder: "Search Documentation",
-          translations: {
-            button: {
-              buttonText: "Search Documentation",
-            },
-          },
+          // 覆盖 placeholder
+          placeholder: "开始搜索",
         },
       },
     }),

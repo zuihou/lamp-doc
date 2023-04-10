@@ -19,12 +19,12 @@ tag:
 
   ```java
   public class UserSaveVO{
-   	// 无论参数是否为空，都直接校验是否满足{regexp}  （也可以通过写正则来判断不为空时才校验）
-   	@javax.validation.constraints.Pattern(regexp="", message="")
-     		private String name;
-  	// 当code不为空时，才校验是否满足{regexp}
-    @top.tangyh.basic.annotation.constraints.NotEmptyPattern(regexp="", message="")
-     	  private String code;
+   		// 无论参数是否为空，都直接校验是否满足{regexp}  （也可以通过写正则来判断不为空时才校验）
+   		@javax.validation.constraints.Pattern(regexp="", message="")
+     	private String name;
+  		// 当code不为空时，才校验是否满足{regexp}
+    	@top.tangyh.basic.annotation.constraints.NotEmptyPattern(regexp="", message="")
+     	private String code;
   }
   ```
 
@@ -35,13 +35,13 @@ tag:
   ```java
   @Repository
   // 类上加了此注解，该类下所有方法都会自动拼接租户的条件，包括继承SuperMapper类的方法
-   @TenantLine
-   public interface BaseEmployeeTestMapper extends SuperMapper<BaseEmployee> {
-  		// 标记此注解，并设置为false，表示该方法不需要拼接租户条件
+  @TenantLine
+  public interface BaseEmployeeTestMapper extends SuperMapper<BaseEmployee> {
+      // 标记此注解，并设置为false，表示该方法不需要拼接租户条件
       @TenantLine(false)
       @Select("select * from base_employee where id = #{id}")
       BaseEmployee get(Long id);
-   }
+  }
   ```
 
 - Echo
@@ -115,7 +115,7 @@ tag:
   
 
 
-@include(./AbstractGlobalResponseBodyAdvice.snippet.md)
+<!-- @include: ./AbstractGlobalResponseBodyAdvice.snippet.md -->
 
 
 

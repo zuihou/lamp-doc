@@ -19,7 +19,7 @@ tag:
 
 :::: details ObjectMapper
 
-@include(../config/ObjectMapper.snippet.md)
+<!-- @include: ../config/ObjectMapper.snippet.md -->
 
 ::::
 
@@ -103,7 +103,7 @@ lamp:
 
 :::: details 详情
 
-@include(./AbstractGlobalResponseBodyAdvice.snippet.md)
+<!-- @include: ./AbstractGlobalResponseBodyAdvice.snippet.md -->
 
 ::::
 
