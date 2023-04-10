@@ -17,12 +17,26 @@ export const zhNavbar = navbar([
     icon: "featuresNew",
   },
   {
-    text: "常见问题",
-    link: "/doc/常见问题",
+    text: "企业授权",
+    link: "/vip",
     icon: "code-box-fill",
   },
   {
-    text: "更多",
-    children:["/doc/link"]
+    text: "在线演示",
+    children:[
+      {text: "4.x企业版(数据源模式)", link: "https://datasource.tangyh.top/"},
+      {text: "4.x企业版(字段模式)", link: "https://column.tangyh.top/"},
+      {text: "4.x企业版(非租户模式)", link: "https://none.tangyh.top/"},
+      {text: "3.x企业版", link: "https://boot.tangyh.top/"},
+      {text: "3.x开源版", link: "https://boot.tangyh.top/lamp-web/"}
+    ]
+  },
+  {
+    text: "升级日志",
+    children:[
+        "/upgrade/4.x版本升级日志",
+        "/upgrade/3.x版本升级日志",
+        "/upgrade/4.x功能蓝图",
+    ]
   },
 ]);
