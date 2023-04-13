@@ -73,7 +73,7 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
             </div>
         </div>
         <p>
-            lamp-cloud 项目（开源版）与2022年11月正式加入 Dromara 开源组织。<br/>
+            lamp-cloud 项目（开源版）于2022年11月正式加入 Dromara 开源组织。<br/>
             开源版是因为热爱，企业版是妥协于生活。
         </p>
     </div>
