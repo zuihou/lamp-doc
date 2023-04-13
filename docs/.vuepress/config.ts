@@ -1,7 +1,9 @@
 import { defineUserConfig } from "vuepress";
 import { searchProPlugin } from "vuepress-plugin-search-pro";
-
+import { getDirname, path } from "@vuepress/utils";
 import theme from "./theme.js";
+
+const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
   base: "/",
@@ -48,6 +50,22 @@ export default defineUserConfig({
       },
     }),
   ],
+
+
+  alias: {
+    "@theme-hope/components/HomePage": path.resolve(
+        __dirname,
+        "./components/HomePage.vue"
+    ),
+    "@theme-hope/components/NormalPage": path.resolve(
+        __dirname,
+        "./components/NormalPage.vue"
+    ),
+    "@theme-hope/modules/sidebar/components/Sidebar": path.resolve(
+        __dirname,
+        "./components/Sidebar.vue"
+    ),
+  },
 
   pagePatterns: ["**/*.md", "!*.snippet.md", "!.vuepress", "!node_modules"],
 });

@@ -1,0 +1,11 @@
+<template>
+  <Sidebar>
+    <template #top>
+      <AdPage />
+    </template>
+  </Sidebar>
+</template>
+<script setup lang="ts">
+import Sidebar from "vuepress-theme-hope/modules/sidebar/components/Sidebar.js";
+import AdPage from "./AdPage.vue"
+</script>
