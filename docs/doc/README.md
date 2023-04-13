@@ -8,4 +8,4 @@ tag:
   - 文档
 ---
 
-企业版 4.x 文档
+<AutoCatalog />

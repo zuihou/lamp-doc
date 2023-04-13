@@ -40,10 +40,8 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      // 这会加密整个 guide 目录，并且两个密码都是可用的
-      // "/doc/info/": ["1234", "5678"],
-      // 这只会加密 config/page.html
-      // "/doc/info/如何高效提问.html": "1234",
+      // 若你能看到这里且看懂这段配置，文档就当送你了。
+      "/doc/util/": ["lampniubi"],
     },
   },
 
@@ -65,7 +63,7 @@ export default hopeTheme({
   plugins: {
     // 复制页面文字时，版权信息
     copyright: {
-      author: 'zui'
+      author: '最后'
     },
 
     // git: true,
@@ -103,7 +101,7 @@ export default hopeTheme({
             actions: [
               {
                 text: "了解详情→",
-                link: "/xxx",
+                link: "/upgrade/4.x功能蓝图",
                 type: "primary",
               },
             ],

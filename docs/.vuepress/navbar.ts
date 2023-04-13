@@ -8,7 +8,7 @@ export const zhNavbar = navbar([
   },
   {
     text: "4.x文档",
-    link: "/doc",
+    link: "/doc/简介",
     icon: "featuresNew",
   },
   {
@@ -18,7 +18,7 @@ export const zhNavbar = navbar([
   },
   {
     text: "企业授权",
-    link: "/vip",
+    link: "/vip/授权费用",
     icon: "code-box-fill",
   },
   {

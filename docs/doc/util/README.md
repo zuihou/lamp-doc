@@ -4,7 +4,7 @@ icon: rss
 index: false
 ---
 
-[[toc]]
+<AutoCatalog index="true"/>
 
 
 

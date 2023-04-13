@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "bootstrap": "pnpm i",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "docs:lint": "prettier --check --write docs/",
     "docs:clean-dev": "vuepress dev docs --no-cache",
     "packages:check-update": "pnpm dlx npm-check-updates -u --deep --timeout 600000",

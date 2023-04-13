@@ -67,6 +67,7 @@ export const zhSidebar = sidebar({
       prefix: "intro/",
       collapsible: true,
       children: [
+        "概览",
         "登录",
         "注册",
         {
@@ -89,7 +90,7 @@ export const zhSidebar = sidebar({
               "children": [
                 "应用维护",
                 "资源维护",
-                "应用授权管理",
+                "应用资源授权",
                 "应用授权记录",
               ]
             },
@@ -216,6 +217,15 @@ export const zhSidebar = sidebar({
         "lamp-xss-starter"
       ],
     },
+    // {
+    //   text: "上手开发",
+    //   icon: "featuresNew",
+    //   prefix: "util/",
+    //   collapsible: true,
+    //   children: [
+    //     "lamp-all",
+    //   ],
+    // },
   ],
   "/upgrade/": [
     "4.x版本升级日志",

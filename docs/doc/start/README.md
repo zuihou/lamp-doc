@@ -4,4 +4,4 @@ icon: rss
 index: false
 ---
 
-目录
+<AutoCatalog />
