@@ -7,7 +7,6 @@
     "bootstrap": "pnpm i",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit",
     "docs:lint": "prettier --check --write docs/",
     "docs:clean-dev": "vuepress dev docs --no-cache",
     "packages:check-update": "pnpm dlx npm-check-updates -u --deep --timeout 600000",
@@ -23,7 +22,6 @@
   },
   "devDependencies": {
     "prettier": "2.8.4",
-    "increase-memory-limit": "^1.0.7",
     "vuepress-plugin-search-pro": "2.0.0-beta.202"
   },
   "packageManager": "pnpm@7.29.1",

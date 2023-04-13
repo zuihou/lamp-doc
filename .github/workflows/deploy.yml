@@ -12,16 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18]
     steps:
       # 拉取代码
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v2.2.1
+        uses: pnpm/action-setup@v2
         with:
-          version: ^7.0
+          version: 8
+          run_install: true
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -29,16 +30,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      # 安装依赖
-      - name: Install dependencies
-        run: |
-          rm -rf pnpm-lock.yaml
-          pnpm install
-
-      - name: memory-limit
-        run: pnpm run fix-memory-limit
-      # 打包
-      - name: Build Packages
+      - name: Docs build
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
         run: pnpm run build
 
       - name: deployments
