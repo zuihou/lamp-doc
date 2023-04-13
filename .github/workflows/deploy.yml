@@ -32,7 +32,7 @@ jobs:
       # 安装依赖
       - name: Install dependencies
         run: |
-          pnpm --frozen-lockfile
+          rm -rf pnpm-lock.yaml
           pnpm install
 
       - name: memory-limit
