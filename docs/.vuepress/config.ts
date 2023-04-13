@@ -20,6 +20,7 @@ export default defineUserConfig({
     ],
     ["script", { src: "//at.alicdn.com/t/c/font_3976952_jdnlf3brve.js" }],
     ["script", { src: "/js/baidu.js" }],
+    ["script", { src: "https://cdn.wwads.cn/js/makemoney.js", async: true, charset: "UTF-8" }],
   ],
 
   markdown: {
