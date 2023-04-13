@@ -18,6 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: rm yml
+        run: |
+          rm -rf pnpm-lock.yaml
+
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
@@ -33,9 +37,7 @@ jobs:
       - name: Docs build
         env:
           NODE_OPTIONS: --max_old_space_size=8192
-        run: |
-          rm -rf pnpm-lock.yaml
-          pnpm run build
+        run: pnpm run build
 
       - name: deployments
         uses: burnett01/rsync-deployments@4.1
