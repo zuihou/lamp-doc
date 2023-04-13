@@ -30,11 +30,13 @@ export default defineComponent({
 }
 .page-wwads-content {
   max-width: var(--content-width, 740px);
+  margin: 0 auto;
 }
 .page-wwads .wwads-img img {
   width:80px!important;
 }
 .page-wwads .wwads-poweredby {
+
   width: 40px;
   position: absolute;
   right: 25px;
