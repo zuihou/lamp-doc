@@ -1,5 +1,5 @@
 <template>
-  <div :class="`wwads-cn wwads-${mode} page-wwads`" data-id="231"></div>
+  <div :class="`wwads-cn wwads-${mode} page-wwads page-wwads-${content}`" data-id="231"></div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -10,16 +10,26 @@ export default defineComponent({
       type: String,
       default: 'horizontal',
     },
+    content: {
+      type: String,
+      default: '',
+    },
   }
 
 });
 
 </script>
 <style>
-.page-wwads{
+@use "vuepress-shared/styles/wrapper";
+
+.page-wwads {
   width:100%!important;
   min-height: 0;
   margin: 0;
+
+}
+.page-wwads-content {
+  max-width: var(--content-width, 740px);
 }
 .page-wwads .wwads-img img {
   width:80px!important;
