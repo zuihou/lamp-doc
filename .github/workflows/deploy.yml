@@ -31,7 +31,9 @@ jobs:
 
       # 安装依赖
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm --frozen-lockfile
+          pnpm install
 
       - name: memory-limit
         run: pnpm run fix-memory-limit
