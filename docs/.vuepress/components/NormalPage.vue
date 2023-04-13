@@ -1,7 +1,7 @@
 <template>
   <NormalPage>
     <template #contentBefore>
-
+      <AdPage />
     </template>
   </NormalPage>
 </template>

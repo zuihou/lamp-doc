@@ -1,7 +1,6 @@
 <template>
   <Sidebar>
     <template #top>
-      <AdPage />
     </template>
   </Sidebar>
 </template>
