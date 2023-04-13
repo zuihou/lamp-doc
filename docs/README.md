@@ -17,7 +17,7 @@ actions:
   link: https://gitee.com/dromara/lamp-cloud
 
 - text: Gitlab
-  link: https://git.tangyh.top
+  link: http://git.tangyh.top
 
 features:
 - title: 快速开发
