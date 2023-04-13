@@ -79,6 +79,9 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
     </div>
 </div>
 
+## 友情链接
+<div class="wwads-cn wwads-vertical wwads-sticky" data-id="231" style="max-width:180px"></div>
+
 <!-- ------------ Dromara 成员项目 ------------- -->
 <div>
   <div class="com-box-f s-width">
