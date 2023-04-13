@@ -4,7 +4,7 @@
       <AdPage />
     </template>
     <template #tocAfter>
-      <AdPage />
+      <AdPage mode="vertical"/>
     </template>
   </NormalPage>
 </template>
