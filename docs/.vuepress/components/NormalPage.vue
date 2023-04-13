@@ -3,9 +3,6 @@
     <template #contentBefore>
       <AdPage />
     </template>
-    <template #tocAfter>
-      <AdPage mode="vertical"/>
-    </template>
   </NormalPage>
 </template>
 <script setup lang="ts">
