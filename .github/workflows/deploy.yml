@@ -32,6 +32,9 @@ jobs:
       # 安装依赖
       - name: Install dependencies
         run: pnpm install
+
+      - name: memory-limit
+        run: pnpm run fix-memory-limit
       # 打包
       - name: Build Packages
         run: pnpm run build
