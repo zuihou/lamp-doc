@@ -78,6 +78,7 @@ export const zhSidebar = sidebar({
             {
               "text": "租户管理",
               prefix: "tenant/",
+              collapsible: true,
               "children": [
                 "数据源维护",
                 "租户维护",
@@ -87,6 +88,7 @@ export const zhSidebar = sidebar({
             {
               "text": "应用管理",
               prefix: "application/",
+              collapsible: true,
               "children": [
                 "应用维护",
                 "资源维护",
@@ -97,6 +99,7 @@ export const zhSidebar = sidebar({
             {
               "text": "系统管理",
               prefix: "system/",
+              collapsible: true,
               "children": [
                 "字典维护",
                 "参数维护",
@@ -109,6 +112,7 @@ export const zhSidebar = sidebar({
             {
               "text": "开发者管理",
               prefix: "developer/",
+              collapsible: true,
               "children": [
                 "代码生成",
                 "项目生成",
@@ -119,6 +123,7 @@ export const zhSidebar = sidebar({
             {
               "text": "运维平台",
               prefix: "ops/",
+              collapsible: true,
               "children": [
                 "接口管理",
                 "接口日志",
@@ -137,6 +142,7 @@ export const zhSidebar = sidebar({
             {
               "text": "应用管理",
               prefix: "application/",
+              collapsible: true,
               "children": [
                 "已购应用",
               ]
@@ -144,6 +150,7 @@ export const zhSidebar = sidebar({
             {
               "text": "消息中心",
               prefix: "msg/",
+              collapsible: true,
               "children": [
                 "我的消息",
                 "消息管理",
@@ -153,6 +160,7 @@ export const zhSidebar = sidebar({
             {
               "text": "用户中心",
               prefix: "user/",
+              collapsible: true,
               "children": [
                 "员工维护",
                 "组织机构",
@@ -162,6 +170,7 @@ export const zhSidebar = sidebar({
             {
               "text": "基础配置",
               prefix: "base/",
+              collapsible: true,
               "children": [
                 "个性字典",
                 "个性参数",
@@ -170,6 +179,7 @@ export const zhSidebar = sidebar({
             {
               "text": "系统功能",
               prefix: "system/",
+              collapsible: true,
               "children": [
                 "角色权限维护",
                 "附件管理",
@@ -180,8 +190,9 @@ export const zhSidebar = sidebar({
             {
               "text": "工作流",
               prefix: "activiti/",
+              collapsible: true,
               "children": [
-                "流程管理",
+                "流程部署",
                 "模型管理",
               ]
             },

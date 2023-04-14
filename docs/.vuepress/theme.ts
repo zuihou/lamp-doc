@@ -24,7 +24,6 @@ export default hopeTheme({
   copyright: "Apache-2.0 license | Copyright © 2017-2023-present zuihou",
   displayFooter: true,
 
-  // pageInfo: false,
 
   // darkmode: "enable",
   themeColor: {
@@ -57,6 +56,10 @@ export default hopeTheme({
 
       navbar: zhNavbar,
       sidebar: zhSidebar,
+      metaLocales: {
+        lastUpdated: "上次编辑于",
+        editLink: "此页有误，帮我改善此页",
+      },
     },
   },
 
@@ -66,7 +69,15 @@ export default hopeTheme({
       author: '最后'
     },
 
-    // git: true,
+    git: {
+      createdTime: true,
+      updatedTime: true,
+      contributors: true,
+    },
+
+    feed: {
+      json: true
+    },
 
     blog: {
       excerptLength: 0,

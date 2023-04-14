@@ -5,6 +5,11 @@
   //src: url("/font/BOBOHEI-2.otf");
 }
 
+
+@media (min-width: 997px){
+  :root{--content-width:70%}
+}
+
 h1,
 h2 {
   font-family: bobohei, sans-serif;

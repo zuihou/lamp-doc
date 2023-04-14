@@ -7,7 +7,7 @@ heroText: 灯灯
 tagline: 专注于多租户解决方案的微服务中后台快速开发平台。租户模式支持独立数据库(DATASOURCE模式)、共享数据架构(COLUMN模式) 和 非租户模式(NONE模式)✨
 actions:
 - text: 开发文档
-  link: /doc
+  link: /doc/简介
   type: primary
 
 - text: Github
