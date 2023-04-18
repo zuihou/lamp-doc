@@ -28,7 +28,7 @@ tag:
 ## 安装步骤
 
 1. 从官网下载官方安装包
-   您可以从 [最新稳定版本](https://github.com/alibaba/nacos/releases) 下载==nacos-server-2.2.0.zip==包，解压到 `D:\developer\nacos2020
+   您可以从 [最新稳定版本](https://github.com/alibaba/nacos/releases) 下载==nacos-server-2.2.0.zip==包，解压到 D:\developer\nacos2020
 
 ```shell
 unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
