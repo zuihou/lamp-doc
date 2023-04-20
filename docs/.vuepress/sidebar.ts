@@ -236,6 +236,20 @@ export const zhSidebar = sidebar({
       children: [
         "表结构梳理",
         "项目结构",
+        "依赖关系",
+        "调用流程",
+        {
+          "text": "租户体系",
+          collapsible: true,
+          prefix: "tenant/",
+          "children": [
+            "创建租户",
+            "数据源模式",
+            "字段模式",
+            "常用配置",
+            "常见问题",
+          ]
+        },
       ],
     },
   ],

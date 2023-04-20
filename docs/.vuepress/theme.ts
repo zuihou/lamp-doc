@@ -41,6 +41,7 @@ export default hopeTheme({
     config: {
       // 若你能看到这里且看懂这段配置，文档就当送你了。
       "/doc/util/": ["lampniubi"],
+      "/doc/advanced/": ["lampniubi"],
     },
   },
 
