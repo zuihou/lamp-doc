@@ -228,15 +228,16 @@ export const zhSidebar = sidebar({
         "lamp-xss-starter"
       ],
     },
-    // {
-    //   text: "上手开发",
-    //   icon: "featuresNew",
-    //   prefix: "util/",
-    //   collapsible: true,
-    //   children: [
-    //     "lamp-all",
-    //   ],
-    // },
+    {
+      text: "开发进阶",
+      icon: "featuresNew",
+      prefix: "advanced/",
+      collapsible: true,
+      children: [
+        "表结构梳理",
+        "项目结构",
+      ],
+    },
   ],
   "/upgrade/": [
     "4.x版本升级日志",
