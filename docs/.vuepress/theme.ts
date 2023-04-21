@@ -59,8 +59,8 @@ export default hopeTheme({
       sidebar: zhSidebar,
       metaLocales: {
         lastUpdated: "上次编辑于",
-        editLink: "此页有误，帮我改善此页",
-      },
+      editLink: "此页有误，帮我改善此页",
+    },
     },
   },
 
