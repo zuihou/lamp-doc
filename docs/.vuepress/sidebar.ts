@@ -250,6 +250,7 @@ export const zhSidebar = sidebar({
             "常见问题",
           ]
         },
+        "持久层",
       ],
     },
   ],
