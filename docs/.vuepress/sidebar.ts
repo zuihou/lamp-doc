@@ -250,6 +250,19 @@ export const zhSidebar = sidebar({
             "常见问题",
           ]
         },
+        {
+          "text": "权限体系",
+          collapsible: true,
+          prefix: "authority/",
+          "children": [
+            "权限模型",
+            "配置菜单",
+            "配置视图",
+            "配置功能",
+            "配置字段",
+            "配置数据",
+          ]
+        },
         "持久层",
       ],
     },
