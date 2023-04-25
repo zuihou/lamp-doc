@@ -20,7 +20,7 @@ export default defineUserConfig({
         href: "/images/logo.png",
       },
     ],
-    ["script", { src: "//at.alicdn.com/t/c/font_3976952_jdnlf3brve.js" }],
+    ["script", { src: "//at.alicdn.com/t/c/font_3976952_f9whvfsrm6l.js" }],
     ["script", { src: "/js/baidu.js" }],
     ["script", { src: "https://cdn.wwads.cn/js/makemoney.js", charset: "UTF-8" }],
     ["script", { src: "/js/ad-whitelist.js" }],

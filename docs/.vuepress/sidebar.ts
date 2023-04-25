@@ -6,6 +6,7 @@ export const zhSidebar = sidebar({
 
   "/doc/": [
     "简介",
+    "如何让作者积极帮助你",
     {
       text: "快速了解",
       icon: "leibie",
@@ -30,7 +31,6 @@ export const zhSidebar = sidebar({
       prefix: "start/",
       collapsible: true,
       children: [
-        "如何高效提问",
         "服务介绍",
         "环境要求",
         "项目导入",
