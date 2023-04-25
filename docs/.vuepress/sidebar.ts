@@ -266,6 +266,7 @@ export const zhSidebar = sidebar({
         "持久层",
       ],
     },
+    "常见问题",
   ],
   "/upgrade/": [
     "4.x版本升级日志",
