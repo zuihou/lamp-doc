@@ -39,4 +39,8 @@ export const zhNavbar = navbar([
         "/upgrade/4.x功能蓝图",
     ]
   },
+  {
+    text: "常见问题",
+    link: "/doc/常见问题",
+  },
 ]);

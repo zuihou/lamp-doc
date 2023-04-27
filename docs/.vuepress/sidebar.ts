@@ -256,9 +256,10 @@ export const zhSidebar = sidebar({
           prefix: "authority/",
           "children": [
             "权限模型",
+            "配置应用",
             "配置菜单",
             "配置视图",
-            "配置功能",
+            "配置按钮",
             "配置字段",
             "配置数据",
           ]
