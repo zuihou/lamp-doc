@@ -26,8 +26,8 @@ h1, h2, h3, h4, h5 {
 .home.project {
   top: 0;
 
-  width: 100%;
-  max-width: unset;
+  //width: 100%;
+  //max-width: unset;
   padding-right: 0;
   padding-left: 0;
 
@@ -69,18 +69,18 @@ h1, h2, h3, h4, h5 {
   //  }
   //}
 
-  .feature-panel {
-    max-width: 90%;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .feature-wrapper {
-    max-width: 100%;
-    margin: 0;
-    padding: 0 1rem;
-    border-top: none;
-  }
+  //.feature-panel {
+  //  max-width: 90%;
+  //  width: 100%;
+  //  margin: 0 auto;
+  //}
+  //
+  //.feature-wrapper {
+  //  max-width: 100%;
+  //  margin: 0;
+  //  padding: 0 1rem;
+  //  border-top: none;
+  //}
 
   .feature-item {
     &:hover {

@@ -1,6 +1,6 @@
 ---
 title: 快速启动
-icon: rss
+icon: playcircle
 index: false
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 快速了解
-icon: rss
+icon: icon-lejie
 index: false
 ---
 

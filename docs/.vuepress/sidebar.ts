@@ -1,5 +1,6 @@
 import { sidebar } from "vuepress-theme-hope";
 
+const COLLAPSIBLE = true;
 
 export const zhSidebar = sidebar({
   "/en/": false,
@@ -9,9 +10,9 @@ export const zhSidebar = sidebar({
     "如何让作者积极帮助你",
     {
       text: "快速了解",
-      icon: "leibie",
+      icon: "lejie",
       prefix: "info/",
-      collapsible: true,
+      collapsible: COLLAPSIBLE,
       children: [
         "功能介绍",
         "项目介绍",
@@ -27,9 +28,9 @@ export const zhSidebar = sidebar({
     },
     {
       text: "快速启动",
-      icon: "featuresNew",
+      icon: "playcircle",
       prefix: "start/",
-      collapsible: true,
+      collapsible: COLLAPSIBLE,
       children: [
         "服务介绍",
         "环境要求",
@@ -39,7 +40,7 @@ export const zhSidebar = sidebar({
         "单机版Seata启动",
         {
           "text": "微服务版",
-          collapsible: true,
+          collapsible: COLLAPSIBLE,
           prefix: "cloud/",
           "children": [
               "将配置文件导入Nacos",
@@ -50,7 +51,7 @@ export const zhSidebar = sidebar({
         },
         {
           "text": "单体版",
-          collapsible: true,
+          collapsible: COLLAPSIBLE,
           prefix: "boot/",
           "children": [
               "Nacos和Seata启动",
@@ -65,20 +66,20 @@ export const zhSidebar = sidebar({
       text: "功能介绍",
       icon: "introduction",
       prefix: "intro/",
-      collapsible: true,
+      collapsible: COLLAPSIBLE,
       children: [
         "概览",
         "登录",
         "注册",
         {
           "text": "开发运营系统",
-          collapsible: true,
+          collapsible: COLLAPSIBLE,
           prefix: "devOperation/",
           "children": [
             {
               "text": "租户管理",
               prefix: "tenant/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "数据源维护",
                 "租户维护",
@@ -88,7 +89,7 @@ export const zhSidebar = sidebar({
             {
               "text": "应用管理",
               prefix: "application/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "应用维护",
                 "资源维护",
@@ -99,7 +100,7 @@ export const zhSidebar = sidebar({
             {
               "text": "系统管理",
               prefix: "system/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "字典维护",
                 "参数维护",
@@ -112,7 +113,7 @@ export const zhSidebar = sidebar({
             {
               "text": "开发者管理",
               prefix: "developer/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "代码生成",
                 "项目生成",
@@ -123,7 +124,7 @@ export const zhSidebar = sidebar({
             {
               "text": "运维平台",
               prefix: "ops/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "接口管理",
                 "接口日志",
@@ -135,14 +136,14 @@ export const zhSidebar = sidebar({
         },
         {
           "text": "基础平台",
-          collapsible: true,
+          collapsible: COLLAPSIBLE,
           prefix: "basic/",
           "children": [
             "我的应用",
             {
               "text": "应用管理",
               prefix: "application/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "已购应用",
               ]
@@ -150,7 +151,7 @@ export const zhSidebar = sidebar({
             {
               "text": "消息中心",
               prefix: "msg/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "我的消息",
                 "消息管理",
@@ -160,7 +161,7 @@ export const zhSidebar = sidebar({
             {
               "text": "用户中心",
               prefix: "user/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "员工维护",
                 "组织机构",
@@ -170,7 +171,7 @@ export const zhSidebar = sidebar({
             {
               "text": "基础配置",
               prefix: "base/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "个性字典",
                 "个性参数",
@@ -179,7 +180,7 @@ export const zhSidebar = sidebar({
             {
               "text": "系统功能",
               prefix: "system/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "角色权限维护",
                 "附件管理",
@@ -190,7 +191,7 @@ export const zhSidebar = sidebar({
             {
               "text": "工作流",
               prefix: "activiti/",
-              collapsible: true,
+              collapsible: COLLAPSIBLE,
               "children": [
                 "流程部署",
                 "模型管理",
@@ -203,9 +204,9 @@ export const zhSidebar = sidebar({
     },
     {
       text: "工具包",
-      icon: "featuresNew",
+      icon: "wrench",
       prefix: "util/",
-      collapsible: true,
+      collapsible: COLLAPSIBLE,
       children: [
         "lamp-all",
         "lamp-annotation",
@@ -230,9 +231,9 @@ export const zhSidebar = sidebar({
     },
     {
       text: "开发进阶",
-      icon: "featuresNew",
+      icon: "code",
       prefix: "advanced/",
-      collapsible: true,
+      collapsible: COLLAPSIBLE,
       children: [
         "表结构梳理",
         "项目结构",
@@ -240,7 +241,7 @@ export const zhSidebar = sidebar({
         "调用流程",
         {
           "text": "租户体系",
-          collapsible: true,
+          collapsible: COLLAPSIBLE,
           prefix: "tenant/",
           "children": [
             "创建租户",
@@ -252,7 +253,7 @@ export const zhSidebar = sidebar({
         },
         {
           "text": "权限体系",
-          collapsible: true,
+          collapsible: COLLAPSIBLE,
           prefix: "authority/",
           "children": [
             "权限模型",
@@ -262,6 +263,22 @@ export const zhSidebar = sidebar({
             "配置按钮",
             "配置字段",
             "配置数据",
+          ]
+        },
+        {
+          "text": "SpringBoot",
+          collapsible: COLLAPSIBLE,
+          prefix: "SpringBoot/",
+          "children": [
+            "跨域",
+            "序列化与反序列化",
+            "swagger",
+            "参数校验",
+            "分页",
+            "全局返回",
+            "全局异常",
+            "系统日志",
+            "XSS"
           ]
         },
         "持久层",

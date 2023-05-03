@@ -35,7 +35,7 @@ export default hopeTheme({
 
   fullscreen: true,
 
-  iconAssets: "//at.alicdn.com/t/c/font_3976952_cfb69dpr6to.css",
+  iconAssets: "//at.alicdn.com/t/c/font_3976952_3dzhmey1f2e.css",
 
   encrypt: {
     config: {

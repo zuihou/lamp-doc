@@ -22,15 +22,19 @@ actions:
 features:
 - title: 快速开发
   icon: kuaisukaifa-05
-  details: 快速CRUD，只需少量配置即可完成单表、主从、树结构等页面的增删改查，节省开发成本，缩短开发周期。
+  details: 快速CRUD，只需少量配置即可完成单表、主从、树结构等页面的增删改查，节省开发成本，缩短开发周期
 
-- title: 多种租户实现模式
+- title: 多种多租户的解决方案
   icon: corporate_fare
-  details: DATASOURCE模式：独立数据库、SCHEMA模式：共享数据库，隔离数据架构、COLUMN模式：共享数据库，共享数据架构
+  details: 独立数据库、共享数据库隔离数据架构、共享数据库共享数据架构等方式
+
+- title: 前沿的技术
+  icon: rise
+  details: vue3、jdk、SpringBoot、SpringCloud等主流版本
 
 - title: 丰富功能
   icon: arrawsalt
-  details: 前沿的技术栈、RBAC权限体系、在线代码生成器、前后端统一表单校验、字典回显、系统配置、自动填充等功能一应俱全。
+  details: RBAC权限体系、在线代码生成器、前后端统一表单校验、字典回显、系统配置、自动填充等功能一应俱全
 
 
 copyright: false
