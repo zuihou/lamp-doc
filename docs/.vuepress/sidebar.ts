@@ -277,8 +277,7 @@ export const zhSidebar = sidebar({
             "分页",
             "全局返回",
             "全局异常",
-            "系统日志",
-            "XSS"
+            "系统日志"
           ]
         },
         "持久层",
