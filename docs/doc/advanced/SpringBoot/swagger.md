@@ -152,12 +152,23 @@ TokenContextFilter将Token中封装的userId、employeeId、currentCompanyId、c
 
 ## 新服务如何接入swagger文档
 
-1.  server 模块加入依赖
+1.  lamp-xxx-server 加入依赖
 
     ```xml
+    <!-- 公共代码 -->
     <dependency>
         <groupId>top.tangyh.basic</groupId>
         <artifactId>lamp-swagger2-starter</artifactId>
+    </dependency>
+    
+    <!-- 你新开发的Controller层 -->
+    <dependency>
+        <groupId>top.tangyh.lamp</groupId>
+        <artifactId>lamp-xxx-controller</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>top.tangyh.lamp</groupId>
+        <artifactId>lamp-yyy-controller</artifactId>
     </dependency>
     ```
 
@@ -191,11 +202,22 @@ TokenContextFilter将Token中封装的userId、employeeId、currentCompanyId、c
 5.  访问 http://ip:port/api/doc.html 时, 网关通过 SwaggerResourceConfig 类进行聚合。
 
     这个类的实现原理是通过读取网关的路由配置，然后通过restTemplate请求后端服务的文档数据，所以当后端服务未启动时，是无法聚合文档的
-## 
+
+
+
 
 ## 更多配置
 
 [点我阅读](/doc/util/lamp-swagger2-starter.html)
 
 
+
+## 常见问题
+
+#### 在yml文件中加了配置，但文档中看不到文档
+
+解决方案：
+
+1. 在server层添加controller层的依赖
+2. 在配置文件中配置controller的包路径
 

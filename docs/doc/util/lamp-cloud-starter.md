@@ -33,43 +33,7 @@ tag:
 
 2. GrayscaleVersionRoundRobinLoadBalancer
 
-   OpenFeign默认是通过 RoundRobinLoadBalancer 实现负载均衡，该类重写了RoundRobinLoadBalancer，在原有逻辑的基础上做了增强。在负载均衡器选择节点时，优先查找==元数据==中配置的gray_version参数等于==ContextUtil==中配置的gray_version参数一致的节点，若找不到相同的节点，则按RoundRobinLoadBalancer默认规则实现负载。在实际使用过程中，我们有以下场景可以使用：
-
-   - 灰度发布
-
-   - 开发人员只启动某个业务服务，蹭其他人的其他服务。
-
-     开发人员张三开发项目时，启动全部服务费时费电脑资源，若只想测试A服务的部分功能，无需在自己的电脑上启动全部服务。假设测试环境启动了全部服务，此时张三仅需启动单个服务注册到测试环境，前端调用接口时，就能指定调用测试环境的服务还是张三的服务。
-
-     ::: code-tabs
-
-     @tab yml
-
-     ```yaml{6}
-     spring:
-       cloud:
-         nacos:
-           discovery:
-             metadata: # 元数据，用于权限服务实时获取各个服务的所有接口
-               gray_version: zhangsan   # 测试环境配置为test， 每个开发人员配置为自己的名字
-     ```
-
-     @tab web
-
-     ```typescript
-       /**
-        * @description: 请求拦截器处理
-        */
-       requestInterceptors: (config, options) => {
-     
-         // 灰度参数，前端传什么值，就访问后端那个节点
-         (config as Recordable).headers['gray_version'] = 'zhangsan';
-     
-         return config;
-       },
-     ```
-
-     :::
+   <!-- @include: ../advanced/SpringCloud/灰度发布.md#gray -->
 
 3. DateFormatRegister: 全局FeignClient 接口中的Date、LocalDate、LocalDateTime、LocalTime等日期参数格式化
 
@@ -120,7 +84,6 @@ tag:
 5. FeignAddHeaderRequestInterceptor : 全局FeignClient 请求头和线程变量 透传
 
 6. RestTemplateHeaderInterceptor : 全局RestTemplate 请求头和线程变量 透传
-
 
 
 

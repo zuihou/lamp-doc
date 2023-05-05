@@ -280,6 +280,15 @@ export const zhSidebar = sidebar({
             "系统日志"
           ]
         },
+        {
+          "text": "SpringCloud",
+          collapsible: COLLAPSIBLE,
+          prefix: "SpringCloud/",
+          "children": [
+            "FeignClient",
+            "灰度发布"
+          ]
+        },
         "持久层",
       ],
     },
