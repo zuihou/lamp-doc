@@ -291,6 +291,7 @@ export const zhSidebar = sidebar({
         },
         "持久层",
         "缓存",
+        "文件存储",
       ],
     },
     "常见问题",
