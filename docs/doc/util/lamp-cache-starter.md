@@ -23,10 +23,20 @@ tag:
 - 开发电脑配置比较低，启动太多中间件会很卡，对于专心编码的用户来说，少启动一个中间件，对开发的体验比较好
 
 ## 本模块核心API
+- CacheResult：缓存返回对象
+
+  封装了key、field、过期时间、真实的缓存值、是否缓存的空值等属性，方便调用者判断查询的值是不存在还是缓存的空值。
+
 - CacheOps : 基础缓存操作类
+
 - CachePlusOps : 增强缓存操作类, 包含了redis常用的方法
+
 - RedisOps：redis专用缓存操作类，对redisTemplate进行了二次封装
+
+  `top.tangyh.basic.cache.redis.RedisOps`和`top.tangyh.basic.cache.redis2.RedisOps`的区别在于查询类方法的返回值不同。后者的返回值使用CacheResult类进行包装
+
 - CacheKey  (为了解耦, 已经移动到你lamp-core模块下) : 封装缓存 key 和 过期时间
+
 - RedisDistributedLock : 分布式锁的简单实现
 
 ## 注意事项
@@ -56,7 +66,7 @@ tag:
 5. serializerType使用 JACK_SON 类型时，直接存储Long类型的值，从redis中取出数据时，需要手动强制转换成Long才行，否则会报错！
 6. lamp-cloud 不能使用内存缓存，否则无法登录，lamp-boot可以。
 
-## 如何新服务中如何接入
+## 新服务中如何接入
 1. 在pom.xml中加依赖
 
    ```xml
@@ -86,7 +96,14 @@ tag:
        port: ${lamp.redis.port}
        database: ${lamp.redis.database}
    ```
+
 3. 若缓存想使用CAFFEINE缓存（lamp.cache.type=CAFFEINE）, 需要在依赖中排除redis
+
+   ::: warning
+
+   cloud模式不建议使用CAFFEINE缓存，因为跨服务使用同一缓存时，无法同步不同服务之间的数据。
+
+   :::
 
    ```xml
    <dependency>
@@ -100,6 +117,7 @@ tag:
        </exclusions>
    </dependency>
    ```
+
 4. 为需要缓存的数据创建CacheKeyBuilder ，如 `ApplicationCacheKeyBuilder`
 
    ```java
@@ -141,6 +159,7 @@ tag:
        }
    }
    ```
+
 5. 需要操作缓存的地方注入CacheOps
 
    ```java
