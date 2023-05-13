@@ -21,6 +21,9 @@ jobs:
       - name: rm yml
         run: |
           rm -rf pnpm-lock.yaml
+          rm -rf docs/.vuepress/.cache/ 
+          rm -rf docs/.vuepress/.temp/  
+          rm -rf docs/.vuepress/dist/  
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
@@ -38,9 +41,6 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: | 
-          rm -rf docs/.vuepress/.cache/ 
-          rm -rf docs/.vuepress/.temp/  
-          rm -rf docs/.vuepress/dist/   
           pnpm run build
 
       - name: deployments
