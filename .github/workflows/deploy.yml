@@ -37,7 +37,11 @@ jobs:
       - name: Docs build
         env:
           NODE_OPTIONS: --max_old_space_size=8192
-        run: pnpm run build
+        run: | 
+          rm -rf docs/.vuepress/.cache/ 
+          rm -rf docs/.vuepress/.temp/  
+          rm -rf docs/.vuepress/dist/   
+          pnpm run build
 
       - name: deployments
         uses: burnett01/rsync-deployments@4.1
