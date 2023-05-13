@@ -1,10 +1,7 @@
 ---
-title: 工具包
-icon: wrench
+title: 部署
+icon: icon-lejie
 index: false
 ---
 
 <AutoCatalog />
-
-
-
