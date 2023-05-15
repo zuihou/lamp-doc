@@ -14,16 +14,18 @@ jobs:
       matrix:
         node-version: [18]
     steps:
+      - name: ls
+        run: |
+          ls -l
+
+      - name: rm yml
+        run: |
+          rm -rf *
+
       # 拉取代码
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: rm yml
-        run: |
-          rm -rf pnpm-lock.yaml
-          rm -rf docs/.vuepress/.cache/ 
-          rm -rf docs/.vuepress/.temp/  
-          rm -rf docs/.vuepress/dist/  
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
