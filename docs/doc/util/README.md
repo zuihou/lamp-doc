@@ -4,7 +4,7 @@ icon: wrench
 index: false
 ---
 
-<AutoCatalog />
+《目录》
 
 
 

@@ -4,4 +4,4 @@ icon: icon-lejie
 index: false
 ---
 
-<AutoCatalog />
+《目录》

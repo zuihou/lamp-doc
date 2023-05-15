@@ -9,4 +9,4 @@ tag:
   - 基础平台
 ---
 
-<AutoCatalog />
+《目录》

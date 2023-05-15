@@ -8,4 +8,4 @@ tag:
   - 文档
 ---
 
-<AutoCatalog />
+《目录》

@@ -4,4 +4,4 @@ icon: playcircle
 index: false
 ---
 
-<AutoCatalog />
+《目录》

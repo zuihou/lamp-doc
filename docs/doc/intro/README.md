@@ -8,4 +8,4 @@ tag:
   - 功能介绍
 ---
 
-<AutoCatalog />
+《目录》

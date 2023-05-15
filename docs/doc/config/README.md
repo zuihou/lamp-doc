@@ -8,4 +8,4 @@ tag:
   - 配置
 ---
 
-<AutoCatalog />
+《目录》
