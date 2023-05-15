@@ -16,6 +16,7 @@ Thumbs.db
 # NPM
 package-lock.json
 node_modules
+pnpm-lock.yaml
 
 # YARN
 yarn.lock
