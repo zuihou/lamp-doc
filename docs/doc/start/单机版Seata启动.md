@@ -7,7 +7,7 @@ tag:
   - 快速启动
   - 单机版Seata启动
 ---
-
+<!-- #region base -->
 Seata官方文档： [https://seata.io/](https://seata.io/)
 
 4.0 版本开始，DATASOURCE模式的(lamp-cloud-pro-datasource-column项目)某些操作已经无法避免同时操作 lamp_defaults 库 和 lamp_base_{TenantId} ，所以为了保证分布式事务准确性，lamp-cloud-pro-datasource-column项目集成了Seata来保证分布式事务准确性，其他模式默认没有集成Seata。
@@ -292,3 +292,4 @@ seata官方仅支持MySQL、Oracle、Postgresql，不支持SQL Server，所以�
 11. 验证是否启动成功：打开nacos， 【服务管理】 -> 【服务列表】 ->【lamp-seata】-> 有一个服务名为 `server-server` 的服务 即表示成功
     
     ![](/images/start/seata启动成功.png)
+<!-- #endregion base -->

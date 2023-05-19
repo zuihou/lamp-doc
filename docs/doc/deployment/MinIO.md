@@ -8,14 +8,27 @@ tag:
   - MinIO
 ---
 
-## 安装MinIO
+## 安装
 
-```shell
-export MINIO_ROOT_USER=admin
-export MINIO_ROOT_PASSWORD="ZHadmin123." 
+1. [下载](https://www.minio.org.cn/download.shtml#/linux)
 
-nohup /opt/minio/minio server --config-dir /opt/minio/config /data > /opt/minio/minio.log 2>&1 &
-```
+   ```shell
+   mkdir -p /opt/minio/
+   cd /opt/minio/
+   wget https://dl.minio.org.cn/server/minio/release/linux-amd64/minio
+   chmod +x minio
+   ```
+
+   
+
+2. 启动
+
+   ```shell
+   export MINIO_ROOT_USER=admin
+   export MINIO_ROOT_PASSWORD="ZHadmin123." 
+   
+   nohup /opt/minio/minio server --config-dir /opt/minio/config /data > /opt/minio/minio.log 2>&1 &
+   ```
 
 ## 访问
 

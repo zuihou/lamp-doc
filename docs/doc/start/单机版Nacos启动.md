@@ -7,7 +7,7 @@ tag:
   - 快速启动
   - 单机版Nacos启动
 ---
-
+<!-- #region base -->
 ## Nacos 安装
 
 建议参考并认真阅读官方文档： [https://nacos.io/zh-cn/docs/quick-start.html](https://nacos.io/zh-cn/docs/quick-start.html)
@@ -73,3 +73,4 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
    - 密码：nacos
 
 8. 从nacos2.0.0开始，需要开通7848、8848、9848、9849 四个端口。
+<!-- #endregion base -->

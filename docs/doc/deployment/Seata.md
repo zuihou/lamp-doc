@@ -8,4 +8,5 @@ tag:
   - Seata
 ---
 
-[参考](/doc/start/单机版Seata启动)
+<!-- @include: ../start/单机版Seata启动.md#base -->
+

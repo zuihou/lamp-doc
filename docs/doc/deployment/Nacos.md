@@ -8,4 +8,4 @@ tag:
   - Nacos
 ---
 
-[参考](/doc/start/单机版Nacos启动)
+<!-- @include: ../start/单机版Nacos启动.md#base -->

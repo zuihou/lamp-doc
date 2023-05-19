@@ -26,13 +26,6 @@ export default hopeTheme({
 
 
   // darkmode: "enable",
-  themeColor: {
-    blue: "#2196f3",
-    red: "#f26d6d",
-    green: "#3eaf7c",
-    orange: "#fb9b5f",
-  },
-
   fullscreen: true,
 
   iconAssets: "//at.alicdn.com/t/c/font_3976952_3dzhmey1f2e.css",
@@ -42,6 +35,7 @@ export default hopeTheme({
       // 若你能看到这里且看懂这段配置，文档就当送你了。
       "/doc/util/": ["lampniubi"],
       "/doc/advanced/": ["lampniubi"],
+      "/doc/deployment/": ["lampniubi"],
     },
   },
 
@@ -76,9 +70,9 @@ export default hopeTheme({
       contributors: true,
     },
 
-    feed: {
-      json: true
-    },
+    // feed: {
+    //   json: true
+    // },
 
     blog: {
       excerptLength: 0,
