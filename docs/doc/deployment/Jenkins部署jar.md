@@ -105,6 +105,8 @@ tag:
 
   - MAVEN_COMMAND： 在jenkins服务器编译代码， package install deploy表示maven的编译命令，none 表示不编译源码，使用上次编译的jar
 
+  - 
+    
   - SERVER_NAME：发布那个服务。这里配置的名字一定要代码的目录结构一致。如lamp-authority下一定要有一个lamp-authority-server
     
     
