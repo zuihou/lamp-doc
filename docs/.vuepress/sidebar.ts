@@ -297,6 +297,15 @@ export const zhSidebar = sidebar({
       ],
     },
     {
+      text: "前端",
+      icon: "antdesign",
+      prefix: "front/",
+      collapsible: COLLAPSIBLE,
+      children: [
+        "介绍",
+      ],
+    },
+    {
       text: "部署",
       icon: "deploymentunit",
       prefix: "deployment/",
