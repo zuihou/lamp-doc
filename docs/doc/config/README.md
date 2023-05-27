@@ -1,5 +1,5 @@
 ---
-title: 配置
+title: 
 icon: wendang
 index: false
 category:
@@ -8,4 +8,4 @@ tag:
   - 配置
 ---
 
-《目录》
+<AutoCatalog />

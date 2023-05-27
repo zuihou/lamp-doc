@@ -1,12 +1,12 @@
 ---
-title: 开发进阶
+title: 租户体系
 icon: code
 index: false
-order: 7
 category:
   - 开发进阶
 tag:
   - 开发进阶
+  - 租户体系
 ---
 
 <AutoCatalog />

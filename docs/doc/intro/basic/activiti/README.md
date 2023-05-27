@@ -7,7 +7,7 @@ category:
 tag:
   - 功能介绍
   - 基础平台
-  - 工作流管理
+  - 工作流
 ---
 ::: tip
 
@@ -15,4 +15,4 @@ COLUMN模式和NONE模式才有Activiti工作流，DATASOURCE模式没有。
 
 ::: 
 
-《目录》
+<AutoCatalog />
