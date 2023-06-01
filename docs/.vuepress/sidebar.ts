@@ -303,6 +303,10 @@ export const zhSidebar = sidebar({
       collapsible: COLLAPSIBLE,
       children: [
         "介绍",
+        "BasicTitle",
+        "AppLogo",
+        "Authority",
+        "AvatarPreview",
       ],
     },
     {
