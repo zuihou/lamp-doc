@@ -307,6 +307,8 @@ export const zhSidebar = sidebar({
         "AppLogo",
         "Authority",
         "AvatarPreview",
+        "CodeEditor",
+        "Cropper",
       ],
     },
     {
