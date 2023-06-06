@@ -118,16 +118,22 @@ tag:
 | --------- | ------------------------------------------------- | ------- | --------------------- | ----- |
 | width     | `string,number`                                   | `200px` | 图片源                |       |
 | uploadApi | `({ file: Blob, name: string }) => Promise<void>` | -       | 图片上传接口          |       |
-| value     | `String`                                          | -       | 当前头像地址(v-model) | 2.5.3 |
+| value     | `String`                                          | -      | 回显值 | 2.5.3 |
 | showBtn   | `Boolean`                                         | true    | 是否显示按钮          | 2.5.3 |
 | btnText   | `String`                                          | -       | 按钮文案              | 2.5.3 |
 | btnProps  | `ButtonProps`                                     | -       | 按钮的其它属性        | 2.5.3 |
+| alt       | `String` |         | 【lamp扩展】鼠标移上去显示的文字 |       |
+| circled   | `Boolean` |         | 【lamp扩展】圆形裁剪框 |       |
+| isDef     | `Boolean` |         | 【lamp扩展】是否上传到到默认库。 设置为true，文件将调用 asyncFindDefUrlById 加载异步文件 |       |
+| uploadParams | `Object` |         | 【lamp扩展】调用uploadApi接口时传递的参数 |       |
+
 
 ### Events
 
-| 名称   | 参数            | 说明                 | 版本  |
-| ------ | --------------- | -------------------- | ----- |
-| change | `value: String` | 当头像上传完成时触发 | 2.5.3 |
+| 名称         | 参数                 | 说明                 | 版本  |
+| ------------ | -------------------- | -------------------- | ----- |
+| change       | `data: FileResultVO` | 当头像上传完成时触发 | 2.5.3 |
+| update:value | `data: FileResultVO` | 当头像上传完成时触发 |       |
 
 
 
