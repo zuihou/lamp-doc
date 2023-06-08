@@ -309,6 +309,7 @@ export const zhSidebar = sidebar({
         "AvatarPreview",
         "CodeEditor",
         "Cropper",
+        "Form",
       ],
     },
     {
