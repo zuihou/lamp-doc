@@ -49,7 +49,7 @@ tag:
     --with-stream \
     --with-stream_realip_module \
     --with-stream_ssl_module \
-    --with-stream_ssl_preread_modul
+    --with-stream_ssl_preread_module
   ```
 
 - 安装
