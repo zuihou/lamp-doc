@@ -310,6 +310,8 @@ export const zhSidebar = sidebar({
         "CodeEditor",
         "Cropper",
         "Form",
+        "Upload",
+        "Axios",
       ],
     },
     {
