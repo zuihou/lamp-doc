@@ -312,6 +312,8 @@ export const zhSidebar = sidebar({
         "Form",
         "Upload",
         "Axios",
+        "默认参数",
+        "配置项",
       ],
     },
     {
