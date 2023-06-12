@@ -36,7 +36,7 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
 
 ![](/images/start/nacos目录介绍.png)
 
-2. 伸手党可以从  [视频软件下载](/doc/info/视频软件下载) 中下载 nacos220.zip ，里面的nacos已经给你配置好了，只需要修改数据库的账号密码即可
+2. 伸手党可以从  [视频软件下载](../info/视频软件下载.md) 中下载 nacos220.zip ，里面的nacos已经给你配置好了，只需要修改数据库的账号密码即可
 
 3. 解压nacos压缩包， 进入nacos文件夹，并修改`D:/developer/nacos220/conf/application.properties` 文件, 调整数据库配置：
 

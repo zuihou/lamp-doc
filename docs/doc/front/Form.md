@@ -57,9 +57,9 @@ if (unref(getProps).showAdvancedButton) {
 新增了以下组件：
 
 - [ApiAutoComplete](https://www.antdv.com/components/auto-complete-cn)
-- [BasicTitle](/doc/front/BasicTitle)
+- [BasicTitle](./BasicTitle.md)
 - [Transfer](https://www.antdv.com/components/transfer-cn)
-- [CropperAvatar](/doc/front/Cropper)
+- [CropperAvatar](./Cropper.md)
 
 ## ApiAutoComplete
 
