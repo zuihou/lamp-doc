@@ -208,7 +208,7 @@ TokenContextFilter将Token中封装的userId、employeeId、currentCompanyId、c
 
 ## 更多配置
 
-[点我阅读](/doc/util/lamp-swagger2-starter.html)
+[点我阅读](../../util/lamp-swagger2-starter.md)
 
 
 
