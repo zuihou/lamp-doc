@@ -203,6 +203,15 @@ export const zhSidebar = sidebar({
       ],
     },
     {
+      text: "开始开发",
+      icon: "antdesign",
+      prefix: "development/",
+      collapsible: COLLAPSIBLE,
+      children: [
+        "新建服务",
+      ],
+    },
+    {
       text: "工具包",
       icon: "wrench",
       prefix: "util/",
