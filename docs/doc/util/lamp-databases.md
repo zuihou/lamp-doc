@@ -547,7 +547,7 @@ public interface BaseEmployeeTestMapper extends SuperMapper<BaseEmployee> {
 
 mybatis-plus 提供的租户拦截器，在COLUMN模式中使用。
 
-### 区别
+### TenantLineInnerInterceptor和LampTenantLineInnerInterceptor的区别
 
 1. TenantLineInnerInterceptor 会将默认将所有的Mapper查询都动态拼接上条件
 
@@ -559,8 +559,4 @@ mybatis-plus 提供的租户拦截器，在COLUMN模式中使用。
 
 5. 无其他区别，拼接SQL的代码完全一致
 
-   
-
-```
-```
 
