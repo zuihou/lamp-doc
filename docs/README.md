@@ -52,7 +52,6 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
 <!-- ------------ 开源案例 ------------- -->
 <div>
     <div class="feature-z s-width">
-        <div class="s-fenge"></div>
         <h2 class="s-title">项目体验地址</h2>
         <div class="feature-box">
             <div class="feature">
@@ -86,7 +85,6 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
 <!-- ------------ Dromara 成员项目 ------------- -->
 <div>
   <div class="com-box-f s-width">
-      <div class="s-fenge"></div>
       <br>
       <h2 id="dromara" class="s-title">
           Dromara 成员项目
