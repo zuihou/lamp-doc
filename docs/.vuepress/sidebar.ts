@@ -204,11 +204,13 @@ export const zhSidebar = sidebar({
     },
     {
       text: "开始开发",
-      icon: "antdesign",
+      icon: "kuaisukaifa-05",
       prefix: "development/",
       collapsible: COLLAPSIBLE,
       children: [
         "新建服务",
+        "新建表",
+        "配置文件",
       ],
     },
     {

@@ -85,13 +85,15 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
   ```
 
 5. 原理
-  通过AOP拦截标记了@WebLog 的方法,  拦截后, SysLogAspect 中的方法用于获取被拦截方法的入参和返回值. 然后发布一个SysLogEvent事件 (为了让操作日志尽可能少的影响方法调用时长,采用事件方式来异步处理, 大家也可以改成消息队列之类的), SysLogListener 监听器接收到事件后, 调用`consumer.accept` 方法, 让对操作日志进行存储.
+    通过AOP拦截标记了@WebLog 的方法,  拦截后, SysLogAspect 中的方法用于获取被拦截方法的入参和返回值. 然后发布一个SysLogEvent事件 (为了让操作日志尽可能少的影响方法调用时长,采用事件方式来异步处理, 大家也可以改成消息队列之类的), SysLogListener 监听器接收到事件后, 调用`consumer.accept` 方法, 让对操作日志进行存储.
 
 
 
 
 
 ## defaults.xml 全局的logback 日志基础模版
+
+<!-- #region defaults -->
 
 这个logback的配置文件将整个项目中最常用的日志配置抽取到这里.
 1. 通过springProperty标签设置的参数,  可以在项目的application.yml配置文件中, 设置source属性对其defaultValue进行覆盖
@@ -134,3 +136,5 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
 5. defaults-prod.xml ： 异步配置文件，用于配置项目在`生产环境`的全局日志输出规则。 性能高，实时性低。
 
 6. 项目运行中的业务日志，请在各自项目的resources目录下配置 logback-spring.xml（生产） 或 logback-spring-dev.xml （开发）
+
+<!-- #endregion defaults -->
