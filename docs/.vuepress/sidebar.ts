@@ -208,8 +208,10 @@ export const zhSidebar = sidebar({
       prefix: "development/",
       collapsible: COLLAPSIBLE,
       children: [
+        "新建应用",
         "新建服务",
         "新建表",
+        "生成代码",
         "配置文件",
       ],
     },

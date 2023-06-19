@@ -52,7 +52,7 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
 <!-- ------------ 开源案例 ------------- -->
 <div>
     <div class="feature-z s-width">
-        <h2 class="s-title">项目体验地址</h2>
+        <h2 id="link" class="s-title">项目体验地址</h2>
         <div class="feature-box">
             <div class="feature">
                 <h2 id="ds">4.x企业版(数据源模式)</h2>
