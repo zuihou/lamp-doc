@@ -212,6 +212,7 @@ export const zhSidebar = sidebar({
         "新建服务",
         "新建表",
         "生成代码",
+        "重写代码",
         "配置文件",
       ],
     },
