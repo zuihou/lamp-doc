@@ -215,6 +215,7 @@ export const zhSidebar = sidebar({
         "重写代码",
         "定时任务",
         "配置文件",
+        "分布式事务",
       ],
     },
     {

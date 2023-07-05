@@ -99,16 +99,17 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>4.13.0</b>即将发布：",
+            title: "<b>4.14.0</b>已发布：",
             content:
               '<ul>' +
-                '<li>全新视频</li>' +
-                '<li>全新文档</li>' +
+                '<li>依赖升级</li>' +
+                '<li>bug修复</li>' +
+                '<li><a href="https://tangyh.top/doc/%E7%AE%80%E4%BB%8B.html" target="_blank">全新文档已完全完成</a></li>' +
                 '</ul>',
             actions: [
               {
                 text: "了解详情→",
-                link: "/upgrade/4.x功能蓝图",
+                link: "/upgrade/4.x版本升级日志",
                 type: "primary",
               },
             ],
