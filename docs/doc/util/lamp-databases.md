@@ -18,7 +18,7 @@ tag:
     └── tangyh
         └── basic
             └── database
-                ├── datasource
+                ├── config
                 │   ├── BaseMybatisConfiguration.java               # 全局Mybatias公共配置
                 │   └── LampMetaObjectHandler.java								  # 元对象字段(id、created_by等字段)填充控制器
                 ├── injector
@@ -121,7 +121,36 @@ lamp:
 
 MyBatis Plus 元数据处理类，用于自动 注入 id, createdTime, updatedTime, createdBy, updatedBy 等字段
 
-### 判断逻辑
+### 注入其他字段
+
+1. 新增注解
+
+   在需要自动注入参数的字段添加`@TableField(fill = FieldFill.INSERT_UPDATE)`
+
+   ```java
+   @TableField(value = "org_id", fill = FieldFill.INSERT_UPDATE)
+   protected Long orgId
+   ```
+
+2. 编写注入代码
+
+   ```java
+   public class LampMetaObjectHandler implements MetaObjectHandler {
+    	  @Override
+     	public void insertFill(MetaObject metaObject) {
+         // 执行 insert 语句时，自动注入参数
+         this.setFieldValByName("orgId", 1234L, metaObject);
+       } 
+     
+       @Override
+       public void updateFill(MetaObject metaObject) {
+           // 执行 update 语句时，自动注入参数
+           this.setFieldValByName("orgId", 1234L, metaObject);
+       }
+   }
+   ```
+
+### 注入逻辑
 
 - insert 方法，自动填充 id, createdTime, updatedTime, createdBy, updatedBy 字段，字段为空时==自动生成==，不为空时使用==原始值==。
 
@@ -133,7 +162,7 @@ MyBatis Plus 元数据处理类，用于自动 注入 id, createdTime, updatedTi
 
   ::: tip
 
-  不知道从那个版本开始，mybatis-plus 的id字段 INPUT 类型的赋值方式不受 ==@TableId(type = IdType.INPUT)== 决定，若你的实体类总只有id字段，没有createdBy、createdTime等字段，LampMetaObjectHandler类的代码不会执行，请参考[mybaits-plus官方](https://baomidou.com/pages/e131bd/)寻找解决方案。
+  不知道从那个版本开始，mybatis-plus 的id字段 INPUT 类型的赋值方式不受 ==@TableId(type = IdType.INPUT)== 决定，若你的实体类只有id字段，没有createdBy、createdTime等字段，LampMetaObjectHandler类的代码不会执行，请参考[mybaits-plus官方](https://baomidou.com/pages/e131bd/)寻找解决方案。
 
   :::
 
@@ -558,5 +587,4 @@ mybatis-plus 提供的租户拦截器，在COLUMN模式中使用。
 4. LampTenantLineInnerInterceptor 则需要在Mapper类上加 `@TenantLine` ，在会动态拼接条件
 
 5. 无其他区别，拼接SQL的代码完全一致
-
 
