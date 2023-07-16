@@ -63,20 +63,39 @@ tag:
 
 ## 回显步骤
 
-lamp-echo-starter使用思路4来解决回显问题，具体步骤如下：
+lamp-echo-starter使用思路4来解决回显问题，大概步骤为：
+
+1. 使实体类实现`EchoVO`，并添加字段`private Map<String, Object> echoMap = new HashMap<>();`
+2. 在实体类的字段上添加`@Echo(api="xxxService")`注解
+3. 在需要回显的地方调用 `echoService.action(xx)；`
+4. 编写`xxxService`代码，使其实现`LoadService`接口中的`findByIds`方法
+
+具体步骤如下：
 
 1. pom中加入依赖
+
+   ```xml
+   <dependency>
+       <groupId>top.tangyh.basic</groupId>
+       <artifactId>lamp-echo-starter</artifactId>
+   </dependency>
+   ```
 
 2. yml 开启配置， 更多更详细的配置参考 `EchoProperties`
 
    ```yaml
    lamp:
      echo:
-       # 是否开启 EchoService 功能
-       enabled: true
-       # 是否开启EchoResult
+       # 是否启用 @EchoResult 
        aop-enabled: true
-       
+       # 启动程序时，将此包下标记了@Echo注解的实体类缓存到内存，提高回显性能
+       basePackages: 'top.tangyh'
+       # 字典类型 和 code 的分隔符
+       dictSeparator: '###'
+       # 多个字典code 之间的的分隔符
+       dictItemSeparator: ','
+       # 递归最大深度
+       maxDepth: 3
    ```
 
 3. EmployeeResultVO实体实现`EchoVO`接口，并在EmployeeResultVO中加入echoMap .
