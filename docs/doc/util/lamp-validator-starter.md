@@ -42,6 +42,7 @@ Hibernate Validator 的作用：
 
 
 ## 诞生
+
 基于上面的场景，灯灯基于hibernate-validator的基础上封装了lamp-validator-starter模块，提供一个通用接口/form/validator，调用该接口用于获取需要校验的后端接口的校验规则，前端对该通用接口返回的校验规则进行解析，解析成前端插件的校验规则。若校验规则改变，只需要后端修改规则即可。
 
 ::: tip
