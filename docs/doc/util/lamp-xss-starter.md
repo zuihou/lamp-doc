@@ -15,6 +15,8 @@ XSS攻击通常指的是通过利用网页开发时留下的漏洞，通过巧�
 
 ## AntiSamy
 
+参考链接: https://blog.csdn.net/raychiu757374816/article/details/79016101
+
 AntiSamy对“恶意代码”的过滤依赖于策略文件。策略文件规定了AntiSamy对各个标签、属性的处理方法，策略文件定义的严格与否，决定了AntiSamy对XSS漏洞的防御效果。在AntiSamy的jar包中，包含了几个常用的策略文件:
 
 - antisamy.xml
@@ -131,12 +133,13 @@ AntiSamy对“恶意代码”的过滤依赖于策略文件。策略文件规定
 
    - truncate
      对应的标签进行缩短处理，直接删除所有属性，只保留标签和值
-     如标题只保留标签和值
+     如：title只保留标签和值，br 只保留标签
 
      ```xml
      <tag name="title" action="truncate"/>
+     <tag name="br" action="truncate"/>
      ```
-
+     
    - validate
      对应的标签的属性进行验证，如果tag中定义了属性的验证规则，按照tag中的规则执行；如果标签中未定义属性，则按照`<global-tag-attributes>`中定义的处理
 
