@@ -1,4 +1,4 @@
-为了统一后端返回数据到前端时，数据格式不规则、长整型数据精度丢失等问题，本项目配置了全局ObjectMapper类实现son序列化和反序列化时。
+为了统一后端返回数据到前端时，数据格式不规则、长整型数据精度丢失等问题，本项目配置了全局ObjectMapper类来实现json序列化和反序列化。
 
 ## 名词解释
 1. 序列化：Controller层接口返回值 转成 json 格式的过程
@@ -176,23 +176,22 @@ public class LampJacksonModule extends SimpleModule {
      }
      ```
 
-     
    - 最终效果
-
+   
       
-
+   
      ::: code-tabs#xg
-
+   
      @tab json
-
+   
      ```json
      {
          "id": "123.23"
      }
      ```
-
+   
      @tab java
-
+   
      ```java
      public class User {
        	private BigDecimal id;
@@ -204,13 +203,13 @@ public class LampJacksonModule extends SimpleModule {
          }
      }
      ```
-
+   
      :::
-
+   
    - 解决问题
-
+   
      解决前端接收BigDecimal类型的值，精度丢失问题。
-
+   
 4. Date -> String
 
    返回值字段是Date类型，返回给前端的是字符串格式。
@@ -275,17 +274,17 @@ public class LampJacksonModule extends SimpleModule {
 
     - 最终效果
     Controller层接口返回参数中，LocalDateTime类型的字段，会转成字符串。
-    
+   
     @tab json
-    
+   
     ```json
     {
         "date": "yyyy-MM-dd HH:mm:ss"   
     }
     ```
-    
+   
     @tab java
-    
+   
     ```java
     public class User {
       	private LocalDateTime date;
@@ -297,10 +296,10 @@ public class LampJacksonModule extends SimpleModule {
         }
     }
     ```
-    
+   
     :::
-    
-    
+   
+   
    - 解决问题
 
      统一日期参数的格式
