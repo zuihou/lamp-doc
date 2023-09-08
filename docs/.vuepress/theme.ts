@@ -100,22 +100,21 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>4.14.0</b>已发布：",
+            title: "<b>4.14.3</b>已发布：",
             content:
               '<ul>' +
-                '<li>依赖升级</li>' +
-                '<li>bug修复</li>' +
-                '<li><a href="https://tangyh.top/doc/%E7%AE%80%E4%BB%8B.html" target="_blank">全新文档已完全完成</a></li>' +
+                '<li>支持Seata 1.7.1</li>' +
+                '<li>修复角色bug</li>' +
                 '</ul>',
             actions: [
               {
                 text: "了解详情→",
-                link: "/upgrade/4.x版本升级日志",
+                link: "/upgrade/4.x版本升级日志.html",
                 type: "primary",
               },
             ],
             showOnce: true,
-            key: "4.13.0",
+            key: "4.14.3",
           }
         ],
       },
