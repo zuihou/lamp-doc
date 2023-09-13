@@ -48,7 +48,7 @@ Feign的英语表示“假装、假装、变形”，是http请求调用的轻�
 
 2. 请求头透传
 
-   A服务通过FeignClient接口调用B服务，在A服务中的请求头参数默认情况是不会传递到B服务中的，《等等》使用FeignAddHeaderRequestInterceptor拦截器来解决请求头透传的问题。
+   A服务通过FeignClient接口调用B服务，在A服务中的请求头参数默认情况是不会传递到B服务中的，《灯灯》使用FeignAddHeaderRequestInterceptor拦截器来解决请求头透传的问题。
 
    ```java
    public class FeignAddHeaderRequestInterceptor implements RequestInterceptor {
