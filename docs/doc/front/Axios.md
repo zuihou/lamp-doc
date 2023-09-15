@@ -426,3 +426,30 @@ const axios = new VAxios({
   },
 });
 ```
+
+## 配置超时时间
+
+1. 修改全局超时时间
+
+   .env 文件:
+
+   ```properties
+   # axios 请求默认超时间： 10s
+   VITE_GLOB_AXIOS_TIMEOUT=10000
+   ```
+
+2. 修改单个接口的超时时间
+
+   ```typescript
+   export const selectTableList = (params: PageParams<DefGenTablePageQuery>) =>
+     defHttp.request<PageResult<DefGenTableResultVO>>({
+       url: `${ServicePrefixEnum.GENERATOR}/${MODULAR}/selectTableList`,
+       method: RequestEnum.POST,
+       timeout: 60000,   // 前端等待 60s 
+       params 
+     });
+   
+   ```
+
+   
+
