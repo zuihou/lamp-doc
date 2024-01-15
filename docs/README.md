@@ -63,16 +63,8 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
                 <p><a target="_blank" href="https://column.tangyh.top">体验地址</a></p>
             </div>
             <div class="feature">
-                <h2 id="none">4.x企业版(非租户模式)</h2>
+                <h2 id="none">4.x开源版(非租户模式)</h2>
                 <p><a target="_blank" href="https://none.tangyh.top">体验地址</a></p>
-            </div>
-            <div class="feature">
-                <h2 id="lwp">3.x企业版</h2>
-                <p><a target="_blank" href="https://boot.tangyh.top">体验地址</a></p>
-            </div>
-            <div class="feature">
-                <h2 id="lw">3.x开源版</h2>
-                <p><a target="_blank" href="https://boot.tangyh.top/lamp-web/">体验地址</a></p>
             </div>
         </div>
         <p>

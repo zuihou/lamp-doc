@@ -7,8 +7,13 @@ export const zhNavbar = navbar([
     icon: "start1",
   },
   {
-    text: "4.x文档",
+    text: "企业版文档",
     link: "/doc/简介",
+    icon: "featuresNew",
+  },
+  {
+    text: "开源版文档",
+    link: "/doc_open/简介",
     icon: "featuresNew",
   },
   {
@@ -24,11 +29,9 @@ export const zhNavbar = navbar([
   {
     text: "在线演示",
     children:[
-      {text: "4.x企业版(数据源模式)", link: "https://datasource.tangyh.top/"},
-      {text: "4.x企业版(字段模式)", link: "https://column.tangyh.top/"},
-      {text: "4.x企业版(非租户模式)", link: "https://none.tangyh.top/"},
-      {text: "3.x企业版", link: "https://boot.tangyh.top/"},
-      {text: "3.x开源版", link: "https://boot.tangyh.top/lamp-web/"}
+      {text: "数据源模式(企业版)", link: "https://datasource.tangyh.top/"},
+      {text: "字段模式(企业版)", link: "https://column.tangyh.top/"},
+      {text: "非租户模式(开源版)", link: "https://none.tangyh.top/"},
     ]
   },
   {
