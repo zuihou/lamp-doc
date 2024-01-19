@@ -32,7 +32,7 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      // 若你能看到这里且看懂这段配置，文档就当送你了。
+      // 若你能看到这里且看懂这段配置，说明你是一个爱思考、爱探索的人，此文档就送你了。
       "/doc/util/": ["lampniubi"],
       "/doc/advanced/": ["lampniubi"],
       "/doc/deployment/": ["lampniubi"],
