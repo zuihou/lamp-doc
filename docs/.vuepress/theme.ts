@@ -100,11 +100,11 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>4.14.3</b>已发布：",
+            title: "<b>4.16.0-java17</b>已发布：",
             content:
               '<ul>' +
-                '<li>支持Seata 1.7.1</li>' +
-                '<li>修复角色bug</li>' +
+                '<li>none模式正式开源</li>' +
+                '<li>去除资源类型中视图，使用是否隐藏字段控制</li>' +
                 '</ul>',
             actions: [
               {
