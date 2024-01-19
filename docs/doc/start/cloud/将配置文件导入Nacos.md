@@ -72,26 +72,8 @@ tag:
    ```
 
 5. 将项目的配置文件导入Nacos的 配置管理 - 配置列表
-- 方法1：
-  将 [DEFAULT_GROUP](http://git.tangyh.top/zuihou/docs/tree/dev/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/02nacos%E9%85%8D%E7%BD%AE)目录下的所有配置文件，逐一加入nacos对应的命名空间。
   
-  
-  
-  ![1. 进入配置列表](/images/start/Nacos配置列表.png)
-  
-  
-  
-  ![2. 在gitlab中找到配置文件](/images/start/Nacos全部配置文件.png)
-  
-  
-  
-  ![3. 将上一步中的文件全部复制进来](/images/start/Nacos新建配置.png)
-  
-  
-  
-- 方法2：
-  
-  新建配置文件确实比较累，偷懒的朋友可以将 [nacos_config_export.zip](http://git.tangyh.top/zuihou/docs/blob/master/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/02nacos%E9%85%8D%E7%BD%AE/lamp-cloud-pro-datasource-column)  压缩包一次性导入nacos。
+  将 [nacos_config_export.zip](http://git.tangyh.top/zuihou/docs/blob/master/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/02nacos%E9%85%8D%E7%BD%AE/lamp-cloud-pro-datasource-column)  压缩包一次性导入nacos。
   
   ::: warning 敲黑板
   
@@ -108,7 +90,7 @@ tag:
   
   
 
-6. 在 nacos 中，修改 database.yml 的IP、端口、账号、密码。 [database.yml](http://git.tangyh.top/zuihou/docs/tree/master/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/02nacos%E9%85%8D%E7%BD%AE/lamp-cloud-pro-datasource-column/DEFAULT_GROUP/database.yml)
+6. 在 nacos 中，修改 mysql.yml、 oracle.yml 或 sqlserver.yml 的 数据库配置信息。
 
    ::: tip
 
@@ -327,11 +309,13 @@ tag:
 <!-- #region config -->
 ## 配置文件介绍
 
-本项目4.0+版本有9个配置文件，分成2类：
+本项目4.0+版本有11个配置文件，分成2类：
 
 ```
 common.yml
-database.yml
+mysql.yml
+oracle.yml
+sqlserver.yml
 redis.yml
 rabbitmq.yml
 lamp-oauth-server.yml
@@ -341,10 +325,10 @@ lamp-system-server.yml
 lamp-monitor.yml
 ```
 
-1. 通用配置：common.yml、redis.yml、database.yml、rabbitmq.yml
+1. 通用配置：common.yml、redis.yml、mysql.yml、sqlserver.yml、oracle.yml、rabbitmq.yml
 
   - common.yml： ==所有的服务== 和 ==所有的环境== 公共的配置，如果有个别服务或者个别环境需要个性化配置， 只需要在每个服务的配置文件中单独修改即可。
-  - database.yml： 配置 数据库链接信息、Mybatis Plus 配置信息等
+  - mysql.yml、sqlserver.yml、oracle.yml： 配置 数据库链接信息、Mybatis Plus 配置信息等
   - redis.yml： 配置 redis 链接信息
 - rabbitmq.yml：配置 rabbtit 链接信息
 2. 项目配置：lamp-xxx-server.yml （如：lamp-base-server.yml、lamp-system-server.yml等)

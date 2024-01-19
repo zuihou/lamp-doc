@@ -56,7 +56,7 @@ tag:
 
 6. 将项目的配置文件导入Nacos的 配置管理 - 配置列表
 
-    新建配置文件确实比较累，偷懒的朋友可以将 [nacos_config_export.zip](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/A%E6%9E%81%E5%85%B6%E9%87%8D%E8%A6%81/01-third-party/nacos/nacos_config_export_20240112110214.zip)  压缩包一次性导入nacos。
+    将 [nacos_config_export.zip](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/A%E6%9E%81%E5%85%B6%E9%87%8D%E8%A6%81/01-third-party/nacos/nacos_config_export_20240112110214.zip)  压缩包一次性导入nacos。
 
     ::: warning 敲黑板
 
