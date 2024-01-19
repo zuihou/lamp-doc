@@ -13,7 +13,7 @@ export const zhNavbar = navbar([
   },
   {
     text: "开源版文档",
-    link: "/doc_open/简介",
+    link: "/opendoc/简介",
     icon: "featuresNew",
   },
   {

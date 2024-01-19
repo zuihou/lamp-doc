@@ -357,38 +357,38 @@ export const zhSidebar = sidebar({
     },
     "常见问题",
   ],
-  "/doc_open/": [
+  "/opendoc/": [
     "简介",
-    // {
-    //   text: "快速启动",
-    //   icon: "playcircle",
-    //   prefix: "start/",
-    //   collapsible: COLLAPSIBLE,
-    //   children: [
-    //     "项目导入",
-    //     "单机版Nacos启动",
-    //     {
-    //       "text": "微服务版",
-    //       collapsible: COLLAPSIBLE,
-    //       prefix: "cloud/",
-    //       "children": [
-    //         "将配置文件导入Nacos",
-    //         "后端启动",
-    //         "前端启动",
-    //       ]
-    //     },
-    //     {
-    //       "text": "单体版",
-    //       collapsible: COLLAPSIBLE,
-    //       prefix: "boot/",
-    //       "children": [
-    //         "后端启动",
-    //         "前端启动",
-    //         "配置文件介绍",
-    //       ]
-    //     },
-    //   ],
-    // },
+    {
+      text: "快速启动",
+      icon: "playcircle",
+      prefix: "start/",
+      collapsible: COLLAPSIBLE,
+      children: [
+        "项目导入",
+        "单机版Nacos启动",
+        {
+          "text": "微服务版",
+          collapsible: COLLAPSIBLE,
+          prefix: "cloud/",
+          "children": [
+            "将配置文件导入Nacos",
+            "后端启动",
+            "前端启动",
+          ]
+        },
+        {
+          "text": "单体版",
+          collapsible: COLLAPSIBLE,
+          prefix: "boot/",
+          "children": [
+            "后端启动",
+            "前端启动",
+            "配置文件介绍",
+          ]
+        },
+      ],
+    },
   ],
   "/upgrade/": [
     "4.x版本升级日志",
