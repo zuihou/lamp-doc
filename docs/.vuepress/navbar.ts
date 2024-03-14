@@ -43,6 +43,12 @@ export const zhNavbar = navbar([
     ]
   },
   {
+    text: "历史文档",
+    children:[
+      { text: "4.17.0",link: "https://tangyh.top/4.17.0/" }
+    ]
+  },
+  {
     text: "常见问题",
     link: "/doc/常见问题",
   },
