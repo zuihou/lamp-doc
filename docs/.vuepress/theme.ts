@@ -5,6 +5,8 @@ import { zhSidebar } from "./sidebar.js";
 
 const __dirname = getDirname(import.meta.url);
 
+export const BASE : "/" | `/${string}/` = "/";
+
 export default hopeTheme({
   logo: "/images/logo.png",
 
@@ -51,7 +53,7 @@ export default hopeTheme({
       footer:
         "主题使用 <a target='blank' href='https://theme-hope.vuejs.press/zh/'>vuepress-theme-hope</a>",
 
-      navbar: zhNavbar,
+      navbar: zhNavbar(BASE),
       sidebar: zhSidebar,
       metaLocales: {
         lastUpdated: "上次编辑于",

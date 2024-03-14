@@ -2,14 +2,15 @@ import { defineUserConfig } from "vuepress";
 import { searchProPlugin } from "vuepress-plugin-search-pro";
 import { getDirname, path } from "@vuepress/utils";
 import theme from "./theme.js";
+import { BASE } from "./theme.js";
 
 const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
-  base: "/",
-  // base: "/4.17.0/",
-
-  title: "灯灯",
+  // base: "/",
+  // title: "灯灯",
+  base: BASE,
+  title: BASE === "/" ? "灯灯" : "灯灯-v" + BASE.substring(1, BASE.length - 1),
   description: "微服务中后台快速开发平台",
 
   head: [
