@@ -17,11 +17,6 @@ export const zhNavbar = navbar([
     icon: "featuresNew",
   },
   {
-    text: "3.x文档",
-    link: "https://www.kancloud.cn/zuihou/zuihou-admin-cloud",
-    icon: "featuresNew",
-  },
-  {
     text: "企业授权",
     link: "/vip/授权费用",
     icon: "code-box-fill",
@@ -45,8 +40,9 @@ export const zhNavbar = navbar([
   {
     text: "历史文档",
     children:[
-      { text: "最新文档",link: "https://tangyh.top" },
-      { text: "4.17.0",link: "https://tangyh.top/4.17.0/" }
+      { text: "最新文档", link: "https://tangyh.top" },
+      { text: "4.17.0", link: "https://tangyh.top/4.17.0/" },
+      { text: "3.x", link: "https://www.kancloud.cn/zuihou/zuihou-admin-cloud" }
     ]
   },
   {
