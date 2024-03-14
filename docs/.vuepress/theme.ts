@@ -13,7 +13,7 @@ export default hopeTheme({
 
   // 编辑此页仓库地址
   docsRepo: "http://github.com/zuihou/lamp-doc",
-  docsBranch: 'dev',
+  docsBranch: 'master',
   docsDir: "docs",
 
   // 开启博客模式
