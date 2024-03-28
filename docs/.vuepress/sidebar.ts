@@ -401,6 +401,7 @@ export const zhSidebar = sidebar({
     "授权须知",
     "立即购买",
     "功能对比",
+    "广告位",
     "赏金猎人",
   ]
 });
