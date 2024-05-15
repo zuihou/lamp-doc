@@ -36,9 +36,7 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
 
 ![](/images/start/nacos目录介绍.png)
 
-2. 伸手党可以从  [视频软件下载](../info/视频软件下载.md) 中下载 nacos220.zip ，里面的nacos已经给你配置好了，只需要修改数据库的账号密码即可
-
-3. 解压nacos压缩包， 进入nacos文件夹，并修改`D:/developer/nacos220/conf/application.properties` 文件, 调整数据库配置：
+2. 解压nacos压缩包， 进入nacos文件夹，并修改`D:/developer/nacos220/conf/application.properties` 文件, 调整数据库配置：
 
     ```properties
     spring.datasource.platform=mysql
@@ -48,13 +46,13 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
     db.password=root
     ```
 
-4. 创建数据库
+3. 创建数据库
 
    ```sql
    CREATE DATABASE `lamp_nacos` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
    ```
 
-5. 向lamp_nacos库中导入nacos需要的数据库脚本： `D:/developer/nacos220/conf/nacos-mysql.sql`  
+4. 向lamp_nacos库中导入nacos需要的数据库脚本： `D:/developer/nacos220/conf/nacos-mysql.sql`  
 
    ::: tip
 
@@ -62,15 +60,15 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
 
    :::
 
-6. 启动nacos服务，进入`bin`目录，执行命令启动
+5. 启动nacos服务，进入`bin`目录，执行命令启动
 
 - Linux/Unix/Mac: `sh startup.sh -m standalone`
 
 - Windows: `cmd startup.cmd -m standalone` 运行文件。
-7. 访问nacos管理台验证系统是否启动成功
+6. 访问nacos管理台验证系统是否启动成功
    - 地址：[http://localhost:8848/nacos/](http://localhost:8848/nacos/)
    - 账号:   nacos
    - 密码：nacos
 
-8. 从nacos2.0.0开始，需要开通7848、8848、9848、9849 四个端口。
+7. 从nacos2.0.0开始，需要开通7848、8848、9848、9849 四个端口。
 <!-- #endregion base -->
