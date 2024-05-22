@@ -24,8 +24,8 @@ yum install -y epel-release conntrack ipvsadm ipset jq iptables curl sysstat lib
 mkdir -p /root/download
 cd /root/download
 
-wget https://download.docker.com/linux/static/stable/x86_64/docker-20.10.7.tgz
-tar -xvf docker-20.10.7.tgz
+wget https://download.docker.com/linux/static/stable/x86_64/docker-26.1.3.tgz
+tar -xvf docker-26.1.3.tgz
 ```
 
 安装：

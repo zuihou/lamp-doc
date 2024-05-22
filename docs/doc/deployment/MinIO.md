@@ -19,20 +19,79 @@ tag:
    chmod +x minio
    ```
 
-   
-
-2. 启动
+2. vim  /usr/lib/systemd/system/minio.service
 
    ```shell
-   export MINIO_ROOT_USER=admin
-   export MINIO_ROOT_PASSWORD="ZHadmin123." 
+   [Unit]
+   Description=MinIO
+   Documentation=https://min.io/docs/minio/linux/index.html
+   Wants=network-online.target
+   After=network-online.target
+   AssertFileIsExecutable=/opt/minio/minio
    
-   nohup /opt/minio/minio server --config-dir /opt/minio/config /data > /opt/minio/minio.log 2>&1 &
+   [Service]
+   WorkingDirectory=/opt/minio
+   
+   #User=minio-user
+   #Group=minio-user
+   #ProtectProc=invisible
+   
+   EnvironmentFile=/opt/minio/config.conf
+   ExecStartPre=/bin/bash -c "if [ -z \"${MINIO_VOLUMES}\" ]; then echo \"Variable MINIO_VOLUMES not set in /opt/minio/config.conf\"; exit 1; fi"
+   ExecStart=/opt/minio/minio server $MINIO_OPTS $MINIO_VOLUMES
+   
+   # Let systemd restart this service always
+   Restart=always
+   
+   # Specifies the maximum file descriptor number that can be opened by this process
+   LimitNOFILE=65536
+   
+   # Specifies the maximum number of threads this process can create
+   TasksMax=infinity
+   
+   # Disable timeout logic and wait until process is stopped
+   TimeoutStopSec=infinity
+   SendSIGKILL=no
+   
+   [Install]
+   WantedBy=multi-user.target
    ```
+
+   
+
+3. vim /opt/minio/config
+
+   ```shell
+   MINIO_ROOT_USER=admin
+   MINIO_ROOT_PASSWORD=ZHadmin123.
+   
+   MINIO_VOLUMES="/data/minio-data"
+   
+   MINIO_OPTS="--console-address :9001 --config-dir /opt/minio/configdir"
+   
+   #MINIO_SERVER_URL="http://minio.example.net:9000"
+   ```
+
+   
+
+4. 启动
+
+   ```shell
+   # 启动
+   sudo systemctl start minio.service
+   # 开机启动
+   sudo systemctl enable minio.service
+   
+   # 状态
+   sudo systemctl status minio.service
+   journalctl -f -u minio.service
+   ```
+
+   
 
 ## 访问
 
-http://172.30.30.194:9000
+http://ip:9001
 
 
 
