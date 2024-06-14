@@ -46,6 +46,7 @@ export const zhSidebar = sidebar({
               "将配置文件导入Nacos",
               "后端启动",
               "前端启动",
+              "前端启动_soybean",
               "模式区别",
           ]
         },
@@ -57,6 +58,7 @@ export const zhSidebar = sidebar({
               "Nacos和Seata启动",
               "后端启动",
               "前端启动",
+              "前端启动_soybean",
               "配置文件介绍",
           ]
         },

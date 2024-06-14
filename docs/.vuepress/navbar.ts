@@ -24,9 +24,11 @@ export function zhNavbar(base: string) {
   list.push({
     text: "在线演示",
     children:[
-      {text: "数据源模式(企业版)", link: "https://datasource.tangyh.top/"},
-      {text: "字段模式(企业版)", link: "https://column.tangyh.top/"},
-      {text: "非租户模式(开源版)", link: "https://none.tangyh.top/"},
+      {text: "企业版数据源模式(vben)", link: "https://datasource.tangyh.top/"},
+      {text: "企业版字段模式(vben)", link: "https://column.tangyh.top/"},
+      {text: "企业版数据源模式(soybean)", link: "https://soy-datasource.tangyh.top/"},
+      {text: "企业版字段模式(soybean)", link: "https://soy-column.tangyh.top/"},
+      {text: "开源版非租户模式(vben)", link: "https://none.tangyh.top/"},
     ]
   });
   if (flag) {
@@ -42,6 +44,7 @@ export function zhNavbar(base: string) {
     text: "历史文档",
     children:[
       { text: "最新文档", link: "https://tangyh.top" },
+      { text: "4.19.0", link: "https://tangyh.top/4.19.0/" },
       { text: "4.18.0", link: "https://tangyh.top/4.18.0/" },
       { text: "4.17.0", link: "https://tangyh.top/4.17.0/" },
       { text: "3.x", link: "https://www.kancloud.cn/zuihou/zuihou-admin-cloud" }

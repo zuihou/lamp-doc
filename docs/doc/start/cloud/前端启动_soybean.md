@@ -1,5 +1,5 @@
 ---
-title: 前端启动(vben版)
+title: 前端启动(soybean版)
 icon: config2
 category:
   - 快速启动
@@ -8,4 +8,4 @@ tag:
   - 前端启动
 ---
 
-<!-- @include: ../前端启动.snippet.md -->
+<!-- @include: ../前端启动_soybean.snippet.md -->

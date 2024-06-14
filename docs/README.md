@@ -38,7 +38,7 @@ features:
 
 
 copyright: false
-footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52011502002216" target="_blank"><img src="/images/global/gongan.png"><span>贵公网安备 52011502002216号</span></a> | <a href="http://beian.miit.gov.cn/" target="_blank"><img src="/images/global/gongan.png"><span>黔ICP备2021004749号</span></a>
+footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52011502002216" target="_blank"><img src="/images/global/gongan.png"><span>贵公网安备 52011502002216号</span></a> | <a href="http://beian.miit.gov.cn/" target="_blank"><img src="/images/global/gongan.png"><span>黔ICP备2021004749号</span></a>
 ---
 <div>
     <div style="padding-bottom: 60px;"></div>
@@ -56,11 +56,13 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
         <div class="feature-box">
             <div class="feature">
                 <h2 id="ds">4.x企业版(数据源模式)</h2>
-                <p><a target="_blank" href="https://datasource.tangyh.top">体验地址</a></p>
+                <p><a target="_blank" href="https://datasource.tangyh.top">体验地址（基于vben开发）</a></p>
+                <p><a target="_blank" href="https://soy-datasource.tangyh.top">体验地址（基于soybean开发）</a></p>
             </div>
             <div class="feature">
                 <h2 id="column">4.x企业版(字段模式)</h2>
-                <p><a target="_blank" href="https://column.tangyh.top">体验地址</a></p>
+                <p><a target="_blank" href="https://column.tangyh.top">体验地址（基于vben开发）</a></p>
+                <p><a target="_blank" href="https://soy-column.tangyh.top">体验地址（基于soybean开发）</a></p>
             </div>
             <div class="feature">
                 <h2 id="none">4.x开源版(非租户模式)</h2>
@@ -68,11 +70,11 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
             </div>
         </div>
         <p>
-            lamp-cloud 项目（开源版）于2022年11月正式加入 Dromara 开源组织。<br/>
             开源版是因为热爱，企业版是妥协于生活。
         </p>
     </div>
 </div>
+
 
 <!-- ------------ Dromara 成员项目 ------------- -->
 <div>
@@ -195,10 +197,6 @@ footer: Apache-2.0 license | Copyright ©2017-2023 | 作者：最后 | <a href="
       <p>
           为往圣继绝学，一个人或许能走的更快，但一群人会走的更远。
       </p>
-      <div style=" margin: 40px 14px 0; padding: 20px 0 10px; background-color: #f4f5f7;">
-          <h3 id="zsxq" style="padding: 0px 0 10px; ">Dromara 知识星球</h3>
-          <img src="https://oss.dev33.cn/sa-token/dromara-xingqiu--sa-token.jpg" style="width: 300px;">
-      </div>
   </div>
   <div style="height: 30px;"></div>
 </div>
