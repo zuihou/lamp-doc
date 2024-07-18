@@ -38,7 +38,7 @@ features:
 
 
 copyright: false
-footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52011502002216" target="_blank"><img src="/images/global/gongan.png"><span>贵公网安备 52011502002216号</span></a> | <a href="http://beian.miit.gov.cn/" target="_blank"><img src="/images/global/gongan.png"><span>黔ICP备2021004749号</span></a>
+footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52011502002216" target="_blank"><img src="/images/global/gongan.png"><span>贵公网安备 52011502002216号</span></a> | <a href="http://beian.miit.gov.cn/" target="_blank"><img src="/images/global/gongan.png"><span>黔ICP备2021004749号-1</span></a>
 ---
 <div>
     <div style="padding-bottom: 60px;"></div>
