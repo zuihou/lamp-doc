@@ -8,7 +8,7 @@ export function zhNavbar(base: string) {
       icon: "start1",
     },
     {
-      text: "企业版文档",
+      text: "赞助版文档",
       link: "/doc/简介",
       icon: "featuresNew",
     },
@@ -19,15 +19,15 @@ export function zhNavbar(base: string) {
     },
   ];
   if (flag) {
-    list.push({ text: "企业授权", link: "/vip/授权费用", icon: "code-box-fill" });
+    list.push({ text: "立即获取", link: "/vip/如何赞助", icon: "code-box-fill" });
   }
   list.push({
     text: "在线演示",
     children:[
-      {text: "企业版数据源模式(vben)", link: "https://datasource.tangyh.top/"},
-      {text: "企业版字段模式(vben)", link: "https://column.tangyh.top/"},
-      {text: "企业版数据源模式(soybean)", link: "https://soy-datasource.tangyh.top/"},
-      {text: "企业版字段模式(soybean)", link: "https://soy-column.tangyh.top/"},
+      {text: "赞助版数据源模式(vben)", link: "https://datasource.tangyh.top/"},
+      {text: "赞助版字段模式(vben)", link: "https://column.tangyh.top/"},
+      {text: "赞助版数据源模式(soybean)", link: "https://soy-datasource.tangyh.top/"},
+      {text: "赞助版字段模式(soybean)", link: "https://soy-column.tangyh.top/"},
       {text: "开源版非租户模式(vben)", link: "https://none.tangyh.top/"},
     ]
   });
@@ -44,6 +44,7 @@ export function zhNavbar(base: string) {
     text: "历史文档",
     children:[
       { text: "最新文档", link: "https://tangyh.top" },
+      { text: "4.20.0", link: "https://tangyh.top/4.20.0/" },
       { text: "4.19.0", link: "https://tangyh.top/4.19.0/" },
       { text: "4.18.0", link: "https://tangyh.top/4.18.0/" },
       { text: "4.17.0", link: "https://tangyh.top/4.17.0/" },

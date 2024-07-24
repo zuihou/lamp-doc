@@ -92,7 +92,7 @@ export default hopeTheme({
       comment: true,
       repo: "dromara/lamp-cloud",
       repoId: "MDEwOlJlcG9zaXRvcnkxMTc3NzQyOTA=",
-      category: "企业版",
+      category: "赞助版",
       categoryId: "DIC_kwDOBwUX0s4CVI47",
     },
 

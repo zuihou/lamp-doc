@@ -9,7 +9,7 @@ tag:
   - lamp-boot
 ---
 
-开源版lamp-util项目中lamp-boot-util模块，就是企业版lamp-util项目中的lamp-boot模块，因为开源版有一个独立的单体项目lamp-boot，为了防止重名特意调整了开源版lamp-util项目中lamp-boot-util模块的名字， 这个模块主要封装了SpringBoot相关的配置和工具类。
+开源版lamp-util项目中lamp-boot-util模块，就是赞助版lamp-util项目中的lamp-boot模块，因为开源版有一个独立的单体项目lamp-boot，为了防止重名特意调整了开源版lamp-util项目中lamp-boot-util模块的名字， 这个模块主要封装了SpringBoot相关的配置和工具类。
 
 
 

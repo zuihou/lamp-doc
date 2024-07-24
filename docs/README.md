@@ -55,12 +55,12 @@ footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="
         <h2 id="link" class="s-title">项目体验地址</h2>
         <div class="feature-box">
             <div class="feature">
-                <h2 id="ds">4.x企业版(数据源模式)</h2>
+                <h2 id="ds">4.x赞助版(数据源模式)</h2>
                 <p><a target="_blank" href="https://datasource.tangyh.top">体验地址（基于vben开发）</a></p>
                 <p><a target="_blank" href="https://soy-datasource.tangyh.top">体验地址（基于soybean开发）</a></p>
             </div>
             <div class="feature">
-                <h2 id="column">4.x企业版(字段模式)</h2>
+                <h2 id="column">4.x赞助版(字段模式)</h2>
                 <p><a target="_blank" href="https://column.tangyh.top">体验地址（基于vben开发）</a></p>
                 <p><a target="_blank" href="https://soy-column.tangyh.top">体验地址（基于soybean开发）</a></p>
             </div>
@@ -69,9 +69,6 @@ footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="
                 <p><a target="_blank" href="https://none.tangyh.top">体验地址</a></p>
             </div>
         </div>
-        <p>
-            开源版是因为热爱，企业版是妥协于生活。
-        </p>
     </div>
 </div>
 
