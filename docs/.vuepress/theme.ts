@@ -102,11 +102,11 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>4.16.0-java17</b>已发布：",
+            title: "<b>4.21.0-java17</b>已发布：",
             content:
               '<ul>' +
-                '<li>none模式正式开源</li>' +
-                '<li>去除资源类型中视图，使用是否隐藏字段控制</li>' +
+                '<li>适配sa-token</li>' +
+                '<li>重构uri鉴权</li>' +
                 '</ul>',
             actions: [
               {
