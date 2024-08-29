@@ -103,7 +103,7 @@ hutool算法：**12 bits**可支持每毫秒**4096**个并发，即**2^12**个�
 ### 1. 生成的 id 重复？
 
 ```yaml
-# database.yml
+# mysql.yml
 lamp:
   database:
     # id生成策略  # HU_TOOL  DEFAULT
@@ -174,7 +174,7 @@ lamp:
 
   ::: code-tabs
 
-  @tab database.yml
+  @tab mysql.yml
 
   ```yml
   lamp:
