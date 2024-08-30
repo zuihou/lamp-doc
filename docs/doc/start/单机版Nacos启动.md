@@ -28,7 +28,7 @@ tag:
 ## 安装步骤
 
 1. 从官网下载官方安装包
-   您可以从 [最新稳定版本](https://github.com/alibaba/nacos/releases) 下载==nacos-server-2.2.0.zip==包，解压到 D:\developer\nacos2020
+   您可以从 [最新稳定版本](https://github.com/alibaba/nacos/releases) 下载==nacos-server-xxx.zip==包，解压到 D:\developer\nacos
 
 ```shell
 unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
@@ -36,7 +36,7 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
 
 ![](/images/start/nacos目录介绍.png)
 
-2. 解压nacos压缩包， 进入nacos文件夹，并修改`D:/developer/nacos220/conf/application.properties` 文件, 调整数据库配置：
+2. 解压nacos压缩包， 进入nacos文件夹，并修改`D:/developer/nacos/conf/application.properties` 文件, 调整数据库配置：
 
     ```properties
     spring.datasource.platform=mysql
@@ -44,6 +44,12 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
     db.url.0=jdbc:mysql://127.0.0.1:3306/lamp_nacos?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
     db.user=root
     db.password=root
+    
+    nacos.core.auth.enabled=true
+    nacos.core.auth.server.identity.key=nacos
+    nacos.core.auth.server.identity.value=nacos
+    nacos.core.auth.plugin.nacos.token.secret.key=lamp012345678901234567890123456789012345678901234567890123456789
+    nacos.console.ui.enabled=true
     ```
 
 3. 创建数据库
@@ -52,11 +58,13 @@ unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz
    CREATE DATABASE `lamp_nacos` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
    ```
 
-4. 向lamp_nacos库中导入nacos需要的数据库脚本： `D:/developer/nacos220/conf/nacos-mysql.sql`  
+4. 向lamp_nacos库中导入nacos需要的数据库脚本： `D:/developer/nacos/conf/nacos-mysql.sql`  
 
    ::: tip
 
-   nacos-mysql.sql 这个脚本位于 nacos 压缩包中，请认真查看nacos压缩包中的内容，找到该sql文件！
+   - nacos-mysql.sql 这个脚本位于 nacos 压缩包中，请认真查看nacos压缩包中的内容，找到该sql文件！
+
+   - mysql-schema.sql 某些版本
 
    :::
 

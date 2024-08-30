@@ -30,7 +30,7 @@ features:
 
 - title: 前沿的技术
   icon: rise
-  details: vue3、jdk、SpringBoot、SpringCloud等主流版本
+  details: vue3、jdk8、jdk17、jdk21、SpringBoot、SpringCloud、sa-token、hutool等主流版本
 
 - title: 丰富功能
   icon: arrawsalt
