@@ -14,6 +14,7 @@ export const zhSidebar = sidebar({
       prefix: "info/",
       collapsible: COLLAPSIBLE,
       children: [
+        "同步代码",
         "功能介绍",
         "项目介绍",
         "架构介绍",
