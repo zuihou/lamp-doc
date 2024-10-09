@@ -19,7 +19,7 @@ export function zhNavbar(base: string) {
     },
   ];
   if (flag) {
-    list.push({ text: "立即获取", link: "/vip/如何赞助", icon: "code-box-fill" });
+    list.push({ text: "获取赞助版", link: "/vip/如何赞助", icon: "code-box-fill" });
   }
   list.push({
     text: "在线演示",
@@ -35,9 +35,10 @@ export function zhNavbar(base: string) {
     list.push({
       text: "升级日志",
       children:[
+        "/upgrade/5.x版本升级日志",
         "/upgrade/4.x版本升级日志",
         "/upgrade/3.x版本升级日志",
-        "/upgrade/4.x功能蓝图" ]
+        "/upgrade/功能蓝图" ]
     });
   }
   list.push({

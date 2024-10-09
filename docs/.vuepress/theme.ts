@@ -102,21 +102,21 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>4.21.0-java17</b>已发布：",
+            title: "<b>5.0.0</b>已发布：",
             content:
               '<ul>' +
-                '<li>适配sa-token</li>' +
-                '<li>重构uri鉴权</li>' +
+                '<li>融合单体版和微服务版工程</li>' +
+                '<li>依赖升级</li>' +
                 '</ul>',
             actions: [
               {
                 text: "了解详情→",
-                link: "/upgrade/4.x版本升级日志.html",
+                link: "/upgrade/5.x版本升级日志.html",
                 type: "primary",
               },
             ],
             showOnce: true,
-            key: "4.14.3",
+            key: "5.0.0",
           }
         ],
       },
