@@ -354,6 +354,7 @@ export const zhSidebar = sidebar({
         "Jenkins",
         "用docker手动部署",
         "Jenkins部署jar",
+        "阿里云云效部署",
         "Nginx配置",
         "上线必看",
       ],
