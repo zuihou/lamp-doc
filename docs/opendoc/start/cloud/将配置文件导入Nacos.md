@@ -12,72 +12,56 @@ tag:
 
 1. 登录nacos控制台，[http://localhost:8848/nacos/](http://localhost:8848/nacos/)，访问 ==命名空间== 页面，点击表格右上角 ==新建命名空间== 按钮
 
-   - 命名空间ID： de77077f-5d30-48d6-9374-d794301df2f2
-   - 命名空间名称： lamp-cloud-pro-none
-   - 描述：lamp-cloud-pro-none
+   - 命名空间ID： 2b3d2475-cea6-4c4b-8047-fec9985a2f9c
+   - 命名空间名称： lamp-cloud
+   - 描述：lamp-cloud
 
    ![新建命名空间](/images/start/Nacos新建命名空间.png)
 
-2. 修改项目配置文件  [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/src/main/filters/config-dev.properties)  中的  ==nacos.namespace== 为上一步新建的==命名空间ID==
+2. 修改项目配置文件  [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/java17%2F5.x/src/main/filters/config-dev.properties)  中的  ==nacos.namespace== 为上一步新建的==命名空间ID==
 
    ![修改项目NacosId](/images/start/Nacos修改项目NacosId.png)
 
-3. 修改 [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/src/main/filters/config-dev.properties)  中 `nacos.ip`  为 nacos的 ip
+3. 修改 [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/java17%2F5.x/src/main/filters/config-dev.properties)  中 `nacos.ip`  为 nacos的 ip
 
-   ::: tip 小技巧
-
-   因为修改了config-dev.properties文件中任何参数，都需要重新编译项目后，才会生效。所以naocs.ip可以配置为域名，方便切换nacos时，不用在编译整个项目。
-
-   当然，就算你的nacos没有域名，也可以在hosts文件配置域名映射：
-
-   ```properties
-   # vim /etc/hosts
-   # 映射的ip 一定是nacos的ip
-   127.0.0.1 lamp.com
+   ```shell
+   nacos.ip=127.0.0.1
+   nacos.port=8848
+   nacos.namespace=52721b73-260b-4fee-bb2a-561ea12f1a7f
+   nacos.username=nacos
+   nacos.password=nacos
    ```
+   
+4. 修改 [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/java17%2F5.x/src/main/filters/config-dev.properties)  中 `database.type`  
 
-   :::
-
-4. 修改 [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/src/main/filters/config-dev.properties)  中 `database.type`  
-
-    ```
+    ```shell
     # 支持mysql.yml、oracle.yml、sqlserver.yml
     database.type=mysql.yml
     ```
 
-5. Mac系统或者Linux系统，修改  [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/src/main/filters/config-dev.properties)  中 `logging.file.path` 。
+5. Mac系统或者Linux系统，修改  [config-dev.properties](https://gitee.com/dromara/lamp-cloud/blob/java17%2F5.x/src/main/filters/config-dev.properties)  中 `logging.file.path` 。
 
    修改为电脑上已经提前创建好的路径，并且要确保当前系统用户拥有该路径的写入权限 。
 
    ```properties
    # 日志存储路径
-   logging.file.path=/Users/tangyh/data/projects/logs
+   logging.file.path=./logs
    ```
 
 6. 将项目的配置文件导入Nacos的 配置管理 - 配置列表
 
-    将 [nacos_config_export.zip](https://gitee.com/dromara/lamp-cloud/blob/4.x_java17/A%E6%9E%81%E5%85%B6%E9%87%8D%E8%A6%81/01-third-party/nacos/nacos_config_export_20240112110214.zip)  压缩包一次性导入nacos。
+    将 [nacos_config_export.zip](https://gitee.com/dromara/lamp-cloud/blob/java17%2F5.x/A%E6%9E%81%E5%85%B6%E9%87%8D%E8%A6%81/01-third-party/nacos/nacos_config_export_20240813123245.zip)  压缩包一次性导入nacos。
 
     ::: warning 敲黑板
 
     -  这里导入的文件必须是nacos中导出压缩包, 自己解压zip修改里面的配置后在压缩成zip是不能导入的！
-
-    -  一定要将配置文件导入或新建到第一步新建的命名空间下，千万不要导入public空间了！
-    -  若我特意的这2点，你还是操作错了, 导致无法启动项目， 那么这个项目可能真的不适合你。
-
+-  一定要将配置文件导入或新建到第一步新建的命名空间下，千万不要导入public空间了！
+    
     :::
 
     ![](/images/start/Nacos导入压缩包.png)
 
 7. 在 nacos 中，修改 mysql.yml、 oracle.yml 或 sqlserver.yml 的 数据库配置信息。
-
-   ::: tip
-
-   datasource模式和column、none 模式，该配置文件有区别。 因为datasource使用dynamic代理数据源，column、none直接使用druid数据源
-
-   :::
-
-   
 
    :::code-tabs#db
 
@@ -91,9 +75,6 @@ tag:
           validation-query: SELECT 'x'
           username: 'root'
           password: 'root'
-          # 生产使用原生驱动，开发使用p6spy驱动打印日志
-          # driverClassName: com.mysql.cj.jdbc.Driver
-          # url: jdbc:mysql://127.0.0.1:3306/lamp_none?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true  
           driverClassName: com.p6spy.engine.spy.P6SpyDriver
           url: jdbc:p6spy:mysql://127.0.0.1:3306/lamp_none?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
         database:  
@@ -124,8 +105,6 @@ tag:
         sqlserver: &db-sqlserver
           username: 'sa'
           password: '1234@abcd'
-          # driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-          # url: jdbc:sqlserver://172.26.3.67:1433;DatabaseName=lamp_none
           driverClassName: com.p6spy.engine.spy.P6SpyDriver
           url: jdbc:p6spy:sqlserver://172.26.3.67:1433;DatabaseName=lamp_none
           db-type: sqlserver

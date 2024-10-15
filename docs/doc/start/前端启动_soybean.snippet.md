@@ -56,7 +56,7 @@
 // 拉取项目代码
 git clone http://git.tangyh.top/zuihou/lamp-web-pro-soybean.git
 
-cd lamp-web-pro 
+cd lamp-web-pro-soybean
 
 // 安装依赖
 pnpm install --registry=https://registry.npmmirror.com
@@ -144,51 +144,53 @@ pnpm install --registry=https://registry.npmmirror.com
 
    ::: tabs
 
-   @tab lamp-cloud
+   @tab 微服务模式
 
    - 下方配置地址：http://localhost:18760 是后台服务 lamp-gateway-server 的地址
 
    - 可以将 http://localhost:18760 改成 https://datasource.tangyh.top 蹭lamp提供的后台服务
 
    ```properties
-   # 若后端项目是 lamp-cloud-xxx，请使用这个配置
    VITE_PROXY=[["/api","http://localhost:18760"],["/basic-api","http://localhost:3000"],["/upload","http://localhost:3300/upload"]]
    ```
+   
 
-   @tab lamp-boot
+@tab 单体模式
 
-   - 下方配置地址：http://localhost:18760 是后台服务 lamp-boot-server 的地址
-
-   - 可以将 http://localhost:18760 改成 https://datasource.tangyh.top 蹭lamp提供的后台服务
-
-   ```properties
-   # 若后端项目是 lamp-boot-xxx
+- 下方配置地址：http://localhost:18760 是后台服务 lamp-boot-server 的地址
+  
+- 可以将 http://localhost:18760 改成 https://datasource.tangyh.top 蹭lamp提供的后台服务
+  
+```properties
    VITE_PROXY=[[["/api/gateway", "/api/gateway", "/gateway"],"http://localhost:18760"], [["/api", "/api/[A-Za-z0-9]+", ""],"http://localhost:18760"]]
-   ```
+```
 
    :::
 
 3. 启动
 
-   启动命令只区分区分租户模式，无论后端是lamp-boot还是lamp-cloud。
+   启动命令只区分后端采用什么租户模式，不区分是单体模式还是微服务模式。
 
    ::: code-tabs#tenantType
 
-   @tab DATASOURCE
+   @tab 数据源模式
 
    ```bash
+   # 后端是 lamp-datasource-max 项目
    pnpm dev:datasource
    ```
 
-   @tab COLUMN
+   @tab 字段模式
 
    ```bash
+   # 后端是 lamp-column-max 项目
    pnpm dev:column
    ```
 
-   @tab NONE
+   @tab 非租户模式
 
    ```bash
+   # 后端是 lamp-cloud 项目
    pnpm dev:none
    ```
 
@@ -196,28 +198,31 @@ pnpm install --registry=https://registry.npmmirror.com
 
 4. 打包
 
-   打包命令只区分区分租户模式，无论后端是lamp-boot还是lamp-cloud。
+   启动命令只区分后端采用什么租户模式，不区分是单体模式还是微服务模式。
 
    ::: code-tabs#tenantType
 
-   @tab DATASOURCE
+   @tab 数据源模式
 
    ```bash
-   pnpm build:datasource	
+   # 后端是 lamp-datasource-max 项目
+   pnpm build:prod:datasource	
    ```
-
-   @tab COLUMN
-
+   
+   @tab 字段模式
+   
    ```bash
-   pnpm build:column
+   # 后端是 lamp-column-max 项目
+   pnpm build:prod:column
    ```
 
-   @tab NONE
-
+   @tab 非租户模式
+   
    ```bash
-   pnpm build:none
+   # 后端是 lamp-cloud 项目
+   pnpm build:prod:none
    ```
-
+   
    :::
 
 
