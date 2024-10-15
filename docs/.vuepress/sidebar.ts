@@ -36,31 +36,52 @@ export const zhSidebar = sidebar({
         "服务介绍",
         "环境要求",
         "项目导入",
-        "单机版Nacos启动",
-        "集群版Nacos启动",
-        "单机版Seata启动",
         {
-          "text": "微服务版",
+          "text": "中间件启动",
+          collapsible: COLLAPSIBLE,
+          prefix: "middleware/",
+          "children": [
+            "单机版Nacos启动",
+            "集群版Nacos启动",
+            "单机版Seata启动",
+          ]
+        },
+        {
+          "text": "后端(微服务模式)",
           collapsible: COLLAPSIBLE,
           prefix: "cloud/",
           "children": [
               "将配置文件导入Nacos",
               "后端启动",
-              "前端启动",
-              "前端启动_soybean",
               "模式区别",
           ]
         },
         {
-          "text": "单体版",
+          "text": "后端(单体模式)",
           collapsible: COLLAPSIBLE,
           prefix: "boot/",
           "children": [
               "Nacos和Seata启动",
               "后端启动",
+              "配置文件介绍",
+          ]
+        },
+        {
+          "text": "前端",
+          collapsible: COLLAPSIBLE,
+          prefix: "front/",
+          "children": [
               "前端启动",
               "前端启动_soybean",
-              "配置文件介绍",
+          ]
+        },
+        {
+          "text": "定时任务",
+          collapsible: COLLAPSIBLE,
+          prefix: "job/",
+          "children": [
+              "调度器启动",
+              "执行器启动",
           ]
         },
       ],

@@ -31,6 +31,12 @@ tag:
    db.url.0=jdbc:mysql://127.0.0.1:3306/lamp_nacos?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true
    db.user=root
    db.password=root
+   
+   nacos.core.auth.enabled=true
+   nacos.core.auth.server.identity.key=nacos
+   nacos.core.auth.server.identity.value=nacos
+   nacos.core.auth.plugin.nacos.token.secret.key=lamp012345678901234567890123456789012345678901234567890123456789
+   nacos.console.ui.enabled=true
    ```
 
 4. 在nginx(ip4)服务器上，安装nginx。
@@ -88,7 +94,7 @@ tag:
 6. 在4台服务器上同时配置防火墙规则
 
    ```shell
-   sudo firewall-cmd --permanent --zone=public --add-port=18760/tcp
+   sudo firewall-cmd --permanent --zone=public --add-port=7848/tcp
    sudo firewall-cmd --permanent --zone=public --add-port=8848/tcp
    sudo firewall-cmd --permanent --zone=public --add-port=9848/tcp
    sudo firewall-cmd --permanent --zone=public --add-port=9849/tcp
@@ -101,7 +107,7 @@ tag:
 
    ![](/images/start/nacos集群验证.png)
 
-9. 配置lamp-cloud： 修改`src/main/filters/config-dev.properties`
+9. 配置lamp-datasource-max： 修改`src/main/filters/config-dev.properties`
 
    ```properties
    nacos.ip=ip4    # (一定是配置nginx 的ip)

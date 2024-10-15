@@ -14,264 +14,240 @@ tag:
 
    ::: tabs#tenantType
 
-   @tab lamp-cloud-pro-datasource-column
+   @tab lamp-datasource-max
 
-   - 命名空间ID： 57d41ddd-c089-449f-8921-bd0e8af14ddc
+   - 命名空间ID： 2d09714b-5693-46bc-83ab-8c8d0e192f76
 
-   - 命名空间名称： lamp-cloud-pro-ds-c   
+   - 命名空间名称：  lamp-datasource-max
 
-   - 描述：lamp-cloud-pro-ds-c
+   - 描述： lamp-datasource-max
 
-   @tab lamp-cloud-pro-column
+   @tab lamp-column-max
 
-   - 命名空间ID： 44676fe5-c76b-4b0c-99cf-fcd031fc68bb
+   - 命名空间ID： 52721b73-260b-4fee-bb2a-561ea12f1a7f
 
-   - 命名空间名称： lamp-cloud-pro-column
+   - 命名空间名称： lamp-column-max
 
-   - 描述：lamp-cloud-pro-column
+   - 描述：lamp-column-max
 
-   @tab lamp-cloud-pro-none
+   @tab lamp-cloud
 
-   - 命名空间ID： de77077f-5d30-48d6-9374-d794301df2f2
+   - 命名空间ID： 2b3d2475-cea6-4c4b-8047-fec9985a2f9c
 
-   - 命名空间名称： lamp-cloud-pro-none
+   - 命名空间名称： lamp-none
 
-   - 描述：lamp-cloud-pro-none
+   - 描述：lamp-none
 
    :::
 
    ![新建命名空间](/images/start/Nacos新建命名空间.png)
 
-2. 修改项目配置文件  [config-dev.properties](http://git.tangyh.top/zuihou/lamp-cloud-pro-datasource-column/blob/master/src/main/filters/config-dev.properties)  中的  ==nacos.namespace== 为上一步新建的==命名空间ID==
+2. 修改项目配置文件  [config-dev.properties](http://git.tangyh.top/zuihou/lamp-datasource-max/blob/java17/5.x/src/main/filters/config-dev.properties)  中的  ==nacos.namespace== 为上一步新建的==命名空间ID==
 
    ![修改项目NacosId](/images/start/Nacos修改项目NacosId.png)
 
-3. 修改 [config-dev.properties](http://git.tangyh.top/zuihou/lamp-cloud-pro-datasource-column/blob/master/src/main/filters/config-dev.properties)  中 `nacos.ip`  为 nacos的 ip
+3. 修改   [config-dev.properties](http://git.tangyh.top/zuihou/lamp-datasource-max/blob/java17/5.x/src/main/filters/config-dev.properties)  中 `nacos.xxx`  、 `database.type`
 
-   ::: tip 小技巧
-
-   因为修改了config-dev.properties文件中任何参数，都需要重新编译项目后，才会生效。所以naocs.ip可以配置为域名，方便切换nacos时，不用在编译整个项目。
-
-   当然，就算你的nacos没有域名，也可以在hosts文件配置域名映射：
-
-   ```properties
-   # vim /etc/hosts
-   # 映射的ip 一定是nacos的ip
-   127.0.0.1 lamp.com
+   ```shell
+   nacos.ip=127.0.0.1
+   nacos.port=8848
+   nacos.namespace=52721b73-260b-4fee-bb2a-561ea12f1a7f
+   nacos.username=nacos
+   nacos.password=nacos
+   
+   # mysql.yml  oracle.yml sqlserver.yml
+   database.type=mysql.yml
    ```
 
-   :::
+   
 
-4. Mac系统或者Linux系统，修改  [config-dev.properties](http://git.tangyh.top/zuihou/lamp-cloud-pro-datasource-column/blob/master/src/main/filters/config-dev.properties)  中 `logging.file.path` 。
+4. 将项目的配置文件导入Nacos的 配置管理 - 配置列表
 
-   修改为电脑上已经提前创建好的路径，并且要确保当前系统用户拥有该路径的写入权限 。
-
-   ```properties
-   # 日志存储路径
-   logging.file.path=/Users/tangyh/data/projects/logs
-   ```
-
-5. 将项目的配置文件导入Nacos的 配置管理 - 配置列表
-  
   将 [nacos_config_export.zip](http://git.tangyh.top/zuihou/docs/blob/master/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/02nacos%E9%85%8D%E7%BD%AE/lamp-cloud-pro-datasource-column)  压缩包一次性导入nacos。
-  
+
   ::: warning 敲黑板
-  
-  -  这里导入的文件必须是nacos中导出压缩包, 自己解压zip修改里面的配置后在压缩成zip是不能导入的！
-  
+
+  -  这里导入的文件必须是nacos中导出压缩包, 自己解压zip修改里面的配置后在压缩成zip后导入可能会报错！
   - 一定要将配置文件导入或新建到第一步新建的命名空间下，千万不要导入public空间了！
-  - 若我特意的这2点，你还是操作错了, 导致无法启动项目， 那么这个项目可能真的不适合你。
-  
+
   :::
-  
-  
-  
+
   ![](/images/start/Nacos导入压缩包.png)
+
+ 
+
+5. 在 nacos 中，修改 mysql.yml、 oracle.yml 或 sqlserver.yml 的 数据库配置信息。
+
+::: tip
+
+datasource模式和column、none 模式，该配置文件有区别。 因为datasource使用dynamic代理数据源，column、none直接使用druid数据源
+
+:::
+
+- lamp-datasource-max
+
+  :::code-tabs#db
+
+     @tab mysql
+
+     ```yaml
+     lamp:
+       mysql: &db-mysql
+         username: 'root'
+         password: 'root'
+         driverClassName: com.mysql.cj.jdbc.Driver
+         url: jdbc:mysql://127.0.0.1:3306/lamp_ds_c_defaults?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
+       database:  
+         multiTenantType: DATASOURCE_COLUMN   # 可选值 DATASOURCE_COLUMN COLUMN
+     ```
+
+     @tab oracle
+
+     ```yaml
+     lamp:
+       # 你使用什么数据库，就修改对应数据库的账号密码
+       oracle: &db-oracle
+         username: 'lamp_ds_c_defaults'
+         password: 'lamp_ds_c_defaults'
+         driverClassName: oracle.jdbc.driver.OracleDriver
+         url: jdbc:oracle:thin:@172.26.3.67:1521:helowin
+       database:  
+         multiTenantType: DATASOURCE_COLUMN   # 可选值 DATASOURCE_COLUMN COLUMN    
+     ```
+
+     @tab sqlserver
+
+     ```yaml
+     lamp:
+       sqlserver: &db-sqlserver
+         username: 'sa'
+         password: '1234@abcd'
+         driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+         url: jdbc:sqlserver://172.26.3.67:1433;DatabaseName=lamp_ds_c_defaults
+         init:
+           separator: GO
+       database:  
+         multiTenantType: DATASOURCE_COLUMN   # 可选值 DATASOURCE_COLUMN COLUMN      
+     ```
+
+     :::
+
+- lamp-column-max
+
+  :::code-tabs#db
+
+     @tab mysql
+
+     ```yaml
+     lamp:
+       mysql: &db-mysql
+         db-type: mysql
+         validation-query: SELECT 'x'
+         filters: stat,wall
+         username: 'root'
+         password: 'root' 
+         driverClassName: com.p6spy.engine.spy.P6SpyDriver
+         url: jdbc:p6spy:mysql://127.0.0.1:3306/lamp_column?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
+       database:  
+         multiTenantType: COLUMN  # 固定填 COLUMN
+     ```
   
+     @tab oracle
   
+     ```yaml
+     lamp:
+       oracle: &db-oracle
+         db-type: oracle
+         validation-query: SELECT 'x' FROM DUAL
+         filters: stat,wall,slf4j       # druid不支持使用p6spy打印日志，所以采用druid 的 slf4j 过滤器来打印可执行日志
+         username: 'lamp_column'
+         password: 'lamp_column'
+         driverClassName: oracle.jdbc.driver.OracleDriver
+         url: jdbc:oracle:thin:@172.26.3.67:1521:helowin
+       database:  
+         multiTenantType: COLUMN  # 固定填 COLUMN
+     ```
+  
+     @tab sqlserver
+  
+     ```yaml
+     lamp:
+       sqlserver: &db-sqlserver
+         username: 'sa'
+         password: '1234@abcd'
+         driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+         url: jdbc:sqlserver://172.26.3.67:1433;DatabaseName=lamp_column
+         db-type: sqlserver
+         validation-query: SELECT 'x'
+         filters: stat,wall
+       database:  
+         multiTenantType: COLUMN  # 固定填 COLUMN
+     ```
+  
+     :::
+  
+- lamp-cloud
 
-6. 在 nacos 中，修改 mysql.yml、 oracle.yml 或 sqlserver.yml 的 数据库配置信息。
+  :::code-tabs#db
 
-   ::: tip
+     @tab mysql
 
-   datasource模式和column、none 模式，该配置文件有区别。 因为datasource使用dynamic代理数据源，column、none直接使用druid数据源
+     ```yaml
+     lamp:
+       mysql: &db-mysql
+         filters: stat,wall
+         db-type: mysql
+         validation-query: SELECT 'x'
+         username: 'root'
+         password: 'root'
+         driverClassName: com.p6spy.engine.spy.P6SpyDriver
+         url: jdbc:p6spy:mysql://127.0.0.1:3306/lamp_none?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
+       database:  
+           multiTenantType: NONE  # 固定填 NONE
+     
+     ```
+  
+     @tab oracle
+  
+     ```yaml
+     lamp:
+       oracle: &db-oracle
+         db-type: oracle
+         validation-query: SELECT 'x' FROM DUAL
+         filters: stat,wall,slf4j    # druid不支持使用p6spy打印日志，所以采用druid 的 slf4j 过滤器来打印可执行日志
+         username: 'lamp_none'
+         password: 'lamp_none'
+         driverClassName: oracle.jdbc.driver.OracleDriver
+         url: jdbc:oracle:thin:@172.26.3.67:1521:helowin
+       database:  
+           multiTenantType: NONE  # 固定填 NONE
+     ```
+  
+     @tab sqlserver
+  
+     ```yaml
+     lamp:
+       sqlserver: &db-sqlserver
+         username: 'sa'
+         password: '1234@abcd'
+         driverClassName: com.p6spy.engine.spy.P6SpyDriver
+         url: jdbc:p6spy:sqlserver://172.26.3.67:1433;DatabaseName=lamp_none
+         db-type: sqlserver
+         validation-query: SELECT 'x'
+         filters: stat,wall
+       database:  
+           multiTenantType: NONE   # 固定填 NONE
+     ```
+  
+     :::
 
-   :::
+::: tip &db-mysql、&db-sqlserver、&db-oracle 是什么意思？ 
 
-   - lamp-cloud-pro-datasource-column
+ yml 中的锚点引用。  [点我了解锚点引用](https://www.baidu.com/s?wd=yml%20%E9%94%9A%E7%82%B9%E5%BC%95%E7%94%A8)
 
-     :::code-tabs#db
+:::
 
-        @tab mysql
-
-        ```yaml
-        lamp:
-          mysql: &db-mysql
-            username: 'root'
-            password: 'root'
-            driverClassName: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://127.0.0.1:3306/lamp_ds_c_defaults?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
-          database:  
-            multiTenantType: DATASOURCE_COLUMN   # 可选值 DATASOURCE_COLUMN COLUMN
-        ```
-
-        @tab oracle
-
-        ```yaml
-        lamp:
-          # 你使用什么数据库，就修改对应数据库的账号密码
-          oracle: &db-oracle
-            username: 'lamp_ds_c_defaults'
-            password: 'lamp_ds_c_defaults'
-            driverClassName: oracle.jdbc.driver.OracleDriver
-            url: jdbc:oracle:thin:@172.26.3.67:1521:helowin
-          database:  
-            multiTenantType: DATASOURCE_COLUMN   # 可选值 DATASOURCE_COLUMN COLUMN    
-        ```
-
-        @tab sqlserver
-
-        ```yaml
-        lamp:
-          sqlserver: &db-sqlserver
-            username: 'sa'
-            password: '1234@abcd'
-            driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-            url: jdbc:sqlserver://172.26.3.67:1433;DatabaseName=lamp_ds_c_defaults
-            init:
-              separator: GO
-          database:  
-            multiTenantType: DATASOURCE_COLUMN   # 可选值 DATASOURCE_COLUMN COLUMN      
-        ```
-
-        :::
-
-   - lamp-cloud-pro-column
-
-     :::code-tabs#db
-
-        @tab mysql
-
-        ```yaml
-        lamp:
-          mysql: &db-mysql
-            db-type: mysql
-            validation-query: SELECT 'x'
-            filters: stat,wall
-            username: 'root'
-            password: 'root'
-            # 生产使用原生驱动，开发使用p6spy驱动打印日志
-            # driverClassName: com.mysql.cj.jdbc.Driver
-            # url: jdbc:mysql://127.0.0.1:3306/lamp_column?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true  
-            driverClassName: com.p6spy.engine.spy.P6SpyDriver
-            url: jdbc:p6spy:mysql://127.0.0.1:3306/lamp_column?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
-          database:  
-            multiTenantType: COLUMN  # 固定填 COLUMN
-        ```
-
-        @tab oracle
-
-        ```yaml
-        lamp:
-          oracle: &db-oracle
-            db-type: oracle
-            validation-query: SELECT 'x' FROM DUAL
-            filters: stat,wall,slf4j       # druid不支持使用p6spy打印日志，所以采用druid 的 slf4j 过滤器来打印可执行日志
-            username: 'lamp_column'
-            password: 'lamp_column'
-            driverClassName: oracle.jdbc.driver.OracleDriver
-            url: jdbc:oracle:thin:@172.26.3.67:1521:helowin
-          database:  
-            multiTenantType: COLUMN  # 固定填 COLUMN
-        ```
-
-        @tab sqlserver
-
-        ```yaml
-        lamp:
-          sqlserver: &db-sqlserver
-            username: 'sa'
-            password: '1234@abcd'
-            driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-            url: jdbc:sqlserver://172.26.3.67:1433;DatabaseName=lamp_column
-            #driverClassName: com.p6spy.engine.spy.P6SpyDriver
-            # url: jdbc:p6spy:sqlserver://172.26.3.67:1433;DatabaseName=lamp_column
-            db-type: sqlserver
-            validation-query: SELECT 'x'
-            filters: stat,wall
-          database:  
-            multiTenantType: COLUMN  # 固定填 COLUMN
-        ```
-
-        :::
-
-   - lamp-cloud-pro-none
-
-     :::code-tabs#db
-
-        @tab mysql
-
-        ```yaml
-        lamp:
-          mysql: &db-mysql
-            filters: stat,wall
-            db-type: mysql
-            validation-query: SELECT 'x'
-            username: 'root'
-            password: 'root'
-            # 生产使用原生驱动，开发使用p6spy驱动打印日志
-            # driverClassName: com.mysql.cj.jdbc.Driver
-            # url: jdbc:mysql://127.0.0.1:3306/lamp_none?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true  
-            driverClassName: com.p6spy.engine.spy.P6SpyDriver
-            url: jdbc:p6spy:mysql://127.0.0.1:3306/lamp_none?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&nullCatalogMeansCurrent=true
-          database:  
-              multiTenantType: NONE  # 固定填 NONE
-        
-        ```
-
-        @tab oracle
-
-        ```yaml
-        lamp:
-          oracle: &db-oracle
-            db-type: oracle
-            validation-query: SELECT 'x' FROM DUAL
-            filters: stat,wall,slf4j    # druid不支持使用p6spy打印日志，所以采用druid 的 slf4j 过滤器来打印可执行日志
-            username: 'lamp_none'
-            password: 'lamp_none'
-            driverClassName: oracle.jdbc.driver.OracleDriver
-            url: jdbc:oracle:thin:@172.26.3.67:1521:helowin
-          database:  
-              multiTenantType: NONE  # 固定填 NONE
-        ```
-
-        @tab sqlserver
-
-        ```yaml
-        lamp:
-          sqlserver: &db-sqlserver
-            username: 'sa'
-            password: '1234@abcd'
-            # driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-            # url: jdbc:sqlserver://172.26.3.67:1433;DatabaseName=lamp_none
-            driverClassName: com.p6spy.engine.spy.P6SpyDriver
-            url: jdbc:p6spy:sqlserver://172.26.3.67:1433;DatabaseName=lamp_none
-            db-type: sqlserver
-            validation-query: SELECT 'x'
-            filters: stat,wall
-          database:  
-              multiTenantType: NONE   # 固定填 NONE
-        ```
-
-        :::
-
-   ::: tip &db-mysql、&db-sqlserver、&db-oracle 是什么意思？ 
-
-    yml 中的锚点引用。  [点我了解锚点引用](https://www.baidu.com/s?wd=yml%20%E9%94%9A%E7%82%B9%E5%BC%95%E7%94%A8)
-
-   :::
-
-7. 在 nacos 中，修改 redis.yml 的IP、端口、账号密码。    [redis.yml](http://git.tangyh.top/zuihou/docs/tree/master/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/02nacos%E9%85%8D%E7%BD%AE/lamp-cloud-pro-datasource-column/DEFAULT_GROUP/redis.yml)
+6. 在 nacos 中，修改 redis.yml 的IP、端口、账号密码。 
 
    ```yaml
    lamp:
@@ -284,7 +260,7 @@ tag:
         database: 0
    ```
 
-8. 在 nacos 中，修改 rabbitmq.yml 的IP、端口、账号密码。
+7. 在 nacos 中，修改 rabbitmq.yml 的IP、端口、账号密码。
 
    ```yaml
    lamp:
