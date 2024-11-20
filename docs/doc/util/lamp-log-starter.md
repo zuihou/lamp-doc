@@ -89,11 +89,9 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
 
 
 
-
+<!-- #region defaults -->
 
 ## defaults.xml 全局的logback 日志基础模版
-
-<!-- #region defaults -->
 
 这个logback的配置文件将整个项目中最常用的日志配置抽取到这里.
 1. 通过springProperty标签设置的参数,  可以在项目的application.yml配置文件中, 设置source属性对其defaultValue进行覆盖
