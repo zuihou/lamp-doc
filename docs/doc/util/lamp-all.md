@@ -9,15 +9,15 @@ tag:
   - lamp-all
 ---
 
-该模块主要用于包含整个lamp-util工程的依赖，便于利用maven的依赖传递性传递依赖。所以lamp-all仅仅是在pom.xml中引入lamp-util中的其他模块，没有业务代码。
+lamp-all模块主要用于包含整个lamp-util工程的依赖，便于利用maven的依赖传递性传递依赖。所以lamp-all仅仅是在pom.xml中引入lamp-util中的其他模块，没有业务代码。
 
-lamp-cloud项目需要用到lamp-util项目的全部模块，lamp-boot项目需要用到除了lamp-cloud-starter外的其他所有模块。所以，在lamp-cloud的各个服务的server层，都需要加入lamp-all的依赖，在lamp-boot的server层加入lamp-all依赖后需排除lamp-cloud-starter。
+微服务模式需要用到lamp-util项目的全部模块，单体模式需要用到除了lamp-cloud-starter外的其他所有模块。所以，在微服务server层，都需要加入lamp-all的依赖，在单体版的server层加入lamp-all依赖后需排除lamp-cloud-starter。
 
 
 
 ::: code-tabs
 
-@tab lamp-cloud
+@tab 微服务版
 
 ```xml
 <dependency>
@@ -26,7 +26,7 @@ lamp-cloud项目需要用到lamp-util项目的全部模块，lamp-boot项目需�
 </dependency>
 ```
 
-@tab lamp-boot
+@tab 单体版
 
 ```xml
 <dependency>

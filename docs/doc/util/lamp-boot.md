@@ -9,7 +9,7 @@ tag:
   - lamp-boot
 ---
 
-开源版lamp-util项目中lamp-boot-util模块，就是赞助版lamp-util项目中的lamp-boot模块，因为开源版有一个独立的单体项目lamp-boot，为了防止重名特意调整了开源版lamp-util项目中lamp-boot-util模块的名字， 这个模块主要封装了SpringBoot相关的配置和工具类。
+开源版lamp-util项目中lamp-webmvc模块，就是赞助版lamp-util-max项目中的lamp-boot模块，因为开源版有一个独立的单体项目lamp-boot，为了防止重名特意调整了开源版lamp-util项目中lamp-webmvc模块的名字， 这个模块主要封装了SpringBoot相关的配置和工具类。
 
 
 
@@ -64,35 +64,9 @@ tag:
 
 ::::
 
-:::: details HeaderThreadLocalInterceptor
 
-::: code-tabs
 
-@tab 代码 
-
-```yml
-lamp:
-  webmvc:
-    header: true
-```
-
-@tab 配置
-
-```java
-		// 用于启用 HeaderThreadLocalInterceptor
-		@Bean
-    @ConditionalOnClass
-    @ConditionalOnProperty(prefix = Constants.PROJECT_PREFIX + ".webmvc", name = "header", havingValue = "true", matchIfMissing = true)
-    public GlobalMvcConfigurer getGlobalMvcConfigurer() {
-        return new GlobalMvcConfigurer();
-    }
-```
-
-:::
-
-::::
-
-## AbstractGlobalExceptionHandler 
+## AbstractGlobalExceptionHandler
 
 拦截到指定的异常后，统一使用R对象返回错误信息。
 
@@ -111,7 +85,7 @@ lamp:
 
 ## HeaderThreadLocalInterceptor
 
-读取请求头中的参数, 放到ContextUtil中
+该拦截器只有微服务模式才需要使用，单体模式不会使用。用于读取请求头中的参数, 放到ContextUtil中
 
 - PATH_HEADER：前端页面的路径
 - TENANT_ID_HEADER： 当前用户的租户ID
@@ -124,7 +98,6 @@ lamp:
 - CURRENT_DEPT_ID_HEADER：当前用户所属部门ID
 - CLIENT_ID_HEADER：客户端ID
 - TRACE_ID_HEADER：日志链路Id
-- TOKEN_HEADER：当前请求的Token
 
 
 

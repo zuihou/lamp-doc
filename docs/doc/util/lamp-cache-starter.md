@@ -11,13 +11,18 @@ tag:
 
 本模块将 ==分布式缓存redis== 和 ==内存缓存caffeine== 的一些基础方法抽象出来，达到平滑切换缓存的目的。业务系统需要操作缓存时，注入 CacheOps 类调用其方法即可。但这样做有几个缺陷： redis 的一些特殊方法将无法使用 list、set、hash 高级功能, 故特意新增一个CacheOpsPlus 类支持redis全部接口，使用caffeine + CacheOpsPlus时，list、set、hash等接口不会生效。
 
-建议: 在caffeine实现是为了解决开发环境没有部署redis时应急使用, 生产环境请使用redis 实现.
+注意:
+
+1.  在caffeine实现是为了解决开发环境没有部署redis时应急使用, 生产环境请使用redis 实现.
+2. 微服务模式不能使用内存缓存模式
 
 ## 使用lamp-cache-starter后想用redis的特殊方法怎么用？
+
 配置文件配置lamp.cache.type=redis后，注入CacheOpsPlus即可， 只要你能保证系统必须依赖redis即可。
-但CacheOpsPlus基于内存等实现不能保证代码的正确性!!! (开发环境没有部署redis时,将配置调整成caffeine应急使用)
+但CacheOpsPlus基于内存等实现不能保证代码的正确性!!! 
 
 ## 为啥要在封装一次？
+
 1. 项目比较小（基本都是CRUD功能），而且团队中会优雅使用redis的比较少，而且会频繁的复制代码到N个项目，每个项目随时都可能会重新部署或者迁移一套环境用于演示，
    这里就是想让一些部署去演示的项目，直接用内存缓存即可，少部署一个redis。
 - 开发电脑配置比较低，启动太多中间件会很卡，对于专心编码的用户来说，少启动一个中间件，对开发的体验比较好
@@ -33,24 +38,29 @@ tag:
 
 - RedisOps：redis专用缓存操作类，对redisTemplate进行了二次封装
 
-  `top.tangyh.basic.cache.redis.RedisOps`和`top.tangyh.basic.cache.redis2.RedisOps`的区别在于查询类方法的返回值不同。后者的返回值使用CacheResult类进行包装
-
-- CacheKey  (为了解耦, 已经移动到你lamp-core模块下) : 封装缓存 key 和 过期时间
+- CacheKey : 封装缓存 key 和 过期时间，  为了解耦, 已经移动到lamp-core模块下
 
 - RedisDistributedLock : 分布式锁的简单实现
 
 ## 注意事项
-1. 本模块虽然实现了SpringCache管理器重写, 但不建议在项目中使用. (原因: 使用this调用方法时, @Cache不生效) 
 
-2. CAFFEINE模式==请勿在生产使用==, 仅仅支持本地环境没有redis环境时应急使用.
+1. 本模块虽然实现了SpringCache管理器, 但不建议在项目中使用. (原因: 使用this调用方法时, @Cache不生效) 
+
+   - CacheManager
+
+   - KeyGenerator
+
+2. CAFFEINE模式==请勿在生产使用==、==请勿在微服务模式使用==, 仅仅支持单体模式本地启动，没有redis环境时应急使用
 
 3. 通过`lamp.cache.cacheNullVal` 全局配置是否缓存空值
 
-4. 通过`lamp.cache.serializerType`  配置redis类型的缓存序列化的方式。 
+4. 通过`lamp.cache.serializerType`  配置redis类型的缓存序列化的方式
 
    ::: warning
 
-   修改序列化类型后，需要先清空redis的所有缓存，并重启项目。 生产环境请勿轻易、经常切换序列化类型！
+   修改序列化类型后，需要先清空redis的所有缓存，并重启项目。 生产环境请勿轻易切换序列化类型！
+
+   每次修改序列化类型后，需要清空redis缓存，程序方可使用。
 
    :::
 
@@ -63,10 +73,13 @@ tag:
        # def:   # 不推荐使用。 用来配置Spring提供的@Cache的，自行阅读源码
        # configs:  # 不推荐使用。 用来配置Spring提供的@Cache的，自行阅读源码
    ```
+
 5. serializerType使用 JACK_SON 类型时，直接存储Long类型的值，从redis中取出数据时，需要手动强制转换成Long才行，否则会报错！
-6. lamp-cloud 不能使用内存缓存，否则无法登录，lamp-boot可以。
+
+6. 微服务模式 不能使用内存缓存，否则无法登录，单体模式 可以。
 
 ## 新服务中如何接入
+
 1. 在pom.xml中加依赖
 
    ```xml
@@ -90,11 +103,12 @@ tag:
        cacheNullVal:  true   # 是否缓存null值
        serializerType:  ProtoStuff # 序列化类型 支持：JACK_SON、ProtoStuff、JDK
    spring:
-     redis:
-       host: ${lamp.redis.ip}
-       password: ${lamp.redis.password}
-       port: ${lamp.redis.port}
-       database: ${lamp.redis.database}
+     data:  
+       redis:
+         host: ${lamp.redis.ip}
+         password: ${lamp.redis.password}
+         port: ${lamp.redis.port}
+         database: ${lamp.redis.database}
    ```
 
 3. 若缓存想使用CAFFEINE缓存（lamp.cache.type=CAFFEINE）, 需要在依赖中排除redis
@@ -194,7 +208,7 @@ private CacheOpsPlus cacheOpsPlus;
    top.tangyh.basic.cache.CacheAutoConfigure
    ```
 
-2. 这个类通过注解启用了缓存， 并导入 Caffeine 自动配置类和 Redis 自动配置类
+2. 这个类加载时，会导入 Caffeine 自动配置类和 Redis 自动配置类
 
    ```java
    @EnableCaching
@@ -202,11 +216,14 @@ private CacheOpsPlus cacheOpsPlus;
            CaffeineAutoConfigure.class, RedisAutoConfigure.class
    })
    public class CacheAutoConfigure {
-   //省略...
+   	//省略...
    }	
    ```
 
-3. CaffeineAutoConfigure 会读取yml里面的配置，  当 lamp.cache.type=CAFFEINE 时生效，CaffeineAutoConfigure类内部实例化了CaffeineOpsImpl。 RedisAutoConfigure 在lamp.cache.type=REDIS时生效，lamp.cache.type没有配置时，默认使用redis的配置，RedisAutoConfigure内部实例化了RedisOpsImpl。
+3. 实例化实现类。
+
+   - CaffeineAutoConfigure：当 lamp.cache.type=CAFFEINE 时生效，CaffeineAutoConfigure类内部实例化了CaffeineOpsImpl。
+   - RedisAutoConfigure：当 lamp.cache.type=REDIS时生效，RedisAutoConfigure内部实例化了RedisOpsImpl。
 
    ```java
    @Slf4j
@@ -242,9 +259,7 @@ private CacheOpsPlus cacheOpsPlus;
    }
    ```
 
-4. 在项目中注入CacheOps 或者 CacheOpsPlus 即可。
-
-
+4. 在项目中注入CacheOps 或者 CacheOpsPlus 即可操作缓存。
 
 
 
@@ -252,13 +267,13 @@ private CacheOpsPlus cacheOpsPlus;
 
 ### CacheKey
 
-k-v类型缓存的key，封装缓存的key和key的有效期。
+字符串类缓存的key，封装了缓存的key和有效期。
 
 
 
 ### CacheHashKey
 
-hash类型缓存的key，封装缓存的key、field以及key的有效期。
+hash类缓存的key，封装了缓存的key、field以及有效期。
 
 
 
@@ -270,7 +285,7 @@ key的构造器，用来生成key并构造CacheKey。生成key的规则如下
 /**
  * 根据动态参数 拼接key
  * <p>
- * key命名规范：[租户编码:][服务模块名:]业务类型[:业务字段][:value类型][:业务值]
+ * key命名规范：[租户ID:][服务模块名:]业务类型[:业务字段][:value类型][:业务值]
  *
  * @param uniques 动态参数
  * @return

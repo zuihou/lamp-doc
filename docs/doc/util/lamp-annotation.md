@@ -9,18 +9,18 @@ tag:
   - lamp-annotation
 ---
 
-该模块存放lamp-util、lamp-cloud、lamp-boot项目中最核心常用枚举类、对象、自定义类型等，不含任何业务逻辑。拆分的目的是为了让多模块项目(lamp-cloud、lamp-boot) 解耦，使entity、common等模块可以依赖最小化。
+该模块用于定义项目中最常用的==注解==，不含任何业务逻辑、也不含注解的实现类。拆分的目的是为了让多模块项目解耦，使项目的依赖最小化。
 
-
+## 注解介绍
 
 - NotEmptyPattern
 
-  对`javax.validation.constraints.Pattern`注解的增强，用于校验字段的==参数不为空时==传递的参数是否符合指定的正则表达式。
+  对`jakarta.validation.constraints.Pattern`注解的增强，用于校验字段的==参数不为空时==传递的参数是否符合指定的正则表达式。
 
   ```java
-  public class UserSaveVO{
+  public class UserSaveVO {
    		// 无论参数是否为空，都直接校验是否满足{regexp}  （也可以通过写正则来判断不为空时才校验）
-   		@javax.validation.constraints.Pattern(regexp="", message="")
+   		@jakarta.validation.constraints.Pattern(regexp="", message="")
      	private String name;
   		// 当code不为空时，才校验是否满足{regexp}
     	@top.tangyh.basic.annotation.constraints.NotEmptyPattern(regexp="", message="")
@@ -82,7 +82,7 @@ tag:
 
   ::: tip
 
-  除了@EchoResult注解，还可以通过 `echoService.action(new BaseEmployee())` 
+  除了@EchoResult注解，还可以通过 `echoService.action(xxx)` 
 
   :::
 

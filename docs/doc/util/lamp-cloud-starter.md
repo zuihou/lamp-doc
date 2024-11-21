@@ -9,11 +9,11 @@ tag:
   - lamp-cloud-starter
 ---
 
-这个模块主要封装SpringCloud相关的全局配置，lamp-boot项目无需使用此模块，需要在pom中排除。主要有以下功能：
+这个模块主要封装SpringCloud相关的全局配置，单体模式无需使用此模块，需要在pom中排除。主要有以下功能：
 
 1. SentinelFeignBuilder、LampSentinelInvocationHandler
 
-   作用是全局配置FeignClient的fallback。在写FeignClient接口时，通常需要配置fallback或fallbackFactory，以实现容错降级，但做了全局配置后，会自动为所有feignClient自动添加fallback
+   作用是全局配置FeignClient的fallback。在写FeignClient接口时，通常需要配置fallback或fallbackFactory，以实现容错降级，但做了全局配置后，会自动为所有feignClient自动添加全局的fallback
 
    ```java
    // 配置全局fallback后，相当于 @FeignClient(name = "${" + Constants.PROJECT_PREFIX + ".feign.oauth-server:lamp-oauth-server}", fallback = HelperApiFallback.class)
