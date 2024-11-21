@@ -45,9 +45,8 @@ export function zhNavbar(base: string) {
     text: "历史文档",
     children:[
       { text: "最新文档", link: "https://tangyh.top" },
-      { text: "4.21.2", link: "https://tangyh.top/4.21.2/" },
       { text: "4.20.0", link: "https://tangyh.top/4.20.0/" },
-      { text: "4.19.0", link: "https://tangyh.top/4.19.0/" },
+      { text: "4.19.1", link: "https://tangyh.top/4.19.1/" },
       { text: "4.18.0", link: "https://tangyh.top/4.18.0/" },
       { text: "4.17.0", link: "https://tangyh.top/4.17.0/" },
       { text: "3.x", link: "https://www.kancloud.cn/zuihou/zuihou-admin-cloud" }
