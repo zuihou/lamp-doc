@@ -11,21 +11,21 @@ tag:
 
 lamp-log-starter 实现了几个功能: 
 1. MDC参数
-2. @WebLog 记录操作日志
+2. @WebLog 操作日志拦截实现类
 3. defaults.xml、 defaults-dev.xml、 defaults-prod.xml、 全局的logback 日志基础模版
 
-
 ## MDC参数
-logback内置的日志字段不够丰富，如果我们需要打印业务相关的参数，需要借助logback MDC机制，MDC为“Mapped Diagnostic Context”（映射诊断上下文），即将一些运行时的上下文数据通过logback打印出来，此时我们需要借助org.sl4j.MDC类。
+
+logback内置的日志信息不够丰富，如果我们需要公共日志信息中打印业务相关的参数，需要借助logback MDC机制，MDC为“Mapped Diagnostic Context”（映射诊断上下文），即将一些运行时的上下文数据通过logback打印出来，此时我们需要借助org.sl4j.MDC类。
 
 MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLocal实例，用于保存context数据，MDC提供了put/get/clear等几个核心接口，用于操作ThreadLocal中的数据；ThreadLocal中的K-V，可以在logback.xml中声明，最终将会打印在日志中。
 
 可以看到本系统中打印的日志参数格式为:
 ```
-[${spring.application.name}:${server.port}:%X{tenant}:%X{userid}] %d{yyyy-MM-dd HH:mm:ss.SSS}[%5p] ${PID} [%X{trace}] [%t:%r] [%logger{50}.%M:%L] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
+[${spring.application.name}:${server.port}:%X{TenantId}:%X{UserId}] %d{yyyy-MM-dd HH:mm:ss.SSS}[%5p] ${PID} [%X{trace}] [%t:%r] [%logger{50}.%M:%L] %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}
 ```
 
-其中 `%X{tenant}`、`%X{userid}`、`%X{trace}`  三个参数就是通过MDC传递给logback的, 他们分别表示 租户编码、用户id、请求ID
+其中 `%X{TenantId}`、`%X{UserId}`、`%X{trace}`  三个参数就是通过MDC传递给logback的, 他们分别表示 租户ID、用户id、请求ID
 
 实现步骤: 
 1. 项目启动时,会加载spring.factories文件中的 LampMdcAdapterInitializer 类, 该类对LampMdcAdapter 进行初始化(执行其static代码库)
@@ -38,7 +38,23 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
    MDC.put(ContextConstants.JWT_KEY_USER_ID, getHeader(request, ContextConstants.JWT_KEY_USER_ID));
    ```
 
-   
+
+::: tip 其他参数介绍
+
+```
+%m    输出代码中指定的消息
+%p    输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL
+%r    输出自应用启动到输出该log信息耗费的毫秒数
+%c	  输出所属的类目，通常就是所在类的全名
+%t	  输出产生该日志事件的线程名
+%n	  输出一个回车换行符，Windows平台为“\r\n”，Unix平台为“\n”
+%d	  输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，
+			比如：%d{yyy MMM dd HH:mm:ss,SSS}，输出为：2002年10月18日 22:10:28,921
+%l	  输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：TestLog.main(TestLog.java:10)
+```
+
+:::
+
 ## @WebLog 记录操作日志
 1. 配置文件介绍
 
@@ -85,7 +101,7 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
   ```
 
 5. 原理
-    通过AOP拦截标记了@WebLog 的方法,  拦截后, SysLogAspect 中的方法用于获取被拦截方法的入参和返回值. 然后发布一个SysLogEvent事件 (为了让操作日志尽可能少的影响方法调用时长,采用事件方式来异步处理, 大家也可以改成消息队列之类的), SysLogListener 监听器接收到事件后, 调用`consumer.accept` 方法, 让对操作日志进行存储.
+    通过AOP拦截标记了@WebLog 的方法,  拦截后, SysLogAspect 中的方法用于获取被拦截方法的入参和返回值. 然后发布一个SysLogEvent事件 (为了让操作日志尽可能少的影响方法调用时长,采用事件方式来异步处理, 大家也可以改成消息队列之类的), SysLogListener 监听器接收到事件后, 调用`consumer.accept` 方法, 让对操作日志进行存储。
 
 
 
@@ -111,7 +127,7 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
    ```yaml
    logging:
      file: 
-       path: /root/logs  # 在yml中设置这个参数后, 日志的生成路径就会到 /root/logs
+       path: ./logs  # 在yml中设置这个参数后, 日志的生成路径就会到 ./logs
    ```
 
    :::
@@ -124,7 +140,7 @@ MDC类基本原理其实非常简单，其内部持有一个InheritableThreadLoc
    ```shell
    # 2个问号 表示那个方法, 那行 , 但由于使用了异步输出, 所以输出为 ? 
    
-   [lamp-authority-server:8760:0000:2] 2020-12-15 17:53:12.191[ INFO] 22531 50b3bd53c2f344e790834b587a7f1891] [task-13961:934466928] [top.tangyh.basic.database.mybatis.WriteInterceptor.?:?] mapper id=top.tangyh.lamp.authority.dao.common.OptLogExtMapper.insert, userId=0
+   [lamp-authority-server:8760:1:2] 2020-12-15 17:53:12.191[ INFO] 22531 50b3bd53c2f344e790834b587a7f1891] [task-13961:934466928] [top.tangyh.basic.database.mybatis.WriteInterceptor.?:?] mapper id=top.tangyh.lamp.authority.dao.common.OptLogExtMapper.insert, userId=0
    ```
 3. defaults.xml 中配置了如下信息
    - springProperty： spring 环境配置
