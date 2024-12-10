@@ -102,10 +102,10 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>5.0.0</b>已发布：",
+            title: "<b>5.0.3</b>已发布：",
             content:
               '<ul>' +
-                '<li>融合单体版和微服务版工程</li>' +
+                '<li>支持菜单数据国际化</li>' +
                 '<li>依赖升级</li>' +
                 '</ul>',
             actions: [
