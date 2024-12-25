@@ -133,7 +133,7 @@ seata官方仅支持MySQL、Oracle、Postgresql，不支持SQL Server，所以�
    
     # 数据库信息
     store.db.dbType=mysql
-    store.db.driverClassName=com.mysql.cj.jdbc.Driver
+    store.db.driverClassName=com.mysql.jdbc.Driver
     store.db.url=jdbc:mysql://172.26.3.32:3306/lamp_seata?useUnicode=true&rewriteBatchedStatements=true
     store.db.user=root
     store.db.password=root
