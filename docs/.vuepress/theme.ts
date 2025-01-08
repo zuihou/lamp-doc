@@ -106,7 +106,7 @@ export default hopeTheme({
             content:
               '<ul>' +
                 '<li><a target="_blank" href="https://max-datasource.tangyh.top">vben 5 体验版</a>正式发布</li>' +
-                // '<li>2024年12月30日至2025年2月9日，直降200!<a target="_blank" href="https://max-datasource.tangyh.top">立即购买</a></li>' +
+                '<li>2024年12月30日至2025年2月9日，直降200!<a target="_blank" href="https://max-datasource.tangyh.top">立即购买</a></li>' +
                 '</ul>',
             actions: [
               {
