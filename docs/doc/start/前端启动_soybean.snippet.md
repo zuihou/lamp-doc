@@ -140,62 +140,33 @@ pnpm install --registry=https://registry.npmmirror.com
    VITE_STORAGE_PREFIX=LAMP_
    ```
 
-2. 修改 [.env.dev](http://git.tangyh.top/zuihou/lamp-web-pro-soybean/blob/master/.env.dev) 文件中：VITE_PROXY
-
-   ::: tabs
-
-   @tab 微服务模式
-
-   - 下方配置地址：http://localhost:18760 是后台服务 lamp-gateway-server 的地址
-
-   - 可以将 http://localhost:18760 改成 https://datasource.tangyh.top 蹭lamp提供的后台服务
-
-   ```properties
-   VITE_PROXY=[["/api","http://localhost:18760"],["/basic-api","http://localhost:3000"],["/upload","http://localhost:3300/upload"]]
-   ```
-   
-
-@tab 单体模式
-
-- 下方配置地址：http://localhost:18760 是后台服务 lamp-boot-server 的地址
-  
-- 可以将 http://localhost:18760 改成 https://datasource.tangyh.top 蹭lamp提供的后台服务
-  
-```properties
-   VITE_PROXY=[[["/api/gateway", "/api/gateway", "/gateway"],"http://localhost:18760"], [["/api", "/api/[A-Za-z0-9]+", ""],"http://localhost:18760"]]
-```
-
-   :::
-
 3. 启动
 
-   启动命令只区分后端采用什么租户模式，不区分是单体模式还是微服务模式。
+   启动命令需要区分后端采用什么租户模式，还区分单体模式还是微服务模式。
 
    ::: code-tabs#tenantType
 
    @tab 数据源模式
 
    ```bash
-   # 后端是 lamp-datasource-max 项目
-   pnpm dev:datasource
+   # 后端是 lamp-datasource-max 项目，以 单体模式 启动
+   pnpm dev:boot:datasource
+   
+   # 后端是 lamp-datasource-max 项目，以 微服务模式 启动
+   pnpm dev:cloud:datasource
    ```
 
    @tab 字段模式
-
+   
    ```bash
-   # 后端是 lamp-column-max 项目
-   pnpm dev:column
+   # 后端是 lamp-column-max 项目，以 单体模式 启动
+   pnpm dev:boot:column
+   # 后端是 lamp-column-max 项目，以 微服务模式 启动
+   pnpm dev:cloud:column
    ```
-
-   @tab 非租户模式
-
-   ```bash
-   # 后端是 lamp-cloud 项目
-   pnpm dev:none
-   ```
-
+   
    :::
-
+   
 4. 打包
 
    启动命令只区分后端采用什么租户模式，不区分是单体模式还是微服务模式。
