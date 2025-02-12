@@ -59,7 +59,7 @@ tag:
 
    
 
-3. vim /opt/minio/config
+3. vim /opt/minio/config.conf
 
    ```shell
    MINIO_ROOT_USER=admin
@@ -68,8 +68,6 @@ tag:
    MINIO_VOLUMES="/data/minio-data"
    
    MINIO_OPTS="--console-address :9001 --config-dir /opt/minio/configdir"
-   
-   #MINIO_SERVER_URL="http://minio.example.net:9000"
    ```
 
    
@@ -87,23 +85,63 @@ tag:
    journalctl -f -u minio.service
    ```
 
-   
 
-## 访问
+5. 放开防火墙端口
+
+   防火墙放开 9000 和 9001 端口
+
+6. 浏览器访问
 
 http://ip:9001
 
+6. 代码配置
 
+```yaml
+lamp:
+  file:
+    storageType: MIN_IO  #  FAST_DFS LOCAL MIN_IO ALI_OSS HUAWEI_OSS QINIU_OSS
+    minIo:
+      endpoint: "http://ip:9000"
+      accessKey: "xxx"
+      secretKey: "xxx"
+      bucket: "dev"
+```
+
+
+
+## 
 
 ## 配置Nginx（可选）
 
-若MinIO集群部署、想要通过https访问等场景，可以通过Nginx来解决。
+参考官网文档： https://www.minio.org.cn/docs/minio/linux/integrations/setup-nginx-proxy-with-minio.html
+
+1. 修改配置文件： vim /opt/minio/config.conf
+
+   ```shell
+   MINIO_ROOT_USER=admin
+   MINIO_ROOT_PASSWORD=ZHadmin123.
+   
+   # 配置
+   MINIO_BROWSER_REDIRECT_URL=https://static.tangyh.top/minio/ui
+   
+   MINIO_VOLUMES="/data/minio-data"
+   
+   MINIO_OPTS="--console-address :9001 --config-dir /opt/minio/configdir"
+   ```
+
+   
+
+2. nginx 配置文件
 
 ```nginx
+upstream minio_console {
+    least_conn;
+    server 192.168.0.219:9001;
+}
+
 upstream minio_server {
     least_conn;
-    # IP和端口配置为MinIO的地址，集群可配置多个
-    server 172.30.30.194:9000;
+    server 192.168.0.219:9000;
 }
 
 server {
@@ -127,5 +165,45 @@ server {
         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_pass http://minio_server;
     }
+  
+    location /minio/ui/ {
+      rewrite ^/minio/ui/(.*) /$1 break;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header X-NginX-Proxy true;
+
+      real_ip_header X-Real-IP;
+
+      proxy_connect_timeout 300;
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+
+      chunked_transfer_encoding off;
+
+      proxy_pass http://minio_console; 
+   }
 }
 ```
+
+3. 重启minio-server 和 nginx
+
+4. 浏览器访问：https://static.tangyh.top/minio/ui/
+
+5. 程序配置：
+
+   ```yaml
+   lamp:
+     file:
+       storageType: MIN_IO  #  FAST_DFS LOCAL MIN_IO ALI_OSS HUAWEI_OSS QINIU_OSS
+       minIo:
+         endpoint: "https://static.tangyh.top"
+         accessKey: "xxx"
+         secretKey: "xxx"
+         bucket: "dev"
+   ```
+
+   
