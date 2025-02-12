@@ -107,10 +107,6 @@ lamp:
       bucket: "dev"
 ```
 
-
-
-## 
-
 ## 配置Nginx（可选）
 
 参考官网文档： https://www.minio.org.cn/docs/minio/linux/integrations/setup-nginx-proxy-with-minio.html
