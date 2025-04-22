@@ -66,81 +66,38 @@ pnpm install --registry=https://registry.npmmirror.com
 
 ## 修改配置
 
-1. 根据自己的需求修改 [.env](http://git.tangyh.top/zuihou/lamp-web-pro/blob/master/.env) 文件。（首次启动建议不要修改此文件）
+1. 根据自己的需求修改 [.env.dev](http://git.tangyh.top/zuihou/lamp-web-pro-soybean/blob/5.x/.env.dev) 文件。
 
-   ```properties
-   VITE_BASE_URL=/
-   
-   VITE_APP_TITLE=lamp-web-pro-soybean
-   
-   VITE_APP_DESC=中后台快速开发系统
-   
-   VITE_ROUTER_HISTORY_MODE=hash
-   
-   # the prefix of the icon name
-   VITE_ICON_PREFIX=icon
-   
-   # the prefix of the local svg icon component, must include VITE_ICON_PREFIX
-   # format {VITE_ICON_PREFIX}-{local icon name}
-   VITE_ICON_LOCAL_PREFIX=icon-local
-   
-   # auth route mode: static ｜ dynamic
-   VITE_AUTH_ROUTE_MODE=dynamic
-   
-   # static auth route home
-   VITE_ROUTE_HOME=index
-   
-   # default menu icon
-   VITE_MENU_ICON=mdi:menu
-   
-   # 后台接口的统一前缀
-   VITE_GLOB_API_URL=/api
-   
-   VITE_GLOB_GRAY_VERSION=zuihou
-   
-   # 多租户类型
-   VITE_GLOB_MULTI_TENANT_TYPE=COLUMN
-   
-   # 登录页是否显示验证码
-   VITE_GLOB_SHOW_CAPTCHA=Y
-   
-   # 客户端id&秘钥 VITE_GLOB_CLIENT_ID 和 VITE_GLOB_CLIENT_SECRET 务必和def_client表中的信息保持一致
-   VITE_GLOB_CLIENT_ID=lamp_web_pro_soybean
-   VITE_GLOB_CLIENT_SECRET=lamp_web_pro_soybean_secret
-   
-   # 默认登录时加载的默认应用ID，此ID需要事先在def_application中配置
-   VITE_GLOB_DEF_APPLICATION_ID="1"
-   # 基础平台的应用ID，此ID需要事先在def_application中配置
-   VITE_GLOB_BASE_APPLICATION_ID="1"
-   # 开发运营系统的应用ID，此ID需要事先在def_application中配置
-   VITE_GLOB_DEV_OPERATION_APPLICATION_ID="2"
-   
-   # 第三方文件预览服务 需要自行安装kkFileView（https://gitee.com/kekingcn/file-online-preview）
-   VITE_GLOB_PREVIEW_URL_PREFIX="http://106.53.26.9:8012/onlinePreview?url="
-   
-   # 请求头中携带的token(用户身份信息) key名称
-   VITE_GLOB_TOKEN_KEY=Token
-   
-   # 请求头中携带的租户ID key名称
-   VITE_GLOB_TENANT_ID_KEY=TenantId
-   
-   # 请求头中携带的应用ID key名称
-   VITE_GLOB_APPLICATION_ID_KEY=ApplicationId
-   
-   # 请求头中携带的客户端信息 key名称
-   VITE_GLOB_AUTHORIZATION_KEY=Authorization
-   
-   # axios 请求默认超时间： 10s
-   VITE_GLOB_AXIOS_TIMEOUT=10000
-   
-   # sourcemap
-   VITE_SOURCE_MAP=N
-   
-   # Used to differentiate storage across different domains
-   VITE_STORAGE_PREFIX=LAMP_
+   根据后端启动的方式，只需要修改 target 参数，其他参数不需要修改
+
+   单体版：配置为BootServerApplication的端口
+
+   微服务版：配置为GatewayServerApplication的端口
+
+   ```properties{7,13,18}
+   # 本地启动时，代理地址
+   VITE_PROXY=`{
+   "cloud": [{
+     "proxyKey": "/api",
+     "rewriteBefore": "/api",
+     "rewriteAfter": "/api",
+     "target": "http://localhost:18760"
+   }],
+   "boot": [{
+       "proxyKey": "/api/gateway",
+       "rewriteBefore": "/api/gateway",
+       "rewriteAfter": "/gateway",
+       "target": "http://localhost:18760"
+     },{
+     "proxyKey": "/api",
+     "rewriteBefore": "/api/[A-Za-z0-9]+",
+     "rewriteAfter": "",
+     "target": "http://localhost:18760"
+   }]
+   }`
    ```
 
-3. 启动
+2. 启动
 
    启动命令需要区分后端采用什么租户模式，还区分单体模式还是微服务模式。
 
@@ -157,17 +114,17 @@ pnpm install --registry=https://registry.npmmirror.com
    ```
 
    @tab 字段模式
-   
+
    ```bash
    # 后端是 lamp-column-max 项目，以 单体模式 启动
    pnpm dev:boot:column
    # 后端是 lamp-column-max 项目，以 微服务模式 启动
    pnpm dev:cloud:column
    ```
-   
+
    :::
-   
-4. 打包
+
+3. 打包
 
    启动命令只区分后端采用什么租户模式，不区分是单体模式还是微服务模式。
 
@@ -179,16 +136,16 @@ pnpm install --registry=https://registry.npmmirror.com
    # 后端是 lamp-datasource-max 项目
    pnpm build:prod:datasource	
    ```
-   
+
    @tab 字段模式
-   
+
    ```bash
    # 后端是 lamp-column-max 项目
    pnpm build:prod:column
    ```
 
    
-   
+
    :::
 
 

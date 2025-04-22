@@ -47,6 +47,7 @@ export function zhNavbar(base: string) {
     text: "历史文档",
     children:[
       { text: "最新文档", link: "https://tangyh.top" },
+      { text: "5.1.0", link: "https://tangyh.top/5.1.0/" },
       { text: "5.0.0", link: "https://tangyh.top/5.0.0/" },
       { text: "4.20.0", link: "https://tangyh.top/4.20.0/" },
       { text: "4.19.1", link: "https://tangyh.top/4.19.1/" },

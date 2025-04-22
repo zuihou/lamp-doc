@@ -46,9 +46,6 @@ footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="
         <p>
           灯灯 专注于多租户解决方案！
         </p>
-        <p>
-          2 + 3
-        </p>
     </div>
 </div>
 

@@ -1,18 +1,19 @@
 <!-- #region common -->
 
-## lamp-web-pro 简介
+## lamp-web-max-vben5 简介
 
-基于vue-vben-admin 2.x 版本进行二次开发的系统。该项目是基于Vue3.x、Vite、 Ant-Design-Vue3.x 、TypeScript 的中后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案及丰富的示例。  
+基于vue-vben-admin 5.x版本进行二次开发的系统。该项目是基于 radix-vue、Vue3.x、Vite、 Ant-Design-Vue4.x 、TypeScript 的中后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案及丰富的示例。  
 
 详情的使用文档请参考他们的官方文档：
 
-- vben：[https://doc.vvbin.cn/](https://doc.vvbin.cn/)
+- vben：[https://doc.vben.pro/](https://doc.vben.pro/)
 - ant-design-vue： [https://www.antdv.com/](https://www.antdv.com/)
 
 ## 环境要求
 
-- `Node.js`:  版本大于 `16.0.0`
-- `pnpm` :  包管理工具.
+- `Node.js`:  >= `20.10.0`  
+- `pnpm` :  >= `9.12.0`
+- 推荐使用 [fnm](https://github.com/Schniz/fnm) 、 [nvm](https://github.com/nvm-sh/nvm) 或者直接使用[pnpm](https://pnpm.io/cli/env) 进行版本管理。
 
 ## 工具配置
 
@@ -31,20 +32,24 @@
 
 ::: warning
 
-注意存放代码的目录及所有父级目录不能存在中文、韩文、日文以及空格，否则安装依赖后启动会出错。
+- 注意存放代码的目录及所有父级目录不能存在中文、韩文、日文以及空格，否则安装依赖后启动会出错。
+
+- 项目只支持使用 `pnpm` 进行依赖安装，默认会使用 `corepack` 来安装指定版本的 `pnpm`。:
+- 如果你的网络环境无法访问npm源，你可以设置系统的环境变量`COREPACK_NPM_REGISTRY=https://registry.npmmirror.com`，然后再执行`pnpm install`。
+- 如果你不想使用`corepack`，你需要禁用`corepack`，然后使用你自己的`pnpm`进行安装。
 
 :::
 
 ```shell
-//  使git对文件名大小写敏感
-git config core.ignorecase false
+# 拉取项目代码
+git clone http://git.tangyh.top/zuihou/lamp-web-max-vben.git
 
-// 拉取项目代码
-git clone http://git.tangyh.top/zuihou/lamp-web-pro.git
+cd lamp-web-max-vben
 
-cd lamp-web-pro 
+# 使用项目指定的pnpm版本进行依赖安装
+corepack enable
 
-// 安装依赖
+# 安装依赖
 pnpm install --registry=https://registry.npmmirror.com
 ```
 
@@ -52,9 +57,9 @@ pnpm install --registry=https://registry.npmmirror.com
 
 ## 修改配置
 
-1. 根据自己的需求修改 [.env.development](http://git.tangyh.top/zuihou/lamp-web-pro/blob/5.x/.env.development) 文件，VITE_PROXY 参数改成跟后端对应的模式
+1. 根据自己的需求修改 [.env.development](http://git.tangyh.top/zuihou/lamp-web-max-vben/blob/main/apps/web-antd/.env.development) 文件，VITE_PROXY 参数改成跟后端对应的模式
 
-   根据后端启动的方式，只需要修改 target 参数，其他参数不需要修改
+   根据后端启动的方式，只需要修改 ==target== 参数，其他参数不需要修改
 
    单体版：配置为BootServerApplication的端口
 
@@ -95,19 +100,19 @@ pnpm install --registry=https://registry.npmmirror.com
 
    ```bash
    # 后端是 lamp-datasource-max 项目，以 单体模式（BootServerApplication） 启动
-   pnpm dev:boot:datasource
+   pnpm dev:antd:cloud:datasource
    
    # 后端是 lamp-datasource-max 项目，以 微服务模式（GatewayServerApplication） 启动
-   pnpm dev:cloud:datasource
+   pnpm dev:antd:cloud:datasource
    ```
 
    @tab 字段模式
 
    ```bash
    # 后端是 lamp-column-max 项目，以 单体模式（BootServerApplication） 启动
-   pnpm dev:boot:column
+   pnpm dev:antd:boot:column
    # 后端是 lamp-column-max 项目，以 微服务模式（GatewayServerApplication） 启动
-   pnpm dev:cloud:column
+   pnpm dev:antd:cloud:column
    ```
 
    :::
@@ -121,51 +126,21 @@ pnpm install --registry=https://registry.npmmirror.com
    @tab 数据源模式
 
    ```bash
-   # 后端是 lamp-datasource-max 项目
-   pnpm build:prod:datasource	
+   # 后端 微服务 方式部署
+   pnpm build:antd:datasource	
+   
+   # 后端 单体 方式部署
+   pnpm build:antd:boot:datasource
    ```
-
+   
    @tab 字段模式
-
+   
    ```bash
-   # 后端是 lamp-column-max 项目
-   pnpm build:prod:column
+   # 后端 微服务 方式部署
+   pnpm build:antd:column
+   
+   # 后端 单体 方式部署
+   pnpm build:antd:boot:column
    ```
-
+   
    :::
-
-
-
-## 常见问题
-
-1. 安装依赖时 husky 安装失败
-
-   答： 请查看你的源码是否从 github 直接下载的，直接下载是没有`.git`文件夹的，而`husky`需要依赖`git`才能安装。此时需使用`git init`初始化项目，再尝试重新安装即可。
-
-
-
-## 常用命令
-
-### 打包
-
-```bash
-pnpm build:no-cache # 打包，执行之前会先删除缓存
-pnpm report # 生成构建包报表预览
-```
-
-### 格式化
-
-```bash
-pnpm lint:stylelint # 样式格式化
-pnpm lint:prettier # js/ts代码格式化
-```
-
-### 其他
-
-```bash
-pnpm reinstall # 删除依赖重新装，兼容window
-pnpm preview # 本地进行打包预览
-pnpm log # 生成CHANGELOG
-pnpm clean:cache # 删除缓存
-pnpm clean:lib # 删除node_modules，兼容window系统
-```

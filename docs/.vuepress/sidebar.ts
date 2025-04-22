@@ -71,6 +71,7 @@ export const zhSidebar = sidebar({
           collapsible: COLLAPSIBLE,
           prefix: "front/",
           "children": [
+              "前端启动_vben5",
               "前端启动",
               "前端启动_soybean",
           ]
@@ -335,7 +336,7 @@ export const zhSidebar = sidebar({
       ],
     },
     {
-      text: "前端",
+      text: "前端（vben2.x版）",
       icon: "antdesign",
       prefix: "front/",
       collapsible: COLLAPSIBLE,
