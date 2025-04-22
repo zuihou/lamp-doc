@@ -102,12 +102,11 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>5.0.4</b>已发布：",
+            title: "<b>5.1.0</b>已发布：",
             content:
               '<ul>' +
-                '<li><a target="_blank" href="https://max-datasource.tangyh.top">vben 5 体验版</a>正式发布</li>' +
-                '<li>2024年12月30日至2025年2月9日，直降200!<a target="_blank" href="https://max-datasource.tangyh.top">立即购买</a></li>' +
-                '</ul>',
+                '<li><a target="_blank" href="https://max-datasource.tangyh.top">vben 5</a>正式发布</li>' +
+              '</ul>',
             actions: [
               {
                 text: "了解详情→",
