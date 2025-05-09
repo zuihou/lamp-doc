@@ -68,7 +68,9 @@ pnpm install --registry=https://registry.npmmirror.com
 
 1. 根据自己的需求修改 [.env.dev](http://git.tangyh.top/zuihou/lamp-web-pro-soybean/blob/5.x/.env.dev) 文件。
 
-   根据后端启动的方式，只需要修改 target 参数，其他参数不需要修改
+   根据后端启动的方式，只需要修改 target 参数，其他参数不需要修改。
+
+   ![](/images/start/后端启动方式.png)
 
    单体版：配置为BootServerApplication的端口
 
@@ -100,6 +102,12 @@ pnpm install --registry=https://registry.npmmirror.com
 2. 启动
 
    启动命令需要区分后端采用什么租户模式，还区分单体模式还是微服务模式。
+
+   ::: tip
+
+   若采用文档中的命令启动，无法正常访问时，请阅读package.json中的源码，观察命令是否与代码中一致，最终使用的命令，请使用源码中存在的。
+
+   :::
 
    ::: code-tabs#tenantType
 

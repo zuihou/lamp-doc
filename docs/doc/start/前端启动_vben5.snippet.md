@@ -59,7 +59,9 @@ pnpm install --registry=https://registry.npmmirror.com
 
 1. 根据自己的需求修改 [.env.development](http://git.tangyh.top/zuihou/lamp-web-max-vben/blob/main/apps/web-antd/.env.development) 文件，VITE_PROXY 参数改成跟后端对应的模式
 
-   根据后端启动的方式，只需要修改 ==target== 参数，其他参数不需要修改
+   根据后端启动的方式，只需要修改 ==target== 参数，其他参数不需要修改。
+
+   ![](/images/start/后端启动方式.png)
 
    单体版：配置为BootServerApplication的端口
 
@@ -94,6 +96,12 @@ pnpm install --registry=https://registry.npmmirror.com
 
    启动命令需要区分后端采用什么租户模式，还区分单体模式还是微服务模式。
 
+   ::: tip
+
+   若采用文档中的命令启动，无法正常访问时，请阅读package.json中的源码，观察命令是否与代码中一致，最终使用的命令，请使用源码中存在的。
+
+   :::
+
    ::: code-tabs#tenantType
 
    @tab 数据源模式
@@ -121,10 +129,19 @@ pnpm install --registry=https://registry.npmmirror.com
 
    启动命令只区分后端采用什么租户模式，不区分是单体模式还是微服务模式。
 
+   ::: tip
+
+      - pnpm build:prod:xx 会读取 .env 和 .env.production
+      - pnpm build:boot 会读取.env 和 .env.boot
+      - pnpm build:test 会读取.env 和 .env.test 
+      - 当然，你可以通过修改 --mode xxx 来修改配置文件
+   
+   :::
+   
    ::: code-tabs#tenantType
-
+   
    @tab 数据源模式
-
+   
    ```bash
    # 后端 微服务 方式部署
    pnpm build:antd:datasource	
