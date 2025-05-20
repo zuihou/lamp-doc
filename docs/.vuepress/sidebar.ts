@@ -269,6 +269,15 @@ export const zhSidebar = sidebar({
       ],
     },
     {
+      text: "开放平台",
+      icon: "wrench",
+      prefix: "open/",
+      collapsible: COLLAPSIBLE,
+      children: [
+        "生成开放文档",
+      ],
+    },
+    {
       text: "开发进阶",
       icon: "code",
       prefix: "advanced/",
