@@ -4,7 +4,7 @@ title: 主页
 icon: home
 heroImage: /images/logo.png
 heroText: 灯灯
-tagline: 专注于多租户解决方案的微服务中后台快速开发平台。租户模式支持独立数据库(DATASOURCE模式)、共享数据架构(COLUMN模式) 和 非租户模式(NONE模式)✨
+tagline: 专注于多租户解决方案的中后台快速开发平台 ✨
 actions:
 - text: 开发文档
   link: /doc/简介.html
@@ -20,17 +20,33 @@ actions:
   link: http://git.tangyh.top
 
 features:
+- title: 前沿的技术
+  icon: rise
+  details: vue3、jdk8、jdk17、jdk21、SpringBoot、SpringCloud、sa-token、hutool等主流版本
+
+- title: 代码规范
+  icon: kuaisukaifa-05
+  details: 代码简洁规范，结构合理清晰，完全按照 maven-checkstyle-plugin 配置的规范编写代码。
+
 - title: 快速开发
   icon: kuaisukaifa-05
   details: 快速CRUD，只需少量配置即可完成单表、主从、树结构等页面的增删改查，节省开发成本，缩短开发周期
 
-- title: 多种多租户的解决方案
+- title: 双架构支持
+  icon: rise
+  details: 一套代码同时支持微服务和单体两种架构，一套代码快速支持不同的项目、运行和部署环境。
+
+- title: 多租户解决方案
   icon: corporate_fare
   details: 独立数据库、共享数据库隔离数据架构、共享数据库共享数据架构等方式
 
-- title: 前沿的技术
+- title: 多应用体系
+  icon: corporate_fare
+  details: 将功能拆分为不同的应用，按需提供给用户。
+
+- title: 共享开放能力
   icon: rise
-  details: vue3、jdk8、jdk17、jdk21、SpringBoot、SpringCloud、sa-token、hutool等主流版本
+  details: 提供接口和文档给第三方更加简单，开发者仅需开发业务接口，无需关注接口权限、对外文档等。
 
 - title: 丰富功能
   icon: arrawsalt
