@@ -7,6 +7,7 @@ export const zhSidebar = sidebar({
 
   "/doc/": [
     "简介",
+    "概念解释",
     "如何让作者积极帮助你",
     {
       text: "快速了解",

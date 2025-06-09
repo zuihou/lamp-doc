@@ -1,6 +1,6 @@
 <!-- #region common -->
 
-## lamp-web-max-vben5 简介
+## lamp-web-max-vben 简介
 
 基于vue-vben-admin 5.x版本进行二次开发的系统。该项目是基于 radix-vue、Vue3.x、Vite、 Ant-Design-Vue4.x 、TypeScript 的中后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案及丰富的示例。  
 
