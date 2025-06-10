@@ -40,6 +40,7 @@ export default hopeTheme({
       "/doc/deployment/": ["lampniubi"],
       "/doc/development/": ["lampniubi"],
       "/doc/front/": ["lampniubi"],
+      "/doc/open/": ["lampniubi"],
     },
   },
 
