@@ -278,6 +278,20 @@ export const zhSidebar = sidebar({
         "接口接入开放平台",
         "生成开放文档",
         "sdk封装",
+        {
+          "text": "开放平台进阶",
+          collapsible: COLLAPSIBLE,
+          icon: "wendang",
+          prefix: "advanced/",
+          "children": [
+              "公共参数",
+              "签名算法",
+              "获取上下文信息",
+              "文件上传下载",
+              "国际化异常处理",
+              "网关配置",
+          ]
+        }
       ],
     },
     {

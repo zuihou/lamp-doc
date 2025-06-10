@@ -21,6 +21,9 @@
     "vuepress-theme-hope": "2.0.0-beta.226"
   },
   "devDependencies": {
+    "markmap-lib": "^0.18.11",
+    "markmap-toolbar": "^0.18.10",
+    "markmap-view": "^0.18.10",
     "prettier": "2.8.8",
     "vuepress-plugin-search-pro": "2.0.0-beta.226"
   },
