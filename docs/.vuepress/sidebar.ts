@@ -275,6 +275,7 @@ export const zhSidebar = sidebar({
       prefix: "open/",
       collapsible: COLLAPSIBLE,
       children: [
+        "简介",
         "接口接入开放平台",
         "生成开放文档",
         "sdk封装",
