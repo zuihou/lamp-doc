@@ -47,6 +47,7 @@ export const zhSidebar = sidebar({
             "单机版Seata启动",
           ]
         },
+        "微服务和单体的区别",
         {
           "text": "后端(微服务模式)",
           collapsible: COLLAPSIBLE,
@@ -72,6 +73,7 @@ export const zhSidebar = sidebar({
           collapsible: COLLAPSIBLE,
           prefix: "front/",
           "children": [
+              "不同前端项目的区别",
               "前端启动_vben5",
               "前端启动",
               "前端启动_soybean",
