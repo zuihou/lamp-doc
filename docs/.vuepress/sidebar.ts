@@ -157,6 +157,18 @@ export const zhSidebar = sidebar({
                 "消息模板",
               ]
             },
+            {
+              "text": "开放平台",
+              prefix: "open/",
+              collapsible: COLLAPSIBLE,
+              "children": [
+                "开放接口",
+                "文档配置",
+                "文档管理",
+                "开放应用",
+                "应用分组",
+              ]
+            },
             "静态示例"
           ]
         },
