@@ -8,13 +8,13 @@ export function zhNavbar(base: string) {
       icon: "start1",
     },
     {
-      text: "赞助版文档",
+      text: "文档",
       link: "/doc/简介",
       icon: "featuresNew",
     },
     {
-      text: "开源版文档",
-      link: "/opendoc/简介",
+      text: "配置",
+      link: "/config/配置",
       icon: "featuresNew",
     },
   ];

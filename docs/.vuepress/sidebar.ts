@@ -454,6 +454,14 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
+  "/config/":[
+    "公共配置",
+    "Swagger配置",
+    "Redis配置",
+    "Oss配置",
+    "数据库配置",
+    "其他配置",
+  ],
   "/upgrade/": [
     "5.x版本升级日志",
     "4.x版本升级日志",
