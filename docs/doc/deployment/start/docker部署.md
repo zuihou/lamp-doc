@@ -1,11 +1,11 @@
 ---
-title: 用docker手动部署
+title: 用Docker部署
 index: false
 category:
   - 部署
 tag:
   - 部署
-  - 用docker手动部署
+  - 用Docker部署
 ---
 
 ## 验证docker安装是否成功

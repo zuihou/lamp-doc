@@ -411,11 +411,18 @@ export const zhSidebar = sidebar({
         "MinIO",
         "FastDFS",
         "SkyWalking",
-        "手动部署",
-        "docker部署",
         "Jenkins",
-        "Jenkins部署",
-        "阿里云云效部署",
+        {
+          "text": "开始部署",
+          collapsible: COLLAPSIBLE,
+          prefix: "start/",
+          "children": [
+            "手动部署",
+            "docker部署",
+            "Jenkins部署",
+            "阿里云云效部署",
+          ]
+        },
         "上线必看",
       ],
     },
