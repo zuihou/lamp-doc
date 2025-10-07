@@ -26,10 +26,8 @@ export function zhNavbar(base: string) {
     children:[
       {text: "赞助版-数据源模式(vben5)", link: "https://max-datasource.tangyh.top/"},
       {text: "赞助版-数据源模式(vben2)", link: "https://datasource.tangyh.top/"},
-      {text: "赞助版-数据源模式(soybean)", link: "https://soy-datasource.tangyh.top/"},
       {text: "赞助版-字段模式(vben5)", link: "https://max-column.tangyh.top/"},
       {text: "赞助版-字段模式(vben2)", link: "https://column.tangyh.top/"},
-      {text: "赞助版-字段模式(soybean)", link: "https://soy-column.tangyh.top/"},
       {text: "开源版-非租户模式(vben2)", link: "https://none.tangyh.top/"},
     ]
   });

@@ -73,14 +73,12 @@ footer: Apache-2.0 license | Copyright ©2017-2024 | 作者：最后 | <a href="
             <div class="feature">
                 <h2 id="ds">赞助版(数据源模式)</h2>
                 <p><a target="_blank" href="https://max-datasource.tangyh.top">体验地址（基于vben5开发）</a></p>
-                <p><a target="_blank" href="https://datasource.tangyh.top">体验地址（基于vben2开发）</a></p>
-                <p><a target="_blank" href="https://soy-datasource.tangyh.top">体验地址（基于soybean开发）</a></p>
+                <p><a target="_blank" href="https://datasource.tangyh.top">体验地址（基于vben2开发）</a></p> 
             </div>
             <div class="feature">
                 <h2 id="column">赞助版(字段模式)</h2>
                 <p><a target="_blank" href="https://max-column.tangyh.top">体验地址（基于vben5开发）</a></p>
                 <p><a target="_blank" href="https://column.tangyh.top">体验地址（基于vben2开发）</a></p>
-                <p><a target="_blank" href="https://soy-column.tangyh.top">体验地址（基于soybean开发）</a></p>
             </div>
             <div class="feature">
                 <h2 id="none">开源版(非租户模式)</h2>
