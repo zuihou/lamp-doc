@@ -103,10 +103,11 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>5.1.0</b>已发布：",
+            title: "<b>我正在参加2025开源项目评选，请为我投个票</b>",
             content:
               '<ul>' +
-                '<li><a target="_blank" href="https://max-datasource.tangyh.top">vben 5</a>正式发布</li>' +
+                '<li><a target="_blank" href="https://gitee.com/activity/2025opensource?ident=IDPOGG">我正在参加2025开源项目评选</a></li>' +
+                '<li><a target="_blank" href="https://gitee.com/activity/2025opensource?ident=IDPOGG">请为我投个票</a></li>' +
               '</ul>',
             actions: [
               {
