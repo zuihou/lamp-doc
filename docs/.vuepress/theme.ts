@@ -103,11 +103,10 @@ export default hopeTheme({
         notice: [
           {
             path: "/",
-            title: "<b>我正在参加2025开源项目评选，请为我投个票</b>",
+            title: "<b>推广：主数据平台</b>",
             content:
               '<ul>' +
-                '<li><a target="_blank" href="https://gitee.com/activity/2025opensource?ident=IDPOGG">我正在参加2025开源项目评选</a></li>' +
-                '<li><a target="_blank" href="https://gitee.com/activity/2025opensource?ident=IDPOGG">请为我投个票</a></li>' +
+                '<li><a target="_blank" href="http://mddata.top/">一套集单点登录、管理后台、开放平台的后台管理系统解决方案。</a></li>' +
               '</ul>',
             actions: [
               {
